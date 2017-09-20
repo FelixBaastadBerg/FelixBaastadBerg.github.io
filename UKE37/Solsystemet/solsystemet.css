@@ -1,0 +1,82 @@
+body {
+    background-size: cover;
+}
+#bsolsystemet {
+    background-image: url(Melkeveien-01.svg);
+}
+#bmerkur {
+    background-image: url("Merkur.svg");
+}
+#bvenus{
+    background-image: url("venus.svg");
+}
+#btellus {
+    background-image: url("tellus.svg");
+}
+#bmars {
+    background-image: url("Mars.svg");
+}
+#bjupiter {
+    background-image: url("Jupiter.svg");
+}
+#bsaturn {
+    background-image: url("Saturn-01.svg");
+}
+#buranus {
+    background-image: url("Uranus.svg");
+}
+#bneptun {
+    background-image: url("Neptun.svg");
+}
+h1 {
+    color: white;
+    margin-top: 35px;
+    padding-top: 130px;
+    font-size: 80px;
+}
+p {
+    width: 50%;
+    color: white;
+    font-size: large;
+}
+li {
+    list-style-type: none;
+    float: left;
+    margin: 10px;
+    display: block;
+}
+nav ul li a {
+    padding: 1.3em;
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+    font-family: Damascus
+}
+#merkur {
+    background-color: grey;
+}
+#venus {
+    background-color: beige;
+}
+#tellus {
+    background-color: green;
+}
+#mars {
+    background-color: brown;
+}
+#jupiter {
+    background-color: burlywood;
+}
+#saturn {
+    background-color: rosybrown;
+}
+#uranus {
+    background-color: aqua;
+}
+#neptun {
+    background-color: darkblue;
+}
+a:hover {
+    background-color: black;
+    opacity: .2;
+}
