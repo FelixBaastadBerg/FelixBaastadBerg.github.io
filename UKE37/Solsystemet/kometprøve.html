@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kometprøve</title>
+    <style>
+
+        @keyframes fly1 {
+            from {
+                left: -800px;
+                top: 155px
+            }
+            to {
+                left: -60px;
+                top: 155px;
+            }
+        }
+        #komet2 {
+            position: absolute;
+            left: -60px;
+            top: 155px;
+            animation: fly1 3s;
+            z-index: -10;
+        }
+
+    </style>
+</head>
+<body>
+
+<img id="komet2" width="700" src="komet2.png" alt="" usemap="#kometen">
+
+
+<map name="kometen">
+
+    <area shape="circle" coords="600, 94, 94" href="Solsystemet.html">
+
+</map>
+
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 body {
     background-size: cover;
+    overflow: hidden;
 }
 #bsolsystemet {
     background-image: url(Melkeveien-01.svg);
@@ -52,11 +53,14 @@ nav ul li a {
     font-size: x-large;
     font-family: Damascus
 }
+.navsolsystem {
+    margin-top: 35px;
+}
 #merkur {
     background-color: grey;
 }
 #venus {
-    background-color: beige;
+    background-color: #E0B975;
 }
 #tellus {
     background-color: green;
@@ -65,7 +69,7 @@ nav ul li a {
     background-color: brown;
 }
 #jupiter {
-    background-color: burlywood;
+    background-color: #68412C;
 }
 #saturn {
     background-color: rosybrown;
@@ -79,4 +83,72 @@ nav ul li a {
 a:hover {
     background-color: black;
     opacity: .2;
+}
+
+@keyframes fly {
+
+    from {
+        left: -350px;
+        top: -70px;
+    }
+    to {
+        left: 150%;
+        top: 600px;
+    }
+
+}
+@keyframes fly1 {
+    from {
+        left: -800px;
+        top: 155px
+    }
+    to {
+        left: -60px;
+        top: 155px;
+    }
+}
+@keyframes back2back {
+
+    0% {
+        left: 800px;
+        top: 55%;
+    }
+    50% {
+        left: 950px;
+        top: 55%;
+    }
+    100% {
+        left: 800px;
+        top: 55%;
+    }
+
+}
+
+#komet {
+    position: absolute;
+    transform: rotate(-70deg);
+    left: -350px;
+    top: -70px;
+    animation: fly 3s;
+    z-index: -10;
+}
+#komet2 {
+    position: absolute;
+    left: -60px;
+    top: 155px;
+    animation: fly1 3s;
+    z-index: -1;
+}
+#komettr {
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 112px;
+    left: 475px;
+    opacity: 0;
+}
+#moon {
+    position: absolute;
+    animation: back2back 6s;
+    animation-iteration-count: infinite;
+    width: 100px;
 }
