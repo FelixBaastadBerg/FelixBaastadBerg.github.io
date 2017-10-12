@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes walkRight {
+            to {
+                background-position: -256px 0;
+            }
+        }
+        @keyframes karsten {
+            from {
+                left: 0;
+            }
+            to {
+                left: 128px;
+            }
+        }
+        @keyframes karstem_faller {
+            from {
+                top: 168px;
+                left: 128px;
+            }
+            to {
+                top: 336px;
+                left: 128px;
+            }
+
+        }
+        #game {
+            position: relative;
+            width: 600px;
+            height: 450px;
+            background-color: black;
+            border: 15px solid red;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+        #gulv {
+            width: 128px;
+            height: 15px;
+            background-color: saddlebrown;
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+        #game > * {
+            position: absolute;
+                }
+        .walkright {
+            background-image: url("lemming_walk_r.gif");
+            width: 0;
+            height: 32px;
+            animation: walkRight 1s steps(8) infinite;
+        }
+        #button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: blue;
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            border: solid 5px red;
+        }
+        #karsten {
+            width: 32px;
+            height: 32px;
+            top: 168px;
+            left: -100px;
+            animation: karsten 4s steps(32);
+            animation-play-state: paused;
+        }
+        .paraply_right {
+            background-image: url("lemming_float_r.gif");
+            width: 32px;
+            height: 32px;
+            animation: walkRight 1s steps(8) infinite;
+        }
+        #karsten_faller {
+            width: 32px;
+            height: 32px;
+            top: 168px;
+            left: -100px;
+            animation: karstem_faller 4s steps(32);
+            animation-play-state: paused;
+            animation-delay: 4s;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game">
+    <div id="karsten">
+        <div id="walkright" class="walkright"></div>
+    </div>
+    <div id="karsten_faller">
+        <div id="paraply" class="paraply_right"></div>
+    </div>
+    <div id="gulv"></div>
+    <div id="button" onclick="myFunction1()"></div>
+</div>
+
+<script>
+
+    function myFunction1() {
+        document.getElementById("walkright").style.width="32px";
+        document.getElementById("karsten").style.animationPlayState="running";
+        document.getElementById("karsten_faller").style.animationPlayState="running";
+    }
+
+</script>
+
+</body>
+</html>

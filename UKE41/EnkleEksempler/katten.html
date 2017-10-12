@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>katten</title>
+    <style>
+        @keyframes lopeKatt {
+            to {
+                background-position: 0 -2280px;
+            }
+        }
+        @keyframes moveRight {
+            from {
+                transform: translateX(-200);
+            }
+            to {
+                transform: translateX(800px);
+            }
+        }
+        .katt {
+            background-image: url("sprite_catwalk.png");
+            width: 400px;
+            height: 190px;
+            position: absolute;
+
+            animation-name: lopeKatt, moveRight;
+            animation-timing-function: steps(12), steps(48);
+            animation-duration: 1500ms, 4s;
+            animation-iteration-count: infinite;
+        }
+        #k1 { animation-delay: 0;
+            z-index: 10;
+        }
+        #k2 { animation-delay: 200ms;
+        opacity: .6;
+            z-index: 5;
+        }
+        #k3 { animation-delay: 400ms;
+        opacity: .2;
+        }
+    </style>
+</head>
+<body>
+
+<div id="k1" class="katt"></div>
+<div id="k2" class="katt"></div>
+<div id="k3" class="katt"></div>
+
+</body>
+</html>
