@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes menneskeLoper {
+            to {
+                background-position: -2400px;
+            }
+        }
+        @keyframes jordrotasjon {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+        @keyframes stjerneRotasjon {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes komet {
+            from {
+                top: 100px;
+                left: -300px;
+            }
+            to {
+                top: 100px;
+                left: 1500px;
+            }
+        }
+        @keyframes komet2 {
+            from {
+                top: -200px;
+                left: -300px;
+            }
+            to {
+                top: 300px;
+                left: 1300px;
+            }
+        }
+        @keyframes menneskeGlir {
+            from {
+                bottom: 0;
+                left: -200px;
+            }
+            to {
+                bottom: 0;
+                left: 1000px;
+            }
+        }
+        @keyframes kometOpp {
+            from {
+                left: 600px;
+                top: 450px;
+            }
+            to {
+                left: -600px;
+                top: -2500px;
+            }
+        }
+        #game {
+            position: relative;
+            width: 800px;
+            height: 450px;
+            border: 15px solid red;
+            margin: 10px auto;
+            overflow: hidden;
+            background-color: white;
+            z-index: -100;
+        }
+        .menneske {
+            height: 210px;
+            width: 200px;
+            background-image: url("fullStickman-01.png");
+            animation: menneskeLoper 500ms steps(12) infinite;
+            margin: auto;
+        }
+        #tellus {
+            animation: jordrotasjon 4s infinite linear;
+        }
+        #comet {
+            animation: komet 6s linear infinite;
+            position: absolute;
+            z-index: -1;
+            left: -700px;
+            top: -700px;
+        }
+        #comet2 {
+            animation: komet2 2s linear infinite;
+            position: absolute;
+            z-index: -1;
+            left: -700px;
+            top: -700px;
+            transform: rotate(30deg);
+        }
+        .menneske1 {
+            height: 210px;
+            width: 200px;
+            background-image: url("fullStickman-01.png");
+            animation: menneskeLoper 500ms steps(12) infinite;
+            margin: auto;
+        }
+        .menneskeBortover {
+            height: 210px;
+            width: 200px;
+            animation: menneskeGlir 5s linear;
+            z-index: 10;
+            position: absolute;
+        }
+        #button {
+            background-color: black;
+            width: 150px;
+            height: 30px;
+            border: solid 5px red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 20px;
+            float: left;
+        }
+        #button p {
+            color: white;
+        }
+        #stjernehimmel {
+            animation: stjerneRotasjon 20s linear infinite;
+            height: 1000px;
+            width: 1000px;
+            position: absolute;
+            top: -300px;
+            left: -100px;
+            z-index: -100;
+            animation-play-state: running;
+        }
+        #button1, #button2 {
+            background-image: url("stjernehimmel2.png");
+            width: 150px;
+            height: 30px;
+            border: solid 5px red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 20px;
+            float: left;
+        }
+        #button1 p, #button2 {
+            color: white;
+        }
+        #buttons {
+            width: 800px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #kometOpp {
+            animation: kometOpp 5s linear infinite;
+            animation-delay: 3s;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="buttons">
+
+        <div id="button" onclick="myFunction1()"><p>LAG MANN!</p></div>
+        <div id="button1" onclick="myFunction2()"><p>STOPP HIMMEL!</p></div>
+        <div id="button2" onclick="myFunction3()"><p>START HIMMEL!</p></div>
+
+    </div>
+    <div id="game">
+        
+        <div class="menneske"></div>
+
+        <img id="tellus" src="tellus111-01.svg" alt="">
+
+        <img id="comet" src="komet3-01.png" alt="">
+
+        <img id="comet2" src="komet3-01.png" alt="">
+
+        <img id="kometOpp" src="komet4-01.png" alt="">
+
+        <div class="menneskeBortover">
+            <div class="menneske1"></div>
+        </div>
+
+        <img id="stjernehimmel" src="stjernehimmel1.png" alt="">
+    </div>
+
+
+    <script>
+        var game = document.getElementById("game");
+        function myFunction1() {
+            var menneske = document.createElement("div");
+            menneske.className = "menneskeBortover";
+            var menneske1 = document.createElement("div");
+            menneske1.className = "menneske1";
+            menneske.appendChild(menneske1);
+            game.appendChild(menneske);
+        }
+        function myFunction2() {
+            document.getElementById("stjernehimmel").style.animationPlayState="paused";
+        }
+        function myFunction3() {
+            document.getElementById("stjernehimmel").style.animationPlayState="running";
+        }
+
+    </script>
+</body>
+</html>
