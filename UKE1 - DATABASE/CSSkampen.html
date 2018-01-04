@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #minCSS {
+            font-family: sans-serif;
+            width: 400px;
+            height: 350px;
+            font-size: 16px;
+            background-color: #121229;
+            color: greenyellow;
+        }
+    </style>
+    <style id="styleElement"></style>
+</head>
+<body>
+
+    <textarea id="minCSS"></textarea>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+
+        let db = firebase.database();
+        let stil = db.ref("stil");
+
+        let styleElement = document.getElementById("styleElement");
+        let minCSS = document.getElementById("minCSS");
+
+        function endreCSS() {
+            //styleElement.innerHTML = minCSS.value;
+            stil.set(minCSS.value);
+        }
+        function endreSide(snapshot) {
+            styleElement.innerHTML = snapshot.val();
+            minCSS.value = snapshot.val();
+        }
+
+        minCSS.oninput = endreCSS;
+        stil.on("value", endreSide);
+
+    </script>
+
+</body>
+</html>
