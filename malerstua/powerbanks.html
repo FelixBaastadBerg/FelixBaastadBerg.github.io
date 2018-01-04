@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="BaastadKabel.css">
+    <title>Power Banks</title>
+    <style>
+        #mainmain {
+
+        }
+        .theMain {
+            width: 80%;
+            margin: auto;
+            background-color: #eeeeee;
+        }
+        .theMain > div {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 30px;
+            margin: 30px;
+        }
+        .blue {
+            background-color: white;
+            height: 350px;
+            width: 100%;
+            position: relative;
+            display: grid;
+            grid-template-rows: 3fr 1fr 1fr;
+            margin-right: 20px;
+            box-shadow: 3px 3px 5px grey;
+        }
+        .pbildet1, .pbildet2, .pbildet3, .pbildet4 {
+            width: 90%;
+            height: 100%;
+            background-size: cover;
+            background-color: white;
+            margin: auto;
+        }
+        .pbildet1 {
+            background-image: url("maleBilder/powerbank1-01.png");
+        }
+        .pbildet2 {
+            background-image: url("maleBilder/powerbank2-01.png");
+        }
+        .pbildet3 {
+            background-image: url("maleBilder/powerbank3-01.png");
+        }
+        .pbildet4 {
+            background-image: url("maleBilder/powerbank4-01.png");
+        }
+        h1 {
+            padding: 1em;
+            padding-bottom: 0;
+        }
+        #mainmain h3 {
+            padding: 1em;
+        }
+        h2 {
+            padding: 1em;
+            padding-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+
+    <div id="hoyHeader">
+
+        <div id="pil"></div>
+
+        <div class="leftside">
+
+            <div class="heleBurger" id="heleBurger">
+                <input type="checkbox" id="cb">
+                <label for="cb" id="burger" onclick="moveLeft()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </label>
+
+            </div>
+
+            <div id="logoOut">
+                <a href="hjem1.html"><img  src="maleBilder/BAASTADKABEL2.gif" alt="" width="300px" id="logo"></a>
+            </div>
+
+        </div>
+
+        <div class="nav" id="nav">
+
+
+            <div class="enAvFire grønn" id="btn1"><h3 >Hjem</h3></div>
+            <div class="halvStripe">
+                <div></div>
+                <div class="svart"></div>
+                <div></div>
+            </div>
+            <div class="enAvFire grønn" id="btn2"><h3>Kabler</h3></div>
+            <div class="halvStripe">
+                <div></div>
+                <div class="svart"></div>
+                <div></div>
+            </div>
+            <div class="enAvFire grønn" id="btn3"><h3>Andre produkter</h3></div>
+            <div class="halvStripe">
+                <div></div>
+                <div class="svart"></div>
+                <div></div>
+            </div>
+            <div class="enAvFire grønn" id="btn4"><h3>Annet</h3></div>
+
+        </div>
+    </div>
+    <div id="utenforPushup">
+        <div id="pushup">
+            <div id="xtegn" onclick="lukkePushup()">&times;</div>
+            <div id="pushups">
+
+                <div id="pushups1">
+                    <div id="pushups1P">
+                        <div>
+                            <img src="maleBilder/headphones-01.png" width="60px" alt="">
+                            <p>dette er hodetelefoner</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/headphones-01.png" width="60px" alt="">
+                            <p>dette er hodetelefoner</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/headphones-01.png" width="60px" alt="">
+                            <p>dette er hodetelefoner</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/headphones-01.png" width="60px" alt="">
+                            <p>dette er hodetelefoner</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/headphones-01.png" width="60px" alt="">
+                            <p>dette er hodetelefoner</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="pushups2">
+                    <div id="pushups2P">
+                        <div>
+                            <img src="maleBilder/USB-logo-01.png" width="90px" alt="">
+                            <p>USB kabler</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/USB-MicroLogo-01.png" width="90px" alt="">
+                            <p>USB Micro kabler</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/hdmi-logo-01.png" width="90px" alt="">
+                            <p>HDMI kabler</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/hdmiMini-logo-01.png" width="90px" alt="">
+                            <p>HDMI Micro kabler</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/aux-logo-01.png" width="90px" alt="">
+                            <p>AUX kabler</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="pushups3">
+                    <div id="pushups3P">
+                        <div>
+                            <img src="maleBilder/data-01.png" width="90px" alt="">
+                            <p>Data</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/bildeOgLyd1-01.png" width="90px" alt="">
+                            <p>Bilde & lyd</p>
+                        </div>
+                        <div>
+                            <a href="høyttaler.html">
+                                <img src="maleBilder/høyttaler-logo-01.png" width="90px" alt="">
+                                <p>Høyttaler</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="powerbanks.html">
+                                <img src="maleBilder/powerbank-logo-01.png" width="90px" alt="">
+                                <p>Power bank</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="headphones.html">
+                                <img src="maleBilder/høretelefoner-logo-01.png" width="90px" alt="">
+                                <p>Headphones</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="pushups4">
+                    <div id="pushups4P">
+                        <div>
+                            <img src="maleBilder/annet11-01.png" width="90px" alt="">
+                            <p>Kontakt meg</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/annet2-01.png" width="90px" alt="">
+                            <p>Søk om jobb</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/annet3-01.png" width="90px" alt="">
+                            <p>Om meg</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/annet44-01.png" width="90px" alt="">
+                            <p>Hvordan fungerer nettsiden?</p>
+                        </div>
+                        <div>
+                            <img src="maleBilder/annet5-01.png" width="90px" alt="">
+                            <p>Støtt med handel</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<nav id="menu">
+    <div id="inniMenu">
+
+        <div id="relativMenu">
+
+
+            <div class="Menyen">
+                <h1>Meny</h1>
+            </div>
+
+            <button class="accordion">Kabler</button>
+            <div class="panel">
+                <ul>
+                    <li>HDMI kabler</li>
+                    <li>AUX kabler</li>
+                    <li>Skjermkabler</li>
+                    <li>USB kabler</li>
+                    <li>TV kabler</li>
+                    <li>Alle kabler</li>
+                </ul>
+            </div>
+
+            <button class="accordion">Andre Produkter</button>
+            <div class="panel">
+                <ul>
+                    <li>Data</li>
+                    <li>Bilde & Lyd</li>
+                    <li>Høyttaler</li>
+                    <li>Power bank</li>
+                    <li>Headphones</li>
+                    <li>Annet</li>
+                </ul>
+            </div>
+
+            <button class="accordion">Annet</button>
+            <div class="panel">
+                <ul>
+                    <li>Kontakt meg</li>
+                    <li>Søk om jobb</li>
+                    <li>Om meg</li>
+                    <li>Hvordan fungerer nettsiden?</li>
+                    <li>Støtt med handel</li>
+                </ul>
+            </div>
+
+            <button class="accordion">Personell</button>
+            <div class="panel">
+                <ul>
+                    <li>Felix Baastad Berg</li>
+                    <li>Jonas Kloster Havngjerde</li>
+                    <li>Gløer Langslet</li>
+                    <li>Kristian Henrik Kaupang</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+
+<main id="mainmain">
+    <div class="theMain">
+
+    <h1>Power Banks</h1>
+<div>
+
+    <div class="blue">
+        <div class="pbildet1"></div>
+        <div class="informasjon">
+            <h3>iiglo Tablet Powerbank 12000mAh Sort</h3>
+        </div>
+        <div class="pris">
+            <h2>250,-</h2>
+        </div>
+    </div>
+    <div class="blue">
+        <div class="pbildet2"></div>
+        <div class="informasjon">
+            <h3>iiglo Tablet Powerbank 12000mAh Hvit</h3>
+        </div>
+        <div class="pris">
+            <h2>250,-</h2>
+        </div>
+    </div>
+    <div class="blue">
+        <div class="pbildet3"></div>
+        <div class="informasjon">
+            <h3>iiglo Ultimate Powerbank 20000mAh</h3>
+        </div>
+        <div class="pris">
+            <h2>300,-</h2>
+        </div>
+    </div>
+    <div class="blue">
+        <div class="pbildet4"></div>
+        <div class="informasjon">
+            <h3>Trust Urban Omni 10000mAh PowerBank</h3>
+        </div>
+        <div class="pris">
+            <h2>175,-</h2>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+</main>
+
+<script>
+
+
+    var pil = document.getElementById("pil");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+
+    var burger = document.getElementById("burger");
+    var header = document.getElementById("header");
+    var main = document.getElementById("mainmain");
+    var menu = document.getElementById("menu");
+    var nav = document.getElementById("nav");
+    var logo = document.getElementById("logoOut");
+    var inniMenu = document.getElementById("inniMenu");
+
+
+    var pushups = document.getElementById("pushups");
+    var pushup = document.getElementById("pushup");
+    var utenforPushup = document.getElementById("utenforPushup");
+    var pushups1P = document.getElementById("pushups1P");
+    var pushups2P = document.getElementById("pushups2P");
+    var pushups3P = document.getElementById("pushups3P");
+    var pushups4P = document.getElementById("pushups4P");
+
+
+    window.onscroll = function() {myFunction()};
+
+
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            header.classList.add("sticky");
+            main.style.marginTop="74px";
+            main.style.transition="0s";
+            utenforPushup.style.position="fixed";
+
+        } else {
+            header.classList.remove("sticky");
+            main.style.marginTop="0";
+            main.style.transition="0s";
+            utenforPushup.style.position="absolute";
+        }
+    }
+
+    function pushups1() {
+        pushups.style.marginLeft="0";
+        pushups1P.style.opacity="1";
+        pushups2P.style.opacity="0";
+        pushups3P.style.opacity="0";
+        pushups4P.style.opacity="0";
+    }
+    function pushups2() {
+        pushups.style.marginLeft="-100%";
+        pushups1P.style.opacity="0";
+        pushups2P.style.opacity="1";
+        pushups3P.style.opacity="0";
+        pushups4P.style.opacity="0";
+    }
+    function pushups3() {
+        pushups.style.marginLeft="-200%";
+        pushups1P.style.opacity="0";
+        pushups2P.style.opacity="0";
+        pushups3P.style.opacity="1";
+        pushups4P.style.opacity="0";
+    }
+    function pushups4() {
+        pushups.style.marginLeft="-300%";
+        pushups1P.style.opacity="0";
+        pushups2P.style.opacity="0";
+        pushups3P.style.opacity="0";
+        pushups4P.style.opacity="1";
+    }
+
+
+
+
+    function moveLeft() {
+        if (header.style.marginLeft === "300px") {
+            header.style.marginLeft="0";
+            main.style.marginLeft="0";
+            menu.style.width="0";
+            logo.style.opacity=".925";
+            nav.style.opacity=".925";
+            main.style.opacity="1";
+            burger.style.transform="scale(1)";
+            main.style.transition="1s";
+            inniMenu.style.marginTop="-300px";
+            inniMenu.style.marginLeft="-100px";
+            utenforPushup.style.opacity="1";
+            utenforPushup.style.transition=".5s";
+            pil.style.opacity="1";
+
+        } else {
+            header.style.marginLeft="300px";
+            main.style.marginLeft="300px";
+            menu.style.width="300px";
+            logo.style.opacity=".2";
+            nav.style.opacity=".2";
+            main.style.opacity=".2";
+            burger.style.opacity="1";
+            burger.style.transform="scale(2)";
+            main.style.transition="1s";
+            inniMenu.style.marginTop="0";
+            inniMenu.style.marginLeft="0";
+            utenforPushup.style.opacity=".1";
+            utenforPushup.style.transition=".5s";
+            pil.style.opacity=".1";
+        }
+    }
+
+
+
+    function lukkePushup() {
+        pushup.style.height="0";
+        pushup.style.overflow="hidden";
+
+        pil.style.borderBottom="0 solid #555555";
+        pil.style.transition=" border 0.5s, left 0s";
+
+    }
+    function opnePushup() {
+
+        pushup.style.height="140px";
+        /*pushup.style.overflow="visible";*/
+        pil.style.borderBottom="20px solid #555555";
+        pil.style.transition="border 0.5s, left 0.5s";
+
+    }
+
+    function flyttPil1() {
+
+        pil.style.left = 100 * (9 / 16) + "%";
+        pil.style.transform = "translateX(-10px)";
+    }
+
+    function flyttPil2() {
+
+        pil.style.left = 100 * (11 / 16) + "%";
+        pil.style.transform = "translateX(-10px)";
+    }
+
+    function flyttPil3() {
+
+
+        pil.style.left = 100 * (13 / 16) + "%";
+        pil.style.transform = "translateX(-10px)";
+    }
+    function flyttPil4() {
+
+
+        pil.style.left = 100 * (15 / 16) + "%";
+        pil.style.transform = "translateX(-10px)";
+    }
+
+    btn1.addEventListener("click", flyttPil1);
+    btn1.addEventListener("click", opnePushup);
+    btn1.addEventListener("click", pushups1);
+    btn2.addEventListener("click", flyttPil2);
+    btn2.addEventListener("click", opnePushup);
+    btn2.addEventListener("click", pushups2);
+    btn3.addEventListener("click", flyttPil3);
+    btn3.addEventListener("click", opnePushup);
+    btn3.addEventListener("click", pushups3);
+    btn4.addEventListener("click", flyttPil4);
+    btn4.addEventListener("click", opnePushup);
+    btn4.addEventListener("click", pushups4);
+
+
+
+
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

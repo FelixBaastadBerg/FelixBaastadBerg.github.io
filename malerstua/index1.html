@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homepage</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        .logo {
+            background-image: url("maleBilder/logo.png");
+        }
+        header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        header > img {
+            margin-left: 10px;
+        }
+        body {
+            display: grid;
+            min-height: 100vh;
+            margin: 0;
+            grid-template-rows: auto 1fr auto;
+        }
+        #hoved {
+            display: grid;
+            grid-template-rows: auto 0 0 0 0 0;
+            transition: 0.5s;
+        }
+        footer {
+            background-color: #444444;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        .article {
+            text-align: center;
+            display: grid;
+            grid-template-rows: 1fr auto;
+        }
+        .article:hover {
+            opacity: .5;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        footer > article > p {
+            color: white;
+            padding: 0 5px 10px 5px;
+        }
+        footer > article > img {
+            width: 100px;
+            padding: 1em;
+            margin: auto;
+        }
+        .nav {
+            display: grid;
+            grid-template-columns: 80fr 1fr 80fr 1fr 80fr 1fr 80fr;
+        }
+        .navDel {
+            display: grid;
+            grid-template-rows: 1fr 10fr 1fr;
+        }
+        .stripe {
+            background-color: black;
+        }
+        .enAvFire {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .enAvFire a {
+            text-decoration: none;
+            color: black;
+        }
+        .grønn:hover {
+            background-color: green;
+            opacity: .5;
+            transition: 1s;
+        }
+        .grønn:hover a {
+            color: white;
+        }
+        .hoveddel {
+            background-image: url("maleBilder/malerstua1-01.png");
+            background-size: cover;
+        }
+        #pushup {
+            background-color: white;
+        }
+        #pushup1 {
+            background-color: white;
+
+        }
+        #pushup2 {
+            background-color: white;
+
+        }
+        #pushup3 {
+            background-color: white;
+
+        }
+        #pushup4 {
+            background-color: white;
+        }
+        #pushup4 > div > a, #pushup > div > a, #pushup3 > div > a, #pushup2 > div > a, #pushup1 > div > a {
+            margin-top: 5px;
+            font-size: 50px;
+            text-decoration: none;
+            color: black;
+        }
+        #pushup4, #pushup, #pushup3, #pushup2, #pushup1 {
+            display: grid;
+            grid-template-rows: 100px 20px;
+        }
+        .heyo {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+        }
+        footer > article > div {
+            background-color: white;
+        }
+        .heyoHeyo {
+            background-color: white;
+        }
+        .heyoHeyo1 {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 20px solid #444444;
+        }
+        .heyoHeyo2 {
+            background-color: white;
+        }
+        .maini {
+            display: grid;
+            grid-template-columns: 19fr 1fr;
+        }
+        .heyoo {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        .halvStripe {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        .svart {
+            background-color: grey;
+        }
+
+
+
+        .container {
+            width: 80%;
+            height: 80%;
+            border: 1px solid black;
+            margin: 40px auto;
+            position: relative;
+            opacity: 2;
+        }
+        .conBlå {
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            position: absolute;
+        }
+        .conRød {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            position: absolute;
+        }
+        .conSvart {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .conSvart > .conSvart1 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .conSvart1 > img {
+            width: 40%;
+            margin: auto;
+        }
+        .conSvart1 > div > p {
+            font-size: 140px;
+            color: red;
+            margin: 10px;
+            transform: rotate(20deg);
+        }
+        .btn {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 25px;
+            top: 45%;
+        }
+        #btn2 {
+            position: relative;
+            float: right;
+        }
+        #btn1:hover {
+            box-shadow: 5px 0 20px 0 black;
+        }
+        #btn2:hover {
+            box-shadow: -5px 0 20px 0 black;
+        }
+        .pushupOutside {
+            transition: 1s;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header id="header1">
+    <img src="maleBilder/logo.png" alt="">
+    <div class="nav">
+
+        <div class="navDel grønn">
+            <div class="tull"></div>
+            <div class="enAvFire"><a href="index1.html"><h3>Hjem</h3></a></div>
+            <div class="stripe"></div>
+        </div>
+        <div class="halvStripe">
+            <div></div>
+            <div class="svart"></div>
+            <div></div>
+        </div>
+        <div class="enAvFire grønn"><a href="herErVi.html"><h3>Her er vi</h3></a></div>
+        <div class="halvStripe">
+            <div></div>
+            <div class="svart"></div>
+            <div></div>
+        </div>
+        <div class="enAvFire grønn"><a href="kontaktOss.html"><h3>Kontakt oss</h3></a></div>
+        <div class="halvStripe">
+            <div></div>
+            <div class="svart"></div>
+            <div></div>
+        </div>
+        <div class="enAvFire grønn"><a href="felix!!.html"><h3>Felix!!!</h3></a></div>
+
+    </div>
+</header>
+
+<main id="hoved">
+    <div class="hoveddel" id="hoveddel">
+        <div class="container">
+            <div class="conSvart slides">
+                <div class="conSvart1">
+                    <img src="maleBilder/pureColor.jpeg" alt="">
+                    <div><p>399,-</p></div>
+                </div>
+            </div>
+            <div class="conRød slides"></div>
+            <div class="conBlå slides"></div>
+            <button class="btn" onclick="plusIndex(-1)" id="btn1">&#10094</button>
+            <button class="btn" onclick="plusIndex(1)" id="btn2">&#10095</button>
+        </div>
+    </div>
+
+    <div id="pushup">
+        <div class="maini">
+            <div class="mainpush"></div>
+            <a onclick="closeSlide()" href="#">&times;</a>
+        </div>
+        <div class="heyoo">
+
+            <div class="heyo">
+                <div class="heyoHeyo"></div>
+                <div class="heyoHeyo1"></div>
+                <div class="heyoHeyo2"></div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+    </div>
+    <div id="pushup1">
+
+        <div class="maini">
+            <div class="mainpush"></div>
+            <a onclick="closeSlide()" href="#">&times;</a>
+        </div>
+        <div class="heyoo">
+
+            <div></div>
+            <div class="heyo">
+                <div class="heyoHeyo"></div>
+                <div class="heyoHeyo1"></div>
+                <div class="heyoHeyo2"></div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+    </div>
+    <div id="pushup2">
+        <div class="maini">
+            <div class="mainpush"></div>
+            <a onclick="closeSlide()" href="#">&times;</a>
+        </div>
+        <div class="heyoo">
+
+            <div></div>
+            <div></div>
+            <div class="heyo">
+                <div class="heyoHeyo"></div>
+                <div class="heyoHeyo1"></div>
+                <div class="heyoHeyo2"></div>
+            </div>
+            <div></div>
+            <div></div>
+
+        </div>
+    </div>
+    <div id="pushup3">
+            <div class="maini">
+                <div class="mainpush"></div>
+                <a onclick="closeSlide()" href="#">&times;</a>
+            </div>
+            <div class="heyoo">
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div class="heyo">
+                    <div class="heyoHeyo"></div>
+                    <div class="heyoHeyo1"></div>
+                    <div class="heyoHeyo2"></div>
+                </div>
+                <div></div>
+
+            </div>
+    </div>
+    <div id="pushup4">
+        <div class="maini">
+            <div class="mainpsuh"></div>
+            <a onclick="closeSlide()" href="#">&times;</a>
+        </div>
+        <div class="heyoo">
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="heyo">
+                <div class="heyoHeyo"></div>
+                <div class="heyoHeyo1"></div>
+                <div class="heyoHeyo2"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+</main>
+<footer>
+    <article class="article">
+        <img onclick="openSlide()" src="maleBilder/malespann-01.png" alt="">
+        <p>Maling er menneskets beste venn</p>
+    </article>
+    <article class="article">
+        <img onclick="openSlide1()" src="maleBilder/boatmale-01.png" alt="">
+        <p>Bil og båt</p>
+    </article>
+    <article class="article">
+        <img onclick="openSlide2()" src="maleBilder/tilbehør-01.png" alt="">
+        <p>Alt du trenger for å pusse opp</p>
+    </article>
+    <article class="article">
+        <img onclick="openSlide3()" src="maleBilder/tilbud-01.png" alt="">
+        <p>Oversikt iver alle tilbudene</p>
+    </article>
+    <article class="article">
+        <img onclick="openSlide4()" src="maleBilder/tapet-01.png" alt="">
+        <p>De beste tapetene i verden</p>
+    </article>
+</footer>
+
+
+<script>
+
+    var pushup2 = document.getElementById("pushup2");
+
+    var index = 1;
+
+    function plusIndex(n) {
+        index = index+1;
+        showImage(index);
+    }
+
+    showImage(1);
+
+    function showImage(n) {
+        var i;
+        var x = document.getElementsByClassName("slides");
+        if (n>x.length){index=1};
+        if (n<1){index=x.length};
+        for (i=0;i<x.length;i++)
+            {
+                x[i].style.display="none";
+            }
+        x[index-1].style.display="block";
+    }
+
+    function openSlide() {
+        document.getElementById("hoved").style.gridTemplateRows="auto 120px 0 0 0 0";
+    }
+    function openSlide1() {
+        document.getElementById("hoved").style.gridTemplateRows="auto 0 120px 0 0 0";
+
+    }
+    function openSlide2() {
+        document.getElementById("hoved").style.gridTemplateRows="auto 0 0 120px 0 0";
+    }
+    function openSlide3() {
+        document.getElementById("hoved").style.gridTemplateRows="auto 0 0 0 120px 0";
+    }
+    function openSlide4() {
+        document.getElementById("hoved").style.gridTemplateRows="auto 0 0 0 0 120px";
+    }
+    function closeSlide() {
+        document.getElementById("hoved").style.gridTemplateRows="auto 0 0 0 0 0";
+    }
+</script>
+
+</body>
+</html>
