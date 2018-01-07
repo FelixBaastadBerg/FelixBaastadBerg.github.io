@@ -1,3 +1,19 @@
+@media (max-width: 1100px) {
+    #hoyHeader {
+        grid-template-columns: 10fr 3fr;
+    }
+}
+
+#hoyHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+header h2 {
+    padding: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -194,11 +210,17 @@ header #pushup {
     height: 100%;
     background-color: #555555;
 }
-#pushups1P, #pushups2P, #pushups3P, #pushups4P {
+#pushups2P, #pushups3P, #pushups1P {
     opacity: 1;
     transition: 2s;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+#pushups4P {
+    opacity: 1;
+    transition: 2s;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 #pushups1P div, #pushups2P div, #pushups3P div, #pushups4P div {
     text-align: center;
@@ -368,7 +390,7 @@ header #pushup {
     margin: auto;
     position: relative;
     text-align: center;
-    height: 500px;
+    height: 550px;
 }
 .hoveddel > h1 {
     font-weight: 300;
@@ -377,11 +399,7 @@ header #pushup {
 #main {
 
 }
-#hoyHeader {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-}
+
 .slides > div > img:hover {
     cursor: pointer;
 }
