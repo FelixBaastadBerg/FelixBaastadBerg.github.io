@@ -462,7 +462,7 @@ header #pushup {
     text-align: center;
     transition: .8s;
 }
-@media (max-width: 650px) {
+@media (max-width: 750px) {
     #hoyHeader {
         grid-template-columns: 10fr 0;
     }
@@ -477,7 +477,7 @@ header #pushup {
         width: 70%;
     }
 }
-@media (max-width: 650px) {
+@media (max-width: 750px) {
     .slides > div > a > img {
         width: 80%;
     }
