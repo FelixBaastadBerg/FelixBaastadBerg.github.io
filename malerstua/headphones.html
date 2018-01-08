@@ -13,11 +13,7 @@
             margin: auto;
             background-color: #eeeeee;
         }
-        @media (max-width: 1100px) {
-            .theMain > div {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+
         .theMain > div {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -67,6 +63,17 @@
         header h2 {
             padding: 0;
         }
+
+        @media (max-width: 1100px) {
+            .theMain > div {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 650px) {
+            .theMain > div {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -104,7 +111,7 @@
                 <div class="svart"></div>
                 <div></div>
             </div>
-            <div class="enAvFire grønn" id="btn2"><h3>Andre produkter</h3></div>
+            <div class="enAvFire grønn" id="btn2"><h3>Produkter</h3></div>
             <div class="halvStripe">
                 <div></div>
                 <div class="svart"></div>
@@ -116,7 +123,7 @@
                 <div class="svart"></div>
                 <div></div>
             </div>
-            <div class="enAvFire grønn" id="btn4"><h3>Om varene</h3></div>
+            <div class="enAvFire grønn" id="btn4"><h3>Varene</h3></div>
 
         </div>
     </div>
@@ -258,45 +265,47 @@
             <button class="accordion">Kabler</button>
             <div class="panel">
                 <ul>
-                    <li>HDMI kabler</li>
-                    <li>AUX kabler</li>
-                    <li>Skjermkabler</li>
-                    <li>USB kabler</li>
-                    <li>TV kabler</li>
-                    <li>Alle kabler</li>
+                    <li><a href="HDMI.html">HDMI kabler</a></li>
+                    <li><a href="HDMIMini.html">HDMI micro kabler</a></li>
+                    <li><a href="AUX.html">AUX kabler</a></li>
+                    <li><a href="#">Skjermkabler</a></li>
+                    <li><a href="USB.html">USB kabler</a></li>
+                    <li><a href="USBMikro.html">USB micro kabler</a></li>
+                    <li><a href="#">TV kabler</a></li>
+                    <li><a href="#">Alle kabler</a></li>
                 </ul>
             </div>
 
             <button class="accordion">Andre Produkter</button>
             <div class="panel">
                 <ul>
-                    <li>Data</li>
-                    <li>Bilde & Lyd</li>
-                    <li>Høyttaler</li>
-                    <li>Power bank</li>
-                    <li>Headphones</li>
-                    <li>Annet</li>
+                    <li><a href="Data.html">Data</a></li>
+                    <li><a href="Lyd&bilde.html">Bilde & Lyd</a></li>
+                    <li><a href="høyttaler.html">Høyttaler</a></li>
+                    <li><a href="powerbanks.html">Power bank</a></li>
+                    <li><a href="headphones.html">Headphones</a></li>
+                    <li><a href="#">Annet</a></li>
                 </ul>
             </div>
 
             <button class="accordion">Annet</button>
             <div class="panel">
                 <ul>
-                    <li>Kontakt meg</li>
-                    <li>Søk om jobb</li>
-                    <li>Om meg</li>
-                    <li>Hvordan fungerer nettsiden?</li>
-                    <li>Støtt med handel</li>
+                    <li><a href="KontaktMeg.html">Kontakt meg</a></li>
+                    <li><a href="SøkOmJobb.html">Søk om jobb</a></li>
+                    <li><a href="OmMeg.html">Om meg</a></li>
+                    <li><a href="HvordanFungererNettsiden.html">Hvordan fungerer nettsiden?</a></li>
+                    <li><a href="StøttMedHandel.html">Støtt med handel</a></li>
                 </ul>
             </div>
 
             <button class="accordion">Personell</button>
             <div class="panel">
                 <ul>
-                    <li>Felix Baastad Berg</li>
-                    <li>Jonas Kloster Havngjerde</li>
-                    <li>Gløer Langslet</li>
-                    <li>Kristian Henrik Kaupang</li>
+                    <li><a href="https://www.facebook.com/felix.b.berg">Felix Baastad Berg</a></li>
+                    <li><a href="https://www.facebook.com/jonaskloster.havnegjerde">Jonas Kloster Havngjerde</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100010173211341&fref=gs&dti=322829531520708&hc_location=group_dialog">Gløer Langslet</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=522792558&fref=gs&dti=322829531520708&hc_location=group_dialog">Kristian Henrik Kaupang</a></li>
                 </ul>
             </div>
         </div>
