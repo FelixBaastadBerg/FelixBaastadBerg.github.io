@@ -462,7 +462,7 @@ header #pushup {
     text-align: center;
     transition: .8s;
 }
-@media (max-width: 1100px) {
+@media (max-width: 700px) {
     #hoyHeader {
         grid-template-columns: 10fr 0;
     }
