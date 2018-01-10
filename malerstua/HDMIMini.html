@@ -27,184 +27,29 @@
             margin: 1em;
             padding: 1em;
         }
+        #poppBildet {
+            width: 0;
+            height: 0;
+        }
+        #poppBildet > img {
+            width: 0;
+            margin: auto;
+        }
+        @media (max-width: 800px) {
+            #mainmain {
+                grid-template-columns: 1fr 0;
+            }
+            #poppBildet {
+                height: 300px;
+            }
+            #poppBildet > img {
+                width: 70vw;
+            }
+        }
     </style>
 </head>
 <body>
 
-<header id="header">
-
-    <div id="hoyHeader">
-
-        <div id="pil"></div>
-
-        <div class="leftside">
-
-            <div class="heleBurger" id="heleBurger">
-                <input type="checkbox" id="cb">
-                <label for="cb" id="burger" onclick="moveLeft()">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </label>
-
-            </div>
-
-            <div id="logoOut">
-                <a href="hjem1.html"><img  src="maleBilder/BAASTADKABEL2.gif" alt="" width="300px" id="logo"></a>
-            </div>
-
-        </div>
-
-        <div class="nav" id="nav">
-
-
-            <div class="enAvFire grønn" id="btn1"><h3 >Kabler</h3></div>
-            <div class="halvStripe">
-                <div></div>
-                <div class="svart"></div>
-                <div></div>
-            </div>
-            <div class="enAvFire grønn" id="btn2"><h3>Andre produkter</h3></div>
-            <div class="halvStripe">
-                <div></div>
-                <div class="svart"></div>
-                <div></div>
-            </div>
-            <div class="enAvFire grønn" id="btn3"><h3>Annet</h3></div>
-            <div class="halvStripe">
-                <div></div>
-                <div class="svart"></div>
-                <div></div>
-            </div>
-            <div class="enAvFire grønn" id="btn4"><h3>Om varene</h3></div>
-
-        </div>
-    </div>
-    <div id="utenforPushup">
-        <div id="pushup">
-            <div id="xtegn" onclick="lukkePushup()">&times;</div>
-            <div id="pushups">
-
-                <div id="pushups1">
-                    <div id="pushups1P">
-                        <div>
-                            <a href="USB.html">
-                                <img src="maleBilder/USB-logo-01.png" width="90px" alt="">
-                                <p>USB kabler</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="USBMikro.html">
-                                <img src="maleBilder/USB-MicroLogo-01.png" width="90px" alt="">
-                                <p>USB Micro kabler</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="HDMI.html">
-                                <img src="maleBilder/hdmi-logo-01.png" width="90px" alt="">
-                                <p>HDMI kabler</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="HDMIMini.html">
-                                <img src="maleBilder/hdmiMini-logo-01.png" width="90px" alt="">
-                                <p>HDMI Micro kabler</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="AUX.html">
-                                <img src="maleBilder/aux-logo-01.png" width="90px" alt="">
-                                <p>AUX kabler</p>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-                <div id="pushups2">
-                    <div id="pushups2P">
-                        <div>
-                            <a href="Data.html">
-                                <img src="maleBilder/data-01.png" width="90px" alt="">
-                                <p>Data</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="Lyd&bilde.html">
-                                <img src="maleBilder/bildeOgLyd1-01.png" width="90px" alt="">
-                                <p>Bilde & lyd</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="høyttaler.html">
-                                <img src="maleBilder/høyttaler-logo-01.png" width="90px" alt="">
-                                <p>Høyttaler</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="powerbanks.html">
-                                <img src="maleBilder/powerbank-logo-01.png" width="90px" alt="">
-                                <p>Power bank</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="headphones.html">
-                                <img src="maleBilder/høretelefoner-logo-01.png" width="90px" alt="">
-                                <p>Headphones</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div id="pushups3">
-                    <div id="pushups3P">
-                        <div>
-                            <a href="KontaktMeg.html">
-                                <img src="maleBilder/annet11-01.png" width="90px" alt="">
-                                <p>Kontakt meg</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="SøkOmJobb.html">
-                                <img src="maleBilder/annet2-01.png" width="90px" alt="">
-                                <p>Søk om jobb</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="OmMeg.html">
-                                <img src="maleBilder/annet3-01.png" width="90px" alt="">
-                                <p>Om meg</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="HvordanFungererNettsiden.html">
-                                <img src="maleBilder/annet44-01.png" width="90px" alt="">
-                                <p>Hvordan fungerer nettsiden?</p>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="StøttMedHandel.html">
-                                <img src="maleBilder/annet5-01.png" width="90px" alt="">
-                                <p>Støtt med handel</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div id="pushups4">
-                    <div id="pushups4P">
-                        <div>
-                            <h2>Bestillingsvarer</h2>
-                            <p>Denne siden er linket til komplett.no som har over 40 000 varer på tilbud. Hvis du er ute etter en spesiell vare som du har sett på komplett.no, kan du kontakte meg for å se hva prisen ligger på og om jeg kan skaffe den til en billigere pris.</p>
-                        </div>
-                        <div>
-                            <h2>Tilbudsvarer</h2>
-                            <p>Komplett.no kan endre tilbudene til meg. Tilbudene jeg gir er derfor nærmere 90% sikkert enn 100%. Hvis tilbudene har sunket eller steget blir jeg nødt til å endre prisen tilsvarende. Ha dette i bakhodet. </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</header>
 <header id="header">
 
     <div id="hoyHeader">
@@ -379,19 +224,82 @@
         </div>
     </div>
 </header>
+<nav id="menu">
+    <div id="inniMenu">
+
+        <div id="relativMenu">
+
+
+            <div class="Menyen">
+                <h1>Meny</h1>
+            </div>
+
+            <button class="accordion">Kabler</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="HDMI.html">HDMI kabler</a></li>
+                    <li><a href="HDMIMini.html">HDMI micro kabler</a></li>
+                    <li><a href="AUX.html">AUX kabler</a></li>
+                    <li><a href="#">Skjermkabler</a></li>
+                    <li><a href="USB.html">USB kabler</a></li>
+                    <li><a href="USBMikro.html">USB micro kabler</a></li>
+                    <li><a href="#">TV kabler</a></li>
+                    <li><a href="#">Alle kabler</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">Andre Produkter</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="Data.html">Data</a></li>
+                    <li><a href="Lyd&bilde.html">Bilde & Lyd</a></li>
+                    <li><a href="høyttaler.html">Høyttaler</a></li>
+                    <li><a href="powerbanks.html">Power bank</a></li>
+                    <li><a href="headphones.html">Headphones</a></li>
+                    <li><a href="#">Annet</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">Annet</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="KontaktMeg.html">Kontakt meg</a></li>
+                    <li><a href="SøkOmJobb.html">Søk om jobb</a></li>
+                    <li><a href="OmMeg.html">Om meg</a></li>
+                    <li><a href="HvordanFungererNettsiden.html">Hvordan fungerer nettsiden?</a></li>
+                    <li><a href="StøttMedHandel.html">Støtt med handel</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">Personell</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="https://www.facebook.com/felix.b.berg">Felix Baastad Berg</a></li>
+                    <li><a href="https://www.facebook.com/jonaskloster.havnegjerde">Jonas Kloster Havngjerde</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100010173211341&fref=gs&dti=322829531520708&hc_location=group_dialog">Gløer Langslet</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=522792558&fref=gs&dti=322829531520708&hc_location=group_dialog">Kristian Henrik Kaupang</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
 
 <main id="mainmain">
     <div id="skriften">
         <h1>kun 45,-</h1>
         <h3>Kjøp HDMI micro kabel i dag for en billig penge. <br><br> Har du Apple tv? Mest sannsynelig tenkte du ja inni deg. Hva ville du gjort om Apple tv'en
         plutselig ikke var tilgjengelig og netflix og andre godsaker forsvant? Forsikre deg om at Apple tv boksen alltid er klar for bruk og kjøp en HDMI micro kabel.</h3>
-        <div id="button">Klikk her for kjøp</div>
     </div>
     <div id="bildet">
         <img src="maleBilder/HDMIMICRO-01.png" alt="">
     </div>
 
 </main>
+<div id="poppBildet">
+    <img src="maleBilder/AUX-02-01.png" alt="">
+</div>
 
 <script>
 

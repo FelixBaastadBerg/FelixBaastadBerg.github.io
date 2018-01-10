@@ -27,6 +27,25 @@
             margin: 1em;
             padding: 1em;
         }
+        #poppBildet {
+            width: 0;
+            height: 0;
+        }
+        #poppBildet > img {
+            width: 0;
+            margin: auto;
+        }
+        @media (max-width: 800px) {
+            #mainmain {
+                grid-template-columns: 1fr 0;
+            }
+            #poppBildet {
+                height: 300px;
+            }
+            #poppBildet > img {
+                width: 70vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -272,13 +291,15 @@
         <h1>kun 50,-</h1>
         <h3>Kjøp USB kabel i dag for en billig penge. <br><br> Kjøp tre cheese eller ha fra og med i dag en livsnødvendig kabel
             som du kan bruke til å for eksempel koble din bærbare computer til en minnebrikke slik at du aldri mister et minne igjen.</h3>
-        <div id="button">Klikk her for kjøp</div>
     </div>
     <div id="bildet">
         <img src="maleBilder/USB-01.png" alt="">
     </div>
 
 </main>
+<div id="poppBildet">
+    <img src="maleBilder/USB-01.png" alt="">
+</div>
 
 <script>
 

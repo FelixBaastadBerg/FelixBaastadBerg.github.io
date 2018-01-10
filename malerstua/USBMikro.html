@@ -27,6 +27,25 @@
             margin: 1em;
             padding: 1em;
         }
+        #poppBildet {
+            width: 0;
+            height: 0;
+        }
+        #poppBildet > img {
+            width: 0;
+            margin: auto;
+        }
+        @media (max-width: 800px) {
+            #mainmain {
+                grid-template-columns: 1fr 0;
+            }
+            #poppBildet {
+                height: 300px;
+            }
+            #poppBildet > img {
+                width: 70vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -272,13 +291,15 @@
         <h1>kun 45,-</h1>
         <h3>Kjøp USB mikro kabel i dag for en billig penge. <br><br> Det er ingen bombe at når jeg sier USB sier alle mikro. USB og mikro hører nemlig
         sammen. Med denne uslålige kombinasjonen kan man lade alt fra playstationkontroll til drone. Det er ikke noe tvil om at kule mennesker har en slik på lager.</h3>
-        <div id="button">Klikk her for kjøp</div>
     </div>
     <div id="bildet">
         <img src="maleBilder/USBMICROO-01.png" alt="">
     </div>
 
 </main>
+<div id="poppBildet">
+    <img src="maleBilder/USBMICROO-01.png" alt="">
+</div>
 
 <script>
 
