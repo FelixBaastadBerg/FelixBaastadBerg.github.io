@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css">
+    <style>
+        body {
+            background-color: #eeeeee;
+        }
+        main {
+            max-width: 700px;
+            margin: auto;
+            padding: 10px;
+            background-color: white;
+        }
+        h1 {
+            text-align: center;
+            color: green;
+        }
+        #inpText {
+            font-size: 1.2rem;
+        }
+        #todolist > article {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .lblDelete {
+            padding-right: 5px;
+            font-weight: bold;
+            opacity: .5;
+            cursor: pointer;
+        }
+        .lblDelete:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <h1>Gjøremål</h1>
+        <input type="text" id="inpText" placeholder="Jeg må huske..." autofocus>
+        <section id="todolist">
+
+
+
+        </section>
+
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+        const inpText = document.getElementById("inpText");
+        const todolist = document.getElementById("todolist");
+        const lblDelete = document.getElementsByClassName("lblDelete");
+
+        const db = firebase.database();
+        const todos = db.ref("todos");
+
+        function slett(key) {
+            const todo = todos.child(key);
+            todo.remove();
+            const todoSomSlettes = document.getElementById(key);
+            todolist.removeChild(todoSomSlettes);
+        }
+
+        function lagreTodo() {
+            todos.push({
+                tekst: inpText.value,
+                done: false
+            });
+            inpText.value="";
+        }
+        function visTodo(snap) {
+            const todo = snap.val();
+            const key = snap.key;
+            todolist.innerHTML += `
+                <article id="${key}">
+                    <label>${todo.tekst}</label>
+                    <label class="lblDelete" onclick="slett('${key}')">X</label>
+                </article>
+            `
+        }
+
+        inpText.onchange = lagreTodo;
+        todos.on("child_added", visTodo);
+        
+
+    </script>
+
+</body>
+</html>

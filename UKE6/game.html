@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    <style>
+
+        img {
+            width: 40px;
+            position: absolute;
+        }
+
+    </style>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+    <script type="text/javascript">
+        initApp = function() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var uid = user.uid;
+                    var phoneNumber = user.phoneNumber;
+                    var providerData = user.providerData;
+                    user.getIdToken().then(function(accessToken) {
+
+                        const db = firebase.database();
+                        const bilder = db.ref("game/bilder");
+
+                        function lagreBilde(klikk) {
+                            bilder.push({
+                                url: photoURL,
+                                x: klikk.clientX,
+                                y: klikk.clientY
+                            });
+                        }
+                        function visBilde(snap) {
+                            const bilde = snap.val();
+                            document.body.innerHTML += `<img src="${bilde.url}" style="left: ${bilde.x}px; top: ${bilde.y}px;">`;
+                        }
+
+                        document.onclick = lagreBilde;
+                        bilder.on("child_added", visBilde);
+
+                    });
+                } else {
+                    // User is signed out.
+                   //vi sender brukeren til en annen side
+                }
+            }, function(error) {
+                console.log(error);
+            });
+        };
+
+        window.addEventListener('load', function() {
+            initApp()
+        });
+    </script>
+</head>
+<body>
+
+    <main id="main"></main>
+
+</body>
+</html>
