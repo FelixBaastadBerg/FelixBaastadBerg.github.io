@@ -229,6 +229,9 @@
     var marker;
     var latlng;
     function initMap() {
+
+        console.log(photo);
+
         latlng = {lat: 59.8901633, lng: 10.5156461};
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
@@ -359,7 +362,7 @@
                 position: latlng,
                 map: map,
                 animation: google.maps.Animation.DROP,
-                icon: "profilbilde-01.png"
+                icon: "https://lh4.googleusercontent.com/-OO94NmcqoPg/AAAAAAAAAAI/AAAAAAAAAYI/wbm2RZf8Fio/photo.jpg"
             });
             marker.addListener("click", toggleBounce);
     }
@@ -381,13 +384,13 @@
 
         map.setCenter(position);
 
-        positions.push({
+        let user = db.ref("positions/" + userid);
 
+        user.set({
             id: userid,
             photo: photo,
             lat: pos.coords.latitude,
             lng: pos.coords.longitude
-
         });
 
     }
@@ -395,9 +398,7 @@
     navigator.geolocation.watchPosition(visPosisjon);
 
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOQq3UCfFj52rsgkJdG32H8fMoXf0jZWM&callback=initMap">
-</script>
+
 
 <script>
     const input = document.getElementById("input");
@@ -417,6 +418,10 @@
     magnifyingGlass.onclick = redUt;
 </script>
 
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOQq3UCfFj52rsgkJdG32H8fMoXf0jZWM&callback=initMap">
+    </script>
 
 </body>
 </html>
