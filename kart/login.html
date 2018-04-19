@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.css" />
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: 'google_maps.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>'
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <style>
+        #box {
+            width: 700px;
+            height: 320px;
+            margin: auto;
+            background-color: #ff8e00;
+            text-align: center;
+            border-radius: 27px;
+        }
+        h1 {
+            color: white;
+            font-size: 8em;
+            padding-top: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        h1:after {
+            content: "";
+            position: absolute;
+            top: 120px;
+            right: -140px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            box-shadow: 45px 45px 0 0 #ff8e00;
+            transform: rotate(120deg);
+        }
+
+    </style>
+</head>
+<body>
+<!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+
+<div id="box">
+    <h1>MapChat</h1>
+    <div id="moon"></div>
+    <div id="firebaseui-auth-container"></div>
+</div>
+</body>
+</html>

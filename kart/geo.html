@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geo</title>
+</head>
+<body>
+
+    <script>
+
+        function visPosisjon(pos) {
+
+            console.log(pos.coords);
+
+        }
+
+        navigator.geolocation.watchPosition(visPosisjon);
+
+    </script>
+
+</body>
+</html>
