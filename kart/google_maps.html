@@ -161,6 +161,10 @@
     </script>
 
     <script type="text/javascript">
+
+        let userid = "anonym";
+        let photo;
+
         initApp = function() {
             firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
@@ -172,6 +176,10 @@
                     var uid = user.uid;
                     var phoneNumber = user.phoneNumber;
                     var providerData = user.providerData;
+
+                    userid = uid;
+                    photo = photoURL;
+
                     user.getIdToken().then(function(accessToken) {
                         const db = firebase.database();
                         const bilder = db.ref("mapChat/bilder");
@@ -375,7 +383,8 @@
 
         positions.push({
 
-            id: "meg",
+            id: userid,
+            photo: photo,
             lat: pos.coords.latitude,
             lng: pos.coords.longitude
 
