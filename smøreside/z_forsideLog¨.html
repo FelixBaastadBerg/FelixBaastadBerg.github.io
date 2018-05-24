@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hjem</title>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- *******************************************************************************************
+      * TODO(DEVELOPER): Paste the initialization snippet from:
+      * Firebase Console > Overview > Add Firebase to your web app. *
+      ***************************************************************************************** -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.css" />
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: 'z_hjemLog.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>'
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        * {
+            font-family: "Helvetica Neue", sans-serif;
+            color: #555555;
+            margin: 0;
+        }
+        #hele {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            height: 100vh;
+            width: 400vw;
+            transition: 1s;
+            margin-left: 0;
+        }
+        #ey {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #nr1 {
+            background-color: #a4e3ff;
+            align-items: center;
+            text-align: center;
+         }
+        #grey {
+            margin-left: 17.5%;
+            width: 65%;
+            height: 55%;
+            background-color: white;
+            position: relative;
+            box-shadow: 5px 5px #96d0e9;
+            border-radius: 3px;
+        }
+        #nr1 > h1 {
+            text-align: center;
+            padding: 50px;
+        }
+        #boxx {
+            text-align: center;
+
+        }
+        #box2 {
+            text-align: center;
+        }
+        #inniBox {
+            position: relative;
+            text-align: center;
+        }
+        #inniBox2 {
+            position: relative;
+        }
+        #button1 {
+            padding: 10px;
+            background-color: #4875a9;
+            width: 200px;
+            height: 40px;
+            margin: auto;
+            color: white;
+            box-shadow: 3px 3px #dddddd;
+            border: none;
+            font-size: 100%;
+            border-radius: 3px;
+            cursor: pointer;
+            opacity: .9;
+        }
+        .header {
+            font-size: 40px;
+            padding: 30px;
+        }
+        #nr2 {
+            background-color: #a4e3ff;
+            position: relative;
+            text-align: center;
+        }
+        h3 {
+            font-size: 400%;
+            padding: 40px;
+        }
+
+        #range {
+            -webkit-appearance: none;
+            width: calc(100% - 80px);
+            height: 15px;
+            border-radius: 5px;
+            /*background: #d3d3d3;*/
+            background: white;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            margin: 40px;
+        }
+
+        #range:hover {
+            opacity: 1;
+        }
+
+        #range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #74a2b5;
+            cursor: pointer;
+
+        }
+
+        #range::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #74a2b5;
+            cursor: pointer;
+        }
+        #show1 {
+            font-size: 400%;
+        }
+        #button2 {
+            padding: 20px;
+            margin: 20px;
+            background-color: #4875a9;
+            color: white;
+            box-shadow: 3px 3px #96d0e9;
+            border-radius: 3px;
+            border: none;
+            font-size: 100%;
+            opacity: .9;
+            cursor: pointer;
+        }
+        #button2:hover, #button1:hover, #firebaseui-auth-container:hover, #button3:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            transition-duration: 100ms;
+        }
+        #button3 {
+            padding: 20px;
+            margin: 20px;
+            background-color: #4875a9;
+            color: white;
+            box-shadow: 3px 3px #96d0e9;
+            border-radius: 3px;
+            border: none;
+            font-size: 100%;
+            opacity: .9;
+            cursor: pointer;
+        }
+        #nr3 {
+            background-color: #a4e3ff;
+            position: relative;
+            text-align: center;
+        }
+        #nr4 {
+            background-color: #a4e3ff;
+            position: relative;
+        }
+
+
+        #firebaseui-auth-container {
+            cursor: pointer;
+            opacity: .9;
+        }
+        #inpText {
+            font-size: 1.2rem;
+        }
+        #todolist > article {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .lblDelete {
+            padding-right: 5px;
+            font-weight: bold;
+            opacity: .5;
+            cursor: pointer;
+        }
+        .lblDelete:hover {
+            opacity: 1;
+        }
+        h4 {
+            padding: 20px;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        #float {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        #inniBox > p {
+            width: 60%;
+            margin: auto;
+            padding: 15px;
+        }
+        #logoer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            text-align: center;
+        }
+        #logoer > div {
+            background-color: white;
+            margin: 20px;
+            box-shadow: 5px 5px #96d0e9;
+            border-radius: 3px;
+        }
+        #logoer >div > img {
+            height: 200px;
+            margin: auto;
+            padding: 20px;
+        }
+        #btn1, #btn2, #btn3, #btn4 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: 100;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hele">
+        <div id="nr1">
+            <h1>Velkommen til smørekalkulatoren!</h1>
+                <div id="grey">
+
+
+
+                <div id="ey">
+                    <div id="boxx">
+                        <div id="inniBox2">
+
+                            <!--<section id="todolist"></section>-->
+                        </div>
+                    </div>
+                    <div id="box2">
+                        <div id="inniBox">
+                            <h1 class="header">Hei og hå!</h1>
+
+                            <p>Velkommen til Jardar IL sin smørekalklator. Her kan du plotte inn temperatur og føre, og se hvilken smøring som passer best for deg. </p>
+                            <p>Nedenfor kan du velge om du vil ta smørekalkulatoren raskt og enkelt eller om du vil logge inn for større utvalg.</p>
+                            <div id="float">
+                                <button onclick="bla1()" id="button1">Kom i gang!</button>
+                                <div id="firebaseui-auth-container"></div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div id="nr2">
+            <h3>Hvor mange grader er det ute?</h3>
+            <input type="range" id="range" value="?" min="-30" max="10" autocomplete onchange="visVerdi()">
+            <div id="show"><p id="show1">grader: ?</p></div>
+            <button onclick="bla2()" id="button2">Trykk for å gå videre</button>
+        </div>
+        <div id="nr3">
+            <h3>Hvordan type snø er det ute?</h3>
+
+
+
+
+            <div id="logoer">
+                <div style="position: relative">
+                    <img src="bildre/nysnø-01.png" alt="">
+                    <h1>Nysnø</h1>
+                    <button value="1" id="btn1" onclick="visKnappVerdi()">snør nå</button>
+                </div>
+                <div style="position: relative">
+                    <img src="bildre/finkornet-01.png" alt="">
+                    <h1>Finkornet snø</h1>
+                    <button value="100" id="btn2" onclick="visKnappVerdii()">snødde i går</button>
+                </div>
+                <div style="position: relative">
+                    <img src="bildre/gammelsnø-01.png" alt="">
+                    <h1>Gammel snø</h1>
+                    <button value="10000" id="btn3" onclick="visKnappVerdiii()">snødde tidligere i uken</button>
+                </div>
+                <div style="position: relative">
+                    <img src="bildre/grovkornet-01.png" alt="">
+                    <h1>Grovkornet snø</h1>
+                    <button value="-1" id="btn4" onclick="visKnappVerdiiii()">snødde tidligere i uken</button>
+                </div>
+
+            </div>
+
+
+
+
+            <div><p id="show2"></p></div>
+            <button id="button3" onclick="bla3()">Bla videre</button>
+        </div>
+        <div id="nr4">
+            <button onclick="returnSvar()">Trykk for svar</button>
+            <div><p id="result"></p></div>
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+<script>
+
+
+    const hele = document.getElementById("hele");
+    const range = document.getElementById("range");
+    const show = document.getElementById("show1");
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+    const btn3 = document.getElementById("btn3");
+    const btn4 = document.getElementById("btn4");
+
+    const show2 = document.getElementById("show2");
+    const result = document.getElementById("result");
+    const hentePush = document.getElementById("hentePush");
+    const todolist = document.getElementById("todolist");
+
+
+    const db = firebase.database();
+    const grader = db.ref("grader");
+
+
+    var verdi;
+    var knapp1Verdi;
+    var knapp2Verdi;
+    var knapp3Verdi;
+    var resultat;
+
+
+
+
+
+
+    function visVerdi() {
+
+        verdi = range.value;
+        show.innerHTML = 'grader: ' + verdi;
+    }
+
+    function visKnappVerdi() {
+        knapp1Verdi = btn1.value;
+        show2.innerHTML = knapp1Verdi;
+        resultat = (+31 + +verdi) * +knapp1Verdi;
+        grader.push({
+            temp: verdi,
+            cond: knapp1Verdi,
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP
+        });
+    }
+    function visKnappVerdii() {
+        knapp2Verdi = btn2.value;
+        show2.innerHTML = knapp2Verdi;
+        resultat = (+31 + +verdi) * +knapp2Verdi;
+        grader.push({
+            temp: verdi,
+            cond: knapp2Verdi,
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP
+        });
+    }
+    function visKnappVerdiii() {
+        knapp3Verdi = btn3.value;
+        show2.innerHTML = knapp3Verdi;
+        resultat = (+31 + +verdi) * +knapp3Verdi;
+        grader.push({
+            temp: verdi,
+            cond: knapp3Verdi,
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP
+        });
+    }
+    function visKnappVerdiiii() {
+        knapp4Verdi = btn4.value;
+        show2.innerHTML = knapp4Verdi;
+        resultat = (+31 + +verdi) * +knapp4Verdi;
+        grader.push({
+            temp: verdi,
+            cond: knapp4Verdi,
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP
+        });
+    }
+
+
+
+
+    function returnSvar() {
+        if (1 < resultat && resultat < 4) {
+            result.innerHTML = "Blå ekstra";
+        }else if (resultat == 5) {
+            result.innerHTML = "Skigo";
+        } else {
+            result.innerHTML = "tullball";
+        }
+
+
+    }
+
+
+    function visGrader(snap) {
+        let gr = snap.val();
+        hentePush.innerHTML = gr.sum;
+    }
+    function bla1() {
+        hele.style.marginLeft = "-100vw";
+    }
+    function bla2() {
+        hele.style.marginLeft = "-200vw";
+    }
+    function bla3() {
+        hele.style.marginLeft = "-300vw";
+    }
+
+    function visPush() {
+
+        grader.on("child_added", visGrader);
+
+    }
+
+
+
+
+
+   /* const db1 = firebase.database();
+    const todos = db1.ref("todos");
+
+    function visTodo(snap) {
+        const todo = snap.val();
+        const key = snap.key;
+        todolist.innerHTML += `
+                <article id="${key}">
+                <label id="navnet">${todo.navn}</label><br>
+                    <label>${todo.tekst}</label>
+                </article>
+
+            `
+    }
+    todos.on("child_added", visTodo);
+    /* <label>${new Date(todo.tid)}</label> */
+</script>
+
+</body>
+</html>
