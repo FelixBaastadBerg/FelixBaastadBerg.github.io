@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prøve</title>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+    <script type="text/javascript">
+        initApp = function() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var uid = user.uid;
+                    var phoneNumber = user.phoneNumber;
+                    var providerData = user.providerData;
+                    user.getIdToken().then(function(accessToken) {
+
+                        name = displayName;
+
+                        brukerid = uid;
+
+
+
+
+                    });
+                } else {
+                    // User is signed out.
+                    // Vi sender brukeren til en annen side
+                }
+            }, function(error) {
+                console.log(error);
+            });
+        };
+        window.addEventListener('load', function() {
+            initApp()
+        });
+        var name;
+        var brukerid;
+    </script>
+    <style>
+        body {
+            overflow: hidden;
+            color: #555555;
+            font-family: "Helvetica Neue", sans-serif;
+        }
+        * {
+            margin: 0;
+        }
+        #hele {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            height: 100vh;
+            width: 400vw;
+            transition: 1s;
+            margin-left: 0;
+        }
+        #nr1 {
+            /*background-image: url("bildre/langrenn.jpg");
+            background-size: cover;
+            position: relative;*/
+            background-color: #a4e3ff;
+        }
+        #lagrede {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            height: 200px;
+            background-color: white;
+            box-shadow: 5px 5px #96d0e9;
+            border-radius: 3px;
+        }
+        #lagrede > h1 {
+            padding: 10px;
+        }
+        #boxx {
+            height: 200px;
+            width: 400px;
+            background-color: white;
+            margin: 20px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            box-shadow: 5px 5px #96d0e9;
+            border-radius: 3px;
+        }
+        #box2 {
+            height: 200px;
+            width: 400px;
+            background-color: green;
+            margin: 100px;
+            margin-top: 50px;
+
+
+        }
+        #inniBox {
+            position: relative;
+            text-align: center;
+        }
+        #inniBox2 {
+            position: relative;
+        }
+        #button1 {
+            padding: 10px;
+            margin: 20px;
+            cursor: pointer;
+        }
+        #button2 {
+            padding: 20px;
+            margin: 20px;
+            background-color: #4875a9;
+            color: white;
+            box-shadow: 3px 3px #96d0e9;
+            border-radius: 3px;
+            border: none;
+            font-size: 100%;
+            cursor: pointer;
+            opacity: .8;
+        }
+        #button2:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            transition-duration: 100ms;
+        }
+        #header {
+            font-size: 40px;
+            padding: 30px;
+        }
+        #nr2 {
+            background-color: #a4e3ff;
+            position: relative;
+            text-align: center;
+        }
+        h3 {
+            font-size: 400%;
+            padding: 40px;
+        }
+
+        #range {
+            -webkit-appearance: none;
+            width: calc(100% - 80px);
+            height: 15px;
+            border-radius: 5px;
+            background: white;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            margin: 40px;
+        }
+
+        #range:hover {
+            opacity: 1;
+        }
+
+        #range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #74a2b5;
+            cursor: pointer;
+
+        }
+
+        #range::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #74a2b5;
+            cursor: pointer;
+        }
+        #show1 {
+            font-size: 400%;
+        }
+        #button2 {
+            padding: 20px;
+            margin: 20px;
+        }
+        #nr3 {
+            background-color: blue;
+            position: relative;
+        }
+        #nr4 {
+            background-color: yellow;
+            position: relative;
+        }
+
+
+        #firebaseui-auth-container {
+            cursor: pointer;
+        }
+        #inpText {
+            font-size: 1.2rem;
+        }
+        #todolist > article {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .lblDelete {
+            padding-right: 5px;
+            font-weight: bold;
+            opacity: .5;
+            cursor: pointer;
+        }
+        .lblDelete:hover {
+            opacity: 1;
+        }
+        main {
+            max-width: 500px;
+            padding: 10px;
+            background-color: white;
+            margin: 20px;
+            box-shadow: 5px 5px #96d0e9;
+            border-radius: 3px;
+        }
+        h1 {
+            text-align: center;
+            color: #4875a9;
+        }
+        #inpText {
+            font-size: 1.2rem;
+            outline: none;
+            border: none;
+        }
+        #inpText:focus {
+            outline: none;
+        }
+        #todolist > article {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .lblDelete {
+            padding-right: 5px;
+            font-weight: bold;
+            opacity: .5;
+            cursor: pointer;
+        }
+        .lblDelete:hover {
+            opacity: 1;
+        }
+        #navnet {
+            font-size: 150%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="hele">
+    <div id="nr1">
+        <div id="boxx">
+            <div id="inniBox">
+                <h1 id="header">smøresiden</h1>
+                <button onclick="bla1()" id="button1">Kom i gang!</button>
+            </div>
+        </div>
+        <main>
+
+            <h1>Hvordan var smøringen?</h1>
+            <input type="text" id="inpText" placeholder="Jeg likte..." autofocus>
+            <section id="todolist">
+
+
+
+            </section>
+
+        </main>
+        <div id="lagrede">
+            <h1>lagrede smørekalkulatorer</h1>
+            <div>
+                <table>
+                    <tbody id="element"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div id="nr2">
+        <h3>Hvor mange grader er det ute?</h3>
+        <input type="range" id="range" value="?" min="-30" max="10" autocomplete onchange="visVerdi()">
+        <div id="show"><p id="show1">grader: ?</p></div>
+        <button onclick="bla2()" id="button2">Trykk for å gå videre</button>
+    </div>
+    <div id="nr3">
+        <h3>Hvor lenge siden var det det snødde?</h3>
+
+        <button value="1" id="btn1" onclick="visKnappVerdi()">snør nå</button>
+        <button value="100" id="btn2" onclick="visKnappVerdii()">snødde i går</button>
+        <button value="10000" id="btn3" onclick="visKnappVerdiii()">snødde tidligere i uken</button>
+
+
+
+
+        <div><p id="show2"></p></div>
+        <button onclick="bla3()"></button>
+    </div>
+    <div id="nr4">
+        <button onclick="returnSvar()">Trykk for svar</button>
+        <div><p id="result"></p></div>
+    </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+        authDomain: "data2000bass.firebaseapp.com",
+        databaseURL: "https://data2000bass.firebaseio.com",
+        projectId: "data2000bass",
+        storageBucket: "data2000bass.appspot.com",
+        messagingSenderId: "838934922279"
+    };
+    firebase.initializeApp(config);
+</script>
+<script>
+    const hele = document.getElementById("hele");
+    const range = document.getElementById("range");
+    const show = document.getElementById("show1");
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+    const btn3 = document.getElementById("btn3");
+    const show2 = document.getElementById("show2");
+    const result = document.getElementById("result");
+    const hentePush = document.getElementById("hentePush");
+    const todolist = document.getElementById("todolist");
+    const element = document.getElementById("element");
+
+
+
+    const db = firebase.database();
+    const grader = db.ref("grader");
+
+
+    var verdi;
+    var knapp1Verdi;
+    var knapp2Verdi;
+    var knapp3Verdi;
+    var resultat;
+
+
+
+
+
+
+    function visVerdi() {
+
+        verdi = range.value;
+        show.innerHTML = 'grader: ' + verdi;
+    }
+
+    function visKnappVerdi() {
+        knapp1Verdi = btn1.value;
+        show2.innerHTML = knapp1Verdi;
+        resultat = (+31 + +verdi) * +knapp1Verdi;
+        grader.push({
+            temp: Number(verdi),
+            cond: Number(knapp1Verdi),
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP,
+            id: brukerid
+        });
+    }
+    function visKnappVerdii() {
+        knapp2Verdi = btn2.value;
+        show2.innerHTML = knapp2Verdi;
+        resultat = (+31 + +verdi) * +knapp2Verdi;
+        grader.push({
+            temp: Number(verdi),
+            cond: Number(knapp2Verdi),
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP,
+            id: brukerid
+        });
+    }
+    function visKnappVerdiii() {
+        knapp3Verdi = btn3.value;
+        show2.innerHTML = knapp3Verdi;
+        resultat = (+31 + +verdi) * +knapp3Verdi;
+        grader.push({
+            temp: Number(verdi),
+            cond: Number(knapp3Verdi),
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP,
+            id: brukerid
+        });
+    }
+
+
+    /*function visLagring(snap) {
+        const deg = snap.val();
+        const key = snap.key;
+        element.innerHTML += `
+                <article id="${key}">
+                    <label>temp: ${deg.temp}</label>
+                    <label>cond: ${deg.cond}</label>
+                    <label>smøring: ${deg.sum}</label>
+                    <label class="lblDelete" onclick="slett1('${key}')">X</label>
+                </article>
+
+
+        `
+    }*/
+    function visLagring(snap) {
+        const deg = snap.val();
+        const key = snap.key;
+        element.innerHTML += `
+
+                 <tr id="${key}">
+
+                    <td>${deg.temp}</td>
+                    <td>${deg.cond}</td>
+                    <td>${deg.sum}</td>
+                    <td class="lblDelete" onclick="slett1('${key}')">X</td>
+                </tr>
+        `
+    }
+
+
+    setTimeout(function() {
+        grader
+            .orderByChild("id")
+            .equalTo(brukerid)
+            .on("child_added", visLagring);
+    }, 500);
+
+
+
+
+    function slett1(key) {
+
+
+        const grad = grader.child(key);
+        grad.remove();
+        const todoSomSlettes = document.getElementById(key);
+        element.removeChild(todoSomSlettes);
+    }
+
+    function returnSvar() {
+        if (1 < resultat && resultat < 4) {
+            result.innerHTML = "Blå ekstra";
+        }else if (resultat == 5) {
+            result.innerHTML = "Skigo";
+        } else {
+            result.innerHTML = "tullball";
+        }
+
+
+    }
+
+
+    function visGrader(snap) {
+        let gr = snap.val();
+        hentePush.innerHTML = gr.sum;
+    }
+    function bla1() {
+        hele.style.marginLeft = "-100vw";
+    }
+    function bla2() {
+        hele.style.marginLeft = "-200vw";
+    }
+    function bla3() {
+        hele.style.marginLeft = "-300vw";
+    }
+
+    function visPush() {
+
+        grader.on("child_added", visGrader);
+
+    }
+
+
+
+
+
+    const db1 = firebase.database();
+    const todos = db1.ref("todos");
+
+    /*function visTodo(snap) {
+        const todo = snap.val();
+        const key = snap.key;
+        todolist.innerHTML += `
+                <article id="${key}">
+                <label id="navnet">${todo.navn}</label><br>
+                    <label>${todo.tekst}</label>
+                </article>
+
+            `
+    }
+    todos.on("child_added", visTodo);
+    /* <label>${new Date(todo.tid)}</label> */
+</script>
+<script>
+
+    const inpText = document.getElementById("inpText");
+    const lblDelete = document.getElementsByClassName("lblDelete");
+
+
+    function slett(key) {
+        const todo = todos.child(key);
+        todo.remove();
+        const todoSomSlettes = document.getElementById(key);
+        todolist.removeChild(todoSomSlettes);
+    }
+
+    function lagreTodo() {
+        todos.push({
+            tekst: inpText.value,
+            done: false,
+            navn: name,
+            tid: firebase.database.ServerValue.TIMESTAMP
+        });
+        inpText.value="";
+    }
+    function visTodo(snap) {
+        const todo = snap.val();
+        const key = snap.key;
+        todolist.innerHTML += `
+                <article id="${key}">
+                    <label id="navnet">${name}</label><br>
+                    <label>${todo.tekst}</label>
+                    <label class="lblDelete" onclick="slett('${key}')">X</label>
+                   <label>${new Date(todo.tid)}</label>
+                </article>
+            `
+    }
+
+    inpText.onchange = lagreTodo;
+    todos.on("child_added", visTodo);
+
+
+</script>
+
+</body>
+</html></html>
