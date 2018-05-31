@@ -76,30 +76,37 @@
             background-size: cover;
             position: relative;*/
             background-color: #a4e3ff;
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+        }
+        #nr1 > #divdiv {
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+            position: relative;
+        }
+        #nr1 > #divdivdiv {
+            display: grid;
+            grid-template-rows: 2fr 1fr;
+            position: relative;
         }
         #lagrede {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 20px;
-            height: 200px;
+            height: calc(100% - 80px);
             background-color: white;
             box-shadow: 5px 5px #96d0e9;
             border-radius: 3px;
+            margin: 40px;
+            margin-left: 0;
         }
         #lagrede > h1 {
             padding: 10px;
         }
         #boxx {
-            height: 200px;
-            width: 400px;
+            height: calc(100% - 40px);
+            width: calc(100% - 40px);
             background-color: white;
-            margin: 20px;
-            position: absolute;
-            bottom: 0;
-            right: 0;
             box-shadow: 5px 5px #96d0e9;
             border-radius: 3px;
+
         }
         #box2 {
             height: 200px;
@@ -132,9 +139,9 @@
             border: none;
             font-size: 100%;
             cursor: pointer;
-            opacity: .8;
+            opacity: .9;
         }
-        #button2:hover {
+        #button2:hover, #button1:hover, #button3:hover, #button4:hover {
             opacity: 1;
             transform: scale(1.05);
             transition-duration: 100ms;
@@ -196,8 +203,9 @@
             margin: 20px;
         }
         #nr3 {
-            background-color: blue;
+            background-color: #a4e3ff;
             position: relative;
+            text-align: center;
         }
         #nr4 {
             background-color: yellow;
@@ -225,16 +233,20 @@
             opacity: 1;
         }
         main {
-            max-width: 500px;
+            max-width: 100%;
             padding: 10px;
             background-color: white;
-            margin: 20px;
+            margin: 40px;
             box-shadow: 5px 5px #96d0e9;
             border-radius: 3px;
         }
         h1 {
             text-align: center;
             color: #4875a9;
+        }
+        #hen {
+            text-align: left;
+            color: #555555;
         }
         #inpText {
             font-size: 1.2rem;
@@ -243,6 +255,9 @@
         }
         #inpText:focus {
             outline: none;
+        }
+        #todolist {
+            overflow: scroll;
         }
         #todolist > article {
             display: grid;
@@ -260,35 +275,176 @@
         #navnet {
             font-size: 150%;
         }
+        #button1 {
+            padding: 10px;
+            background-color: #4875a9;
+            width: 200px;
+            height: 40px;
+            margin: auto;
+            color: white;
+            box-shadow: 3px 3px #dddddd;
+            border: none;
+            font-size: 100%;
+            border-radius: 3px;
+            cursor: pointer;
+            opacity: .9;
+        }
+        #logoer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            text-align: center;
+        }
+        #logoer > div {
+            background-color: white;
+            margin: 20px;
+            box-shadow: 5px 5px #96d0e9;
+            border-radius: 3px;
+        }
+        #logoer > div > img {
+            height: 200px;
+            margin: auto;
+            padding: 20px;
+        }
+        #btn1, #btn2, #btn3, #btn4 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: 100;
+            cursor: pointer;
+        }
+        #btn1:focus, #btn2:focus, #btn3:focus, #btn4:focus{
+            filter: saturate(2%);
+        }
+        #button3 {
+            padding: 20px;
+            margin: 20px;
+            background-color: #4875a9;
+            color: white;
+            box-shadow: 3px 3px #96d0e9;
+            border-radius: 3px;
+            border: none;
+            font-size: 100%;
+            opacity: .9;
+            cursor: pointer;
+        }
+        #nr4 {
+            background-color: #a4e3ff;
+            position: relative;
+        }
+        #grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #hh {
+            background-color: white;
+            height: 70vh;
+            margin: 15vh;
+            margin-bottom: 15vh;
+            margin-top: 15vh;
+            box-shadow: 5px 5px #96d0e9;
+            border-radius: 3px;
+            text-align: center;
+        }
+        #hh img {
+            padding: 30px;
+        }
+        #vv {
+            height: 70vh;
+            margin: 15vh;
+            margin-bottom: 15vh;
+            margin-top: 15vh;
+        }
+        #grattis {
+            padding-left: 0;
+            padding-top: 0;
+            color: #4875a9;
+        }
+        #button4 {
+            padding: 20px;
+            margin: 20px;
+            background-color: #4875a9;
+            color: white;
+            box-shadow: 3px 3px #96d0e9;
+            border-radius: 3px;
+            border: none;
+            font-size: 100%;
+            opacity: .9;
+            cursor: pointer;
+        }
+        #customers {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4875a9;
+            color: white;
+        }
+        #dinSide > h3{
+            padding-left: 40px;
+            padding-top: 40px;
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
 
 <div id="hele">
     <div id="nr1">
-        <div id="boxx">
-            <div id="inniBox">
-                <h1 id="header">smøresiden</h1>
-                <button onclick="bla1()" id="button1">Kom i gang!</button>
-            </div>
+
+        <div id="divdiv">
+            <div id="dinSide"><h3 style="font-size: 750%">Min Side</h3></div>
+            <main>
+
+                <h1>Hvordan var smøringen?</h1>
+                <input type="text" id="inpText" placeholder="Jeg likte..." autofocus>
+                <section id="todolist">
+
+
+
+                </section>
+
+            </main>
         </div>
-        <main>
+        <div id="divdivdiv">
+            <div id="lagrede">
+                <h1>lagrede smørekalkulatorer</h1>
+                <div>
+                    <table id="customers">
+                        <thead style="background-color: #4875a9;"><tr>
+                            <th>Temp</th>
+                            <th>Cond</th>
+                            <th>Smøring</th>
+                            <th>X</th>
+                        </tr></thead>
+                        <tbody id="element">
 
-            <h1>Hvordan var smøringen?</h1>
-            <input type="text" id="inpText" placeholder="Jeg likte..." autofocus>
-            <section id="todolist">
+                        </tbody>
+                    </table>
+                </div>
 
-
-
-            </section>
-
-        </main>
-        <div id="lagrede">
-            <h1>lagrede smørekalkulatorer</h1>
-            <div>
-                <table>
-                    <tbody id="element"></tbody>
-                </table>
+            </div>
+            <div id="boxx">
+                <div id="inniBox">
+                    <h1 id="header">smøresiden</h1>
+                    <button onclick="bla1()" id="button1">Kom i gang!</button>
+                </div>
             </div>
 
         </div>
@@ -300,21 +456,56 @@
         <button onclick="bla2()" id="button2">Trykk for å gå videre</button>
     </div>
     <div id="nr3">
-        <h3>Hvor lenge siden var det det snødde?</h3>
+        <h3>Hvordan type snø er det ute?</h3>
 
-        <button value="1" id="btn1" onclick="visKnappVerdi()">snør nå</button>
-        <button value="100" id="btn2" onclick="visKnappVerdii()">snødde i går</button>
-        <button value="10000" id="btn3" onclick="visKnappVerdiii()">snødde tidligere i uken</button>
+
+
+
+
+        <div id="logoer">
+            <div style="position: relative">
+                <img src="bildre/nysnø-01.png" alt="">
+                <h1>Nysnø</h1>
+                <button value="1" id="btn1" onclick="visKnappVerdi()"></button>
+            </div>
+            <div style="position: relative">
+                <img src="bildre/finkornet-01.png" alt="">
+                <h1>Finkornet snø</h1>
+                <button value="100" id="btn2" onclick="visKnappVerdii()"></button>
+            </div>
+            <div style="position: relative">
+                <img src="bildre/gammelsnø-01.png" alt="">
+                <h1>Gammel snø</h1>
+                <button value="10000" id="btn3" onclick="visKnappVerdiii()"></button>
+            </div>
+            <div style="position: relative">
+                <img src="bildre/grovkornet-01.png" alt="">
+                <h1>Grovkornet snø</h1>
+                <button value="-1" id="btn4" onclick="visKnappVerdiiii()"></button>
+            </div>
+
+        </div>
 
 
 
 
         <div><p id="show2"></p></div>
-        <button onclick="bla3()"></button>
+        <button id="button3" onclick="bla3()" >Bla videre</button>
     </div>
     <div id="nr4">
-        <button onclick="returnSvar()">Trykk for svar</button>
-        <div><p id="result"></p></div>
+
+            <div id="grid">
+                <div id="vv">
+                    <h3 id="grattis">Godt jobbet!</h3>
+                    <div id="link"></div>
+                    <h1 id="hen">Du kan ta smørekalkulatoren på nytt om du ønsker ved å gå tilbake til startsiden.</h1>
+                    <button id="button4" onclick="bla4();">Ta ny test</button>
+                </div>
+                <div id="hh"><p id="result"></p></div>
+
+            </div>
+        <!--<button onclick="returnSvar()">Trykk for svar</button>-->
+
     </div>
 </div>
 
@@ -339,11 +530,14 @@
     const btn1 = document.getElementById("btn1");
     const btn2 = document.getElementById("btn2");
     const btn3 = document.getElementById("btn3");
+    const btn4 = document.getElementById("btn4");
+
     const show2 = document.getElementById("show2");
     const result = document.getElementById("result");
     const hentePush = document.getElementById("hentePush");
     const todolist = document.getElementById("todolist");
     const element = document.getElementById("element");
+    const link = document.getElementById("link");
 
 
 
@@ -404,6 +598,18 @@
             id: brukerid
         });
     }
+    function visKnappVerdiiii() {
+        knapp4Verdi = btn4.value;
+        show2.innerHTML = knapp4Verdi;
+        resultat = (+31 + +verdi) * +knapp4Verdi;
+        grader.push({
+            temp: verdi,
+            cond: knapp4Verdi,
+            sum: resultat,
+            tid: firebase.database.ServerValue.TIMESTAMP,
+            id: brukerid
+        });
+    }
 
 
     /*function visLagring(snap) {
@@ -456,12 +662,111 @@
     }
 
     function returnSvar() {
-        if (1 < resultat && resultat < 4) {
-            result.innerHTML = "Blå ekstra";
-        }else if (resultat == 5) {
-            result.innerHTML = "Skigo";
+        if (0 < resultat && resultat < 17) {
+            result.innerHTML = `<img src="bildre/polar1.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V05-POLAR-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (16 < resultat && resultat < 22) {
+            result.innerHTML = `<img src="bildre/V20.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V20-GROENN-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (21 < resultat && resultat < 26) {
+            result.innerHTML = `<img src="bildre/V30.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V30-BLAA-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (25 < resultat && resultat < 29) {
+            result.innerHTML = `<img src="bildre/V40.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V40-BLAA-EXTRA-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (28 < resultat && resultat < 31) {
+            result.innerHTML = `<img src="bildre/V45.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V45-FIOLETT-SPECIAL-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (30 < resultat && resultat < 32) {
+            result.innerHTML = `<img src="bildre/V50.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V50-FIOLETT-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (31 < resultat && resultat < 33) {
+            result.innerHTML = `<img src="bildre/V55.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V55-ROED-SPECIAL-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (32 < resultat && resultat < 35) {
+            result.innerHTML = `<img src="bildre/V60.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V60-ROED-SOELV-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (34 < resultat && resultat < 42) {
+            result.innerHTML = `<img src="bildre/KX75.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX75-Roed-Extra-Vaat-Klister"><h1>Klikk her for å handle smøring</h1></a><br>`
+        }
+
+        else if (99 < resultat && resultat < 1600) {
+            result.innerHTML = `<img src="bildre/polar1.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V05-POLAR-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (1500 < resultat && resultat < 2000) {
+            result.innerHTML = `<img src="bildre/V20.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V20-GROENN-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (1900 < resultat && resultat < 2500) {
+            result.innerHTML = `<img src="bildre/V30.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V30-BLAA-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (2400 < resultat && resultat < 2800) {
+            result.innerHTML = `<img src="bildre/V40.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V40-BLAA-EXTRA-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (2700 < resultat && resultat < 3000) {
+            result.innerHTML = `<img src="bildre/V45.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V45-FIOLETT-SPECIAL-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (2900 < resultat && resultat < 3100) {
+            result.innerHTML = `<img src="bildre/V50.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V50-FIOLETT-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (3000 < resultat && resultat < 3200) {
+            result.innerHTML = `<img src="bildre/V55.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V55-ROED-SPECIAL-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (3100 < resultat && resultat < 3400) {
+            result.innerHTML = `<img src="bildre/V60.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V60-ROED-SOELV-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (3300 < resultat && resultat < 4200) {
+            result.innerHTML = `<img src="bildre/KX75.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX75-Roed-Extra-Vaat-Klister"><h1>Klikk her for å handle smøring</h1></a><br>`
+        }
+
+        else if (9900 < resultat && resultat < 140000) {
+            result.innerHTML = `<img src="bildre/polar1.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V05-POLAR-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (140000 < resultat && resultat < 190000) {
+            result.innerHTML = `<img src="bildre/V20.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V20-GROENN-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (180000 < resultat && resultat < 240000) {
+            result.innerHTML = `<img src="bildre/V30.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V30-BLAA-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (230000 < resultat && resultat < 270000) {
+            result.innerHTML = `<img src="bildre/V40.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V40-BLAA-EXTRA-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (260000 < resultat && resultat < 290000) {
+            result.innerHTML = `<img src="bildre/V45.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V45-FIOLETT-SPECIAL-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (280000 < resultat && resultat < 300000) {
+            result.innerHTML = `<img src="bildre/V50.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V50-FIOLETT-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (290000 < resultat && resultat < 320000) {
+            result.innerHTML = `<img src="bildre/55.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V55-ROED-SPECIAL-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (310000 < resultat && resultat < 340000) {
+            result.innerHTML = `<img src="bildre/V60.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V60-ROED-SOELV-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (330000 < resultat && resultat < 420000) {
+            result.innerHTML = `<img src="bildre/KX75.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX75-Roed-Extra-Vaat-Klister"><h1>Klikk her for å handle smøring</h1></a><br>`
+        }
+
+        else if (-16 < resultat && resultat < 0) {
+            result.innerHTML = `<img src="bildre/polar1.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-voks/V05-POLAR-festevoks"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (-29 < resultat && resultat < -15) {
+            result.innerHTML = `<img src="bildre/KX30.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX30-Blaatt-Isklister"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (-32 < resultat && resultat < -28) {
+            result.innerHTML = `<img src="bildre/KX35.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX35-Violet-Special-Klister"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (-34 < resultat && resultat < -31) {
+            result.innerHTML = `<img src="bildre/KX45.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX45-Violet-Klister"><h1>Klikk her for å handle smøring</h1></a><br>`
+        } else if (-36 < resultat && resultat < -33) {
+            result.innerHTML = `<img src="bildre/KX65.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX65-Red-Klister"><h1>Klikk her for å handle smøring</h1></a><br>`
         } else {
-            result.innerHTML = "tullball";
+            result.innerHTML = `<img src="bildre/KX75.jpg">`;
+            link.innerHTML = `<a href="https://bull-ski-kajakk.no/SKI/Skismoering/Festesmoering/Swix-klister/KX75-Roed-Extra-Vaat-Klister"><h1>Klikk her for å handle smøring</h1></a><br>`
         }
 
 
@@ -480,6 +785,10 @@
     }
     function bla3() {
         hele.style.marginLeft = "-300vw";
+        returnSvar();
+    }
+    function bla4() {
+        hele.style.marginLeft = "0";
     }
 
     function visPush() {
