@@ -71,6 +71,13 @@
             transition: 1s;
             margin-left: 0;
         }
+
+
+        #link h1{
+            text-decoration: none;
+            text-align: left;
+            color: #555555;
+        }
         #nr1 {
             /*background-image: url("bildre/langrenn.jpg");
             background-size: cover;
@@ -239,6 +246,10 @@
             margin: 40px;
             box-shadow: 5px 5px #96d0e9;
             border-radius: 3px;
+            position: relative;
+        }
+        main > div {
+            position: relative;
         }
         h1 {
             text-align: center;
@@ -258,6 +269,20 @@
         }
         #todolist {
             overflow: scroll;
+            height: 250px;
+            margin-top: 15px;
+            z-index: -100;
+            border-top: 2px solid #4875a9;
+            border-bottom: 2px solid #4875a9;
+        }
+        main > div > div {
+            position: absolute;
+            height: 7px;
+            width: 100%;
+            background-color: grey;
+            z-index: 1000000;
+            margin-top: -7px;
+            opacity: .1;
         }
         #todolist > article {
             display: grid;
@@ -400,6 +425,20 @@
             padding-top: 40px;
             margin: 0;
         }
+        #logo {
+            padding: 40px;
+        }
+        hr {
+            border: solid 0.5px #4875a9;
+        }
+        #link a {
+            text-decoration-color: #555555;
+            color: #555555;
+        }
+        #link {
+            text-decoration-color: #555555;
+            color: #555555;
+        }
 
     </style>
 </head>
@@ -409,16 +448,20 @@
     <div id="nr1">
 
         <div id="divdiv">
-            <div id="dinSide"><h3 style="font-size: 750%">Min Side</h3></div>
+            <div id="dinSide"><!--<img width="150px" src="bildre/Smørekalkulator-01.png" alt="" style="float: right" id="logo">--><h3 style="font-size: 750%">Min Side</h3> </div>
             <main>
 
                 <h1>Hvordan var smøringen?</h1>
                 <input type="text" id="inpText" placeholder="Jeg likte..." autofocus>
-                <section id="todolist">
+                <div>
+                    <section id="todolist">
 
 
 
-                </section>
+                    </section>
+                    <div></div>
+                </div>
+
 
             </main>
         </div>
@@ -451,8 +494,8 @@
     </div>
     <div id="nr2">
         <h3>Hvor mange grader er det ute?</h3>
-        <input type="range" id="range" value="?" min="-30" max="10" autocomplete onchange="visVerdi()">
-        <div id="show"><p id="show1">grader: ?</p></div>
+        <input type="range" id="range" value="-10" min="-30" max="10" autocomplete onchange="visVerdi()">
+        <div id="show"><p id="show1">grader: -10</p></div>
         <button onclick="bla2()" id="button2">Trykk for å gå videre</button>
     </div>
     <div id="nr3">
@@ -463,22 +506,22 @@
 
 
         <div id="logoer">
-            <div style="position: relative">
+            <div style="position: relative" onclick="visKnapp()">
                 <img src="bildre/nysnø-01.png" alt="">
                 <h1>Nysnø</h1>
                 <button value="1" id="btn1" onclick="visKnappVerdi()"></button>
             </div>
-            <div style="position: relative">
+            <div style="position: relative" onclick="visKnapp()">
                 <img src="bildre/finkornet-01.png" alt="">
                 <h1>Finkornet snø</h1>
                 <button value="100" id="btn2" onclick="visKnappVerdii()"></button>
             </div>
-            <div style="position: relative">
+            <div style="position: relative" onclick="visKnapp()">
                 <img src="bildre/gammelsnø-01.png" alt="">
                 <h1>Gammel snø</h1>
                 <button value="10000" id="btn3" onclick="visKnappVerdiii()"></button>
             </div>
-            <div style="position: relative">
+            <div style="position: relative" onclick="visKnapp()">
                 <img src="bildre/grovkornet-01.png" alt="">
                 <h1>Grovkornet snø</h1>
                 <button value="-1" id="btn4" onclick="visKnappVerdiiii()"></button>
@@ -490,7 +533,7 @@
 
 
         <div><p id="show2"></p></div>
-        <button id="button3" onclick="bla3()" >Bla videre</button>
+        <button id="button3" onclick="bla3()" style="display: none">Bla videre</button>
     </div>
     <div id="nr4">
 
@@ -531,6 +574,8 @@
     const btn2 = document.getElementById("btn2");
     const btn3 = document.getElementById("btn3");
     const btn4 = document.getElementById("btn4");
+    const button3 = document.getElementById("button3");
+
 
     const show2 = document.getElementById("show2");
     const result = document.getElementById("result");
@@ -552,7 +597,9 @@
     var resultat;
 
 
-
+    function visKnapp() {
+        button3.style.display = "inline-block";
+    }
 
 
 
@@ -603,8 +650,8 @@
         show2.innerHTML = knapp4Verdi;
         resultat = (+31 + +verdi) * +knapp4Verdi;
         grader.push({
-            temp: verdi,
-            cond: knapp4Verdi,
+            temp: Number(verdi),
+            cond: Number(knapp4Verdi),
             sum: resultat,
             tid: firebase.database.ServerValue.TIMESTAMP,
             id: brukerid
@@ -626,6 +673,87 @@
 
         `
     }*/
+
+    function finnSmoring(sum) {
+        if(sum < -35 )
+            return "KX75";
+        if(sum < -33 )
+            return "KX65";
+        if(sum < -31 )
+            return "KX45";
+        if(sum < -28 )
+            return "KX35";
+        if(sum < -15 )
+            return "KX30";
+        if(sum < 0 )
+            return "V05";
+        if(sum < 17 )
+            return "V05";
+        if(sum < 22)
+            return "V20";
+        if(sum < 26)
+            return "V30";
+        if(sum < 29)
+            return "V40";
+        if(sum < 31 )
+            return "V45";
+        if(sum < 32)
+            return "V50";
+        if(sum < 33)
+            return "V55";
+        if(sum < 35)
+            return "V60";
+        if(sum < 42)
+            return "KX75";
+        if(sum < 1600 )
+            return "V05";
+        if(sum < 2000)
+            return "V20";
+        if(sum < 2500)
+            return "V30";
+        if(sum < 2800)
+            return "V40";
+        if(sum < 3000 )
+            return "V45";
+        if(sum < 3100)
+            return "V50";
+        if(sum < 3200)
+            return "V55";
+        if(sum < 3400)
+            return "V60";
+        if(sum < 4200)
+            return "KX75";
+        if(sum < 140000 )
+            return "V05";
+        if(sum < 190000)
+            return "V20";
+        if(sum < 240000)
+            return "V30";
+        if(sum < 270000)
+            return "V40";
+        if(sum < 290000 )
+            return "V45";
+        if(sum < 300000)
+            return "V50";
+        if(sum < 320000)
+            return "V55";
+        if(sum < 340000)
+            return "V60";
+        if(sum < 420000)
+            return "KX75";
+
+    }
+    function finnCond(condtall) {
+        if(condtall === 1)
+            return "Nysnø";
+        if(condtall === 100)
+            return "Finkornet";
+        if(condtall === 10000)
+            return "Gammel";
+        if(condtall === -1)
+            return "Grovkorn";
+    }
+
     function visLagring(snap) {
         const deg = snap.val();
         const key = snap.key;
@@ -634,8 +762,8 @@
                  <tr id="${key}">
 
                     <td>${deg.temp}</td>
-                    <td>${deg.cond}</td>
-                    <td>${deg.sum}</td>
+                    <td>${finnCond(deg.cond)}</td>
+                    <td>${finnSmoring(deg.sum)}</td>
                     <td class="lblDelete" onclick="slett1('${key}')">X</td>
                 </tr>
         `
@@ -836,6 +964,7 @@
             tekst: inpText.value,
             done: false,
             navn: name,
+            uid: brukerid,
             tid: firebase.database.ServerValue.TIMESTAMP
         });
         inpText.value="";
@@ -843,14 +972,33 @@
     function visTodo(snap) {
         const todo = snap.val();
         const key = snap.key;
-        todolist.innerHTML += `
+
+        let kanslettes = false;
+        if(todo.uid === brukerid) {
+            kanslettes = true;
+        }
+
+        if(kanslettes) {
+            todolist.innerHTML = `
                 <article id="${key}">
-                    <label id="navnet">${name}</label><br>
+                    <label id="navnet">${todo.navn}</label><br>
                     <label>${todo.tekst}</label>
                     <label class="lblDelete" onclick="slett('${key}')">X</label>
-                   <label>${new Date(todo.tid)}</label>
-                </article>
-            `
+                    <label>${new Date(todo.tid)}</label>
+                </article><hr>
+            ` + todolist.innerHTML;
+        } else {
+            todolist.innerHTML = `
+                <article id="${key}">
+                    <label id="navnet">${todo.navn}</label><br>
+                    <label>${todo.tekst}</label>
+                    <label></label>
+                    <label>${new Date(todo.tid)}</label>
+                </article><hr>
+            ` + todolist.innerHTML;
+        }
+
+
     }
 
     inpText.onchange = lagreTodo;
