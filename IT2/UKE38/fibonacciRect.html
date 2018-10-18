@@ -48,12 +48,10 @@
     //c.strokeRect(startX - tall2, startY - tall2, tall2, tall2);
     c.beginPath();
     c.arc(startX, startY, tall2, Math.PI, Math.PI * 1.5, false);
-    //c.lineTo(startX, startY);
     c.stroke();
     //c.strokeRect(startX - tall2, startY, tall, tall);
     c.beginPath();
     c.arc(startX, startY, tall, Math.PI * 0.5, Math.PI, false);
-    //c.lineTo(startX, startY);
     c.stroke();
     tall += tall2;
     hx = 0;
@@ -61,7 +59,6 @@
     //c.strokeRect(startX + hx, startY - hy, tall, tall);
     c.beginPath();
     c.arc(startX + hx, startY - hy, tall, 0, Math.PI * 0.5, false);
-    //c.lineTo(startX + hx, startY - hy);
     c.stroke();
     c.stroke();
 
@@ -79,7 +76,6 @@
             //c.strokeRect(startX - o.x, startY - o.y - tall, tall, tall);
             c.beginPath();
             c.arc(startX - o.x, startY - o.y, tall, Math.PI * 1.5, 0, false);
-            //c.lineTo(startX - o.x, startY - o.y);
             c.stroke();
 
         }
@@ -90,7 +86,6 @@
                 //c.strokeRect(startX - v.x, startY - o.y - tall, tall2, tall2);
                 c.beginPath();
                 c.arc(startX - v.x + tall2, startY - o.y - tall + tall2, tall2, Math.PI, Math.PI * 1.5, false);
-                //c.lineTo(startX - v.x + tall2, startY - o.y - tall + tall2);
                 c.stroke();
                 o.x += tall2;
                 h.y = o.y + tall;
@@ -101,7 +96,6 @@
                 //c.strokeRect(startX - v.x, startY - o.y - tall, tall2, tall2);
                 c.beginPath();
                 c.arc(startX - v.x + tall2, startY - o.y - tall + tall2, tall2, Math.PI, Math.PI * 1.5, false);
-                //c.lineTo(startX - v.x + tall2, startY - o.y - tall + tall2);
                 c.stroke();
                 o.x += tall2;
                 h.y = o.y + tall;
@@ -113,7 +107,6 @@
             //c.strokeRect(startX - v.x, startY + n.y, tall, tall);
             c.beginPath();
             c.arc(startX - v.x + tall, startY + n.y, tall, Math.PI * 0.5, Math.PI, false);
-            //c.lineTo(startX - v.x + tall, startY + n.y);
             c.stroke();
             n.y += tall;
         }
@@ -122,7 +115,6 @@
             //c.strokeRect(startX + h.x, startY - h.y, tall2, tall2);
             c.beginPath();
             c.arc(startX + h.x, startY - h.y, tall2, 0, Math.PI * 0.5, false);
-            //c.lineTo(startX + h.x, startY - h.y);
             c.stroke();
             h.x += tall2;
 
@@ -133,30 +125,6 @@
         ned();
         hoyre();
     }
-
-
-
-
-   /* for (var i = 1; i < 10; i++) {
-
-        function bareTall() {
-            tall += tall2;
-            document.write(`<p>${tall}</p>`);
-        }
-        function bareTall2() {
-            tall2 += tall;
-            document.write(`<p>${tall2}</p>`);
-        }
-        bareTall();
-        bareTall2();
-    }
-
-    c.beginPath();
-    c.moveTo(300,300);
-    c.lineTo(300,450);
-    c.moveTo(300,300);
-    c.lineTo(450,300);
-    c.stroke();*/
 </script>
 
 </body>
