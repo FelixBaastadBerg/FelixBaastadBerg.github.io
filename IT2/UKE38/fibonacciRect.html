@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fiboRect</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+
+    var canvas = document.getElementById("canvas");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    var c = canvas.getContext("2d");
+
+    var startX = 470;
+    var startY = 250;
+    var tall = 5;
+    var tall2 = 5;
+
+    var hx;
+    var hy;
+
+    var o = {
+        x: 5,
+        y: 5
+    };
+    var v = {
+        x: 5,
+        y: 0
+    };
+    var n = {
+        x: 0,
+        y: 5
+    };
+    var h = {
+        x: 10,
+        y: 5
+    };
+
+    //c.strokeRect(startX - tall2, startY - tall2, tall2, tall2);
+    c.beginPath();
+    c.arc(startX, startY, tall2, Math.PI, Math.PI * 1.5, false);
+    //c.lineTo(startX, startY);
+    c.stroke();
+    //c.strokeRect(startX - tall2, startY, tall, tall);
+    c.beginPath();
+    c.arc(startX, startY, tall, Math.PI * 0.5, Math.PI, false);
+    //c.lineTo(startX, startY);
+    c.stroke();
+    tall += tall2;
+    hx = 0;
+    hy = tall2;
+    //c.strokeRect(startX + hx, startY - hy, tall, tall);
+    c.beginPath();
+    c.arc(startX + hx, startY - hy, tall, 0, Math.PI * 0.5, false);
+    //c.lineTo(startX + hx, startY - hy);
+    c.stroke();
+    c.stroke();
+
+
+    var op, ve, ne, ho;
+
+
+
+    for (var i = 1; i < 3; i++) {
+
+
+        function opp() {
+
+            tall += tall2;
+            //c.strokeRect(startX - o.x, startY - o.y - tall, tall, tall);
+            c.beginPath();
+            c.arc(startX - o.x, startY - o.y, tall, Math.PI * 1.5, 0, false);
+            //c.lineTo(startX - o.x, startY - o.y);
+            c.stroke();
+
+        }
+        function venstre() {
+            if (i < 2) {
+                tall2 += tall + 5;
+                v.x += tall2;
+                //c.strokeRect(startX - v.x, startY - o.y - tall, tall2, tall2);
+                c.beginPath();
+                c.arc(startX - v.x + tall2, startY - o.y - tall + tall2, tall2, Math.PI, Math.PI * 1.5, false);
+                //c.lineTo(startX - v.x + tall2, startY - o.y - tall + tall2);
+                c.stroke();
+                o.x += tall2;
+                h.y = o.y + tall;
+                o.y += tall;
+            } else {
+                tall2 += tall;
+                v.x += tall2;
+                //c.strokeRect(startX - v.x, startY - o.y - tall, tall2, tall2);
+                c.beginPath();
+                c.arc(startX - v.x + tall2, startY - o.y - tall + tall2, tall2, Math.PI, Math.PI * 1.5, false);
+                //c.lineTo(startX - v.x + tall2, startY - o.y - tall + tall2);
+                c.stroke();
+                o.x += tall2;
+                h.y = o.y + tall;
+                o.y += tall;
+            }
+        }
+        function ned() {
+            tall += tall2;
+            //c.strokeRect(startX - v.x, startY + n.y, tall, tall);
+            c.beginPath();
+            c.arc(startX - v.x + tall, startY + n.y, tall, Math.PI * 0.5, Math.PI, false);
+            //c.lineTo(startX - v.x + tall, startY + n.y);
+            c.stroke();
+            n.y += tall;
+        }
+        function hoyre() {
+            tall2 += tall;
+            //c.strokeRect(startX + h.x, startY - h.y, tall2, tall2);
+            c.beginPath();
+            c.arc(startX + h.x, startY - h.y, tall2, 0, Math.PI * 0.5, false);
+            //c.lineTo(startX + h.x, startY - h.y);
+            c.stroke();
+            h.x += tall2;
+
+        }
+
+        opp();
+        venstre();
+        ned();
+        hoyre();
+    }
+
+
+
+
+   /* for (var i = 1; i < 10; i++) {
+
+        function bareTall() {
+            tall += tall2;
+            document.write(`<p>${tall}</p>`);
+        }
+        function bareTall2() {
+            tall2 += tall;
+            document.write(`<p>${tall2}</p>`);
+        }
+        bareTall();
+        bareTall2();
+    }
+
+    c.beginPath();
+    c.moveTo(300,300);
+    c.lineTo(300,450);
+    c.moveTo(300,300);
+    c.lineTo(450,300);
+    c.stroke();*/
+</script>
+
+</body>
+</html>
