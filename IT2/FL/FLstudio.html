@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flstuido</title>
+    <style>
+        #rommet {
+            position: relative;
+            height: 400px;
+            width: 600px;
+            background-color: lightgrey;
+        }
+        #linje {
+            position: absolute;
+            left: 0;
+            top: -3px;
+            height: calc(100% + 3px);
+            width: 2px;
+            background-color: red;
+        }
+        #sirkel {
+            position: relative;
+        }
+        #sirkel1 {
+            position: absolute;
+            top: -20px;
+            left: -12px;
+            opacity: .6;
+            margin: 3px;
+        }
+        #sirkel1:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+        #sirkel1 {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid red;
+        }
+        #midten {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+        }
+        #addSound {
+            background-color: lightgrey;
+        }
+        .firkant, .firkant1, .firkant2, .firkant3, .firkant4, .firkant5, .firkant6, .firkant7, .firkant8, .firkant9 {
+            position: absolute;
+            height: 37px;
+            width: 10px;
+            border: 1px solid black;
+        }
+        .firkant {
+            background-color: darkgray;
+        }
+        .firkant1 {
+            background-color: red;
+        }
+        .firkant2 {
+            background-color: blue;
+        }
+        .firkant3 {
+            background-color: green;
+        }
+        .firkant4 {
+            background-color: yellow;
+        }
+        .firkant5 {
+            background-color: orange;
+        }
+        .firkant6 {
+            background-color: pink;
+        }
+        .firkant7 {
+            background-color: purple;
+        }
+        .firkant8 {
+            background-color: white;
+        }
+        .firkant9 {
+            background-color: violet;
+        }
+        hr {
+            margin-top: 38px;
+            width: 100%;
+            z-index: 10;
+        }
+        #tid {
+            width: 600px;
+            background-color: darkgray;
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            border-bottom: solid grey 1px;
+        }
+        #tid > div {
+            padding: 3px;
+            padding-left: 5px;
+        }
+        #mellomLinje {
+            width: 600px;
+            background-color: darkgray;
+            height: 20px;
+            border-bottom: solid grey 1px;
+            position: relative;
+        }
+        .linene {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 1px;
+            background-color: white;
+        }
+        #strek,#strek1,#strek2,#strek3,#strek4,#strek5, #strek6,#strek7,#strek8, #strek9 {
+            width: 1px;
+            top: -45px;
+            height: calc(100% + 45px);
+            background-color: white;
+            position: absolute;
+        }
+        #strek {
+            margin-left: 60px;
+        }
+        #strek1 {
+            margin-left: 120px;
+        }
+        #strek2 {
+            margin-left: 180px;
+        }
+        #strek3 {
+            margin-left: 240px;
+        }
+        #strek4 {
+            margin-left: 300px;
+        }
+        #strek5 {
+            margin-left: 360px;
+        }
+        #strek6 {
+            margin-left: 420px;
+        }
+        #strek7 {
+            margin-left: 480px;
+        }
+        #strek8 {
+            margin-left: 540px;
+        }
+        #strek9 {
+            margin-left: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="drum" onclick="Lyd()">Bass#1</button>
+    <button id="drum1" onclick="Lyd1()">Bass#2</button>
+    <button id="drum2" onclick="Lyd2()">Bass#3</button>
+    <button id="drum3" onclick="Lyd3()">Bass#4</button>
+    <button id="drum4" onclick="Lyd4()">Bass#5</button>
+    <button id="drum5" onclick="Lyd5()">Bass#6</button>
+    <button id="drum6" onclick="Lyd6()">Bass#7</button>
+    <button id="drum7" onclick="Lyd7()">Bass#8</button>
+    <button id="drum8" onclick="Lyd8()">Bass#9</button>
+    <button id="drum9" onclick="Lyd9()">Bass#10</button>
+    <audio src="lydfiler/01_fk_G.wav" id="drumLyd" preload="auto"></audio><!--jeg prøvde også preload ="auto", så på nettet at det kunne funke-->
+    <audio src="lydfiler/02_fk_F%23.wav" id="drumLyd1" preload="auto"></audio>
+    <audio src="lydfiler/03_fk_A%23.wav" id="drumLyd2" preload="auto"></audio>
+    <audio src="lydfiler/04_fk_F%23.wav" id="drumLyd3" preload="auto"></audio>
+    <audio src="lydfiler/05_fk_G.wav" id="drumLyd4" preload="auto"></audio>
+    <audio src="lydfiler/06_fk_E.wav" id="drumLyd5" preload="auto"></audio>
+    <audio src="lydfiler/07_fk_A%23.wav" id="drumLyd6" preload="auto"></audio>
+    <audio src="lydfiler/08_fk_F.wav" id="drumLyd7" preload="auto"></audio>
+    <audio src="lydfiler/09_fk_F.wav" id="drumLyd8" preload="auto"></audio>
+    <audio src="lydfiler/10_fk_G.wav" id="drumLyd9" preload="auto"></audio>
+
+    <div id="tid">
+        <div></div>
+        <div>4</div>
+        <div>8</div>
+        <div>12</div>
+        <div>16</div>
+        <div>20</div>
+        <div>24</div>
+        <div>28</div>
+        <div>32</div>
+        <div>36</div>
+    </div>
+    <div id="mellomLinje" onclick="s(event)"></div>
+    <div id="midten">
+        <div id="rommet">
+            <div id="linje">
+                <div id="sirkel">
+                    <div id="sirkel1" onmousedown="m(event)"></div>
+                </div>
+            </div>
+            <div id="strek"></div>
+            <div id="strek1"></div>
+            <div id="strek2"></div>
+            <div id="strek3"></div>
+            <div id="strek4"></div>
+            <div id="strek5"></div>
+            <div id="strek6"></div>
+            <div id="strek7"></div>
+            <div id="strek8"></div>
+            <div id="strek9"></div>
+            <hr><hr><hr><hr><hr><hr><hr><hr><hr>
+        </div>
+        <div id="addSound">
+            <div id="lydene">
+                <input type="radio" name="felix" value="1" class="inpRadio">#1
+                <input type="radio" name="felix" value="2" class="inpRadio">#2
+                <input type="radio" name="felix" value="3" class="inpRadio">#3
+                <input type="radio" name="felix" value="4" class="inpRadio">#4
+                <input type="radio" name="felix" value="5" class="inpRadio">#5
+                <input type="radio" name="felix" value="6" class="inpRadio">#6
+                <input type="radio" name="felix" value="7" class="inpRadio">#7
+                <input type="radio" name="felix" value="8" class="inpRadio">#8
+                <input type="radio" name="felix" value="9" class="inpRadio">#9
+                <input type="radio" name="felix" value="10" class="inpRadio">#10
+            </div>
+            <input type="number" id="inputSek" min="1" max="10">HVILKEN RAD <br>
+            <input type="number" id="inputRad" min="0" max="40">etter hvor mange takter
+            <br>
+            <button id="btnLeggTil" onclick="leggTil()">Legg til</button>
+
+        </div>
+    </div>
+    <button id="pause">pause</button>
+    <button id="start">start</button>
+
+
+
+
+
+    <script>
+
+        const drum = document.getElementById("drum");
+        const drum1 = document.getElementById("drum1");
+        const drum2 = document.getElementById("drum2");
+        const drum3 = document.getElementById("drum3");
+        const drum4 = document.getElementById("drum4");
+        const drum5 = document.getElementById("drum5");
+        const drum6 = document.getElementById("drum6");
+        const drum7 = document.getElementById("drum7");
+        const drum8 = document.getElementById("drum8");
+        const drum9 = document.getElementById("drum9");
+        const drumLyd = document.getElementById("drumLyd");
+        const drumLyd1 = document.getElementById("drumLyd1");
+        const drumLyd2 = document.getElementById("drumLyd2");
+        const drumLyd3 = document.getElementById("drumLyd3");
+        const drumLyd4 = document.getElementById("drumLyd4");
+        const drumLyd5 = document.getElementById("drumLyd5");
+        const drumLyd6 = document.getElementById("drumLyd6");
+        const drumLyd7 = document.getElementById("drumLyd7");
+        const drumLyd8 = document.getElementById("drumLyd8");
+        const drumLyd9 = document.getElementById("drumLyd9");
+
+        var btnLeggTil = document.getElementById("btnLeggTil");
+        var inputRad = document.getElementById("inputRad");
+        var inputSek = document.getElementById("inputSek");
+        var start = document.getElementById("start");
+        var pause = document.getElementById("pause");
+        var firkant = document.getElementsByClassName("firkant");
+        var firkant1 = document.getElementsByClassName("firkant");
+        var firkant2 = document.getElementsByClassName("firkant");
+        var firkant3 = document.getElementsByClassName("firkant");
+        var firkant4 = document.getElementsByClassName("firkant");
+        var firkant5 = document.getElementsByClassName("firkant");
+
+var avstand = 0;
+
+        for (var i = 0; i < 40; i++) {
+
+            avstand += 15;
+            var mellomLinje = document.getElementById("mellomLinje");
+            var line = document.createElement("div");
+            line.className = "linene";
+            line.style.left = avstand +"px";
+            mellomLinje.appendChild(line);
+
+        }
+
+
+        var liste1 = [];
+        var liste2 = [];
+        var liste3 = [];
+        var liste4 = [];
+        var liste5 = [];
+        var liste6 = [];
+        var liste7 = [];
+        var liste8 = [];
+        var liste9 = [];
+        var liste10 = [];
+
+
+        var BPM = 120;
+        var counter = 0;
+        var counterMax = 5;
+        var linje = document.getElementById("linje");
+
+
+        var hits = BPM/60*1000;
+        var inputen;
+
+        function leggTil() {
+            var inpRadio = document.getElementsByClassName("inpRadio");
+            var rommet = document.getElementById("rommet");
+            var fir = document.createElement("div");
+            if (inpRadio[0].checked) {
+                fir.className = "firkant";
+                liste1.push(Number(inputRad.value)*15);
+                liste1.sort()
+            }
+            if (inpRadio[1].checked) {
+                fir.className = "firkant1";
+                liste2.push(Number(inputRad.value)*15);
+                liste2.sort()
+            }
+            if (inpRadio[2].checked) {
+                fir.className = "firkant2";
+                liste3.push(Number(inputRad.value)*15);
+                liste3.sort()
+            }
+            if (inpRadio[3].checked) {
+                fir.className = "firkant3";
+                liste4.push(Number(inputRad.value)*15);
+                liste4.sort()
+            }
+            if (inpRadio[4].checked) {
+                fir.className = "firkant4";
+                liste5.push(Number(inputRad.value)*15);
+                liste5.sort()
+            }
+            if (inpRadio[5].checked) {
+                fir.className = "firkant5";
+                liste6.push(Number(inputRad.value)*15);
+                liste6.sort()
+            }
+            if (inpRadio[6].checked) {
+                fir.className = "firkant6";
+                liste7.push(Number(inputRad.value)*15);
+                liste7.sort()
+            }
+            if (inpRadio[7].checked) {
+                fir.className = "firkant7";
+                liste8.push(Number(inputRad.value)*15);
+                liste8.sort()
+            }
+            if (inpRadio[8].checked) {
+                fir.className = "firkant8";
+                liste9.push(Number(inputRad.value)*15);
+                liste9.sort()
+            }
+            if (inpRadio[9].checked) {
+                fir.className = "firkant9";
+                liste10.push(Number(inputRad.value)*15);
+                liste10.sort()
+            }
+            console.log(inputRad.value*inputSek.value);
+            fir.style.top = inputSek.value*40 - 40 + "px";
+            fir.style.left = inputRad.value*15 + "px";
+            rommet.appendChild(fir);
+
+        }
+        /*function func() {
+            var condition = document.getElementsByClassName("cond");
+
+
+            if (condition[0].checked) {
+                forhold.innerHTML = condition[0].value;
+            }
+            if (condition[1].checked) {
+                forhold.innerHTML = condition[1].value;
+            }
+            if (condition[2].checked) {
+                forhold.innerHTML = condition[2].value;
+            }
+            if (condition[3].checked) {
+                forhold.innerHTML = condition[3].value;
+            }
+
+        }*/
+
+        drum1.onclick = Lyd1;
+        drum2.onclick = Lyd2;
+        drum3.onclick = Lyd3;
+        drum4.onclick = Lyd4;
+        drum5.onclick = Lyd5;
+        drum6.onclick = Lyd6;
+        drum7.onclick = Lyd7;
+        drum8.onclick = Lyd8;
+        drum9.onclick = Lyd9;
+
+        function Lyd() {
+
+            var clone = drumLyd.cloneNode(true);//det var en på nettet som sa at dette burde fungere
+            clone.play();                       //men det hjalp ikke noe og lydene kunne fortsatt ikke være for tett
+        }
+        function Lyd1() {
+            var clone = drumLyd1.cloneNode(true);
+            clone.play();
+        }
+        function Lyd2() {
+            var clone = drumLyd2.cloneNode(true);
+            clone.play();
+        }
+        function Lyd3() {
+            drumLyd3.play();
+        }
+        function Lyd4() {
+            drumLyd4.play();
+        }
+        function Lyd5() {
+            drumLyd5.play();
+        }
+        function Lyd6() {
+            drumLyd6.play();
+        }
+        function Lyd7() {
+            drumLyd7.play();
+        }
+        function Lyd8() {
+            drumLyd8.play();
+        }
+        function Lyd9() {
+            drumLyd9.play();
+        }
+
+        var globalID;
+        var xxx;
+        var xverdi = 0;
+        function MoveX() {
+            globalID = requestAnimationFrame(MoveX);
+                xverdi += 0.2;
+                xxx = Number(xverdi.toFixed(1));
+                linje.style.left = xverdi + "px";
+            for (var i = 0; i < liste1.length; i++) {
+                if (xxx === liste1[i]) {
+                    drumLyd.play();
+                }
+            }
+            for (var i = 0; i < liste2.length; i++) {
+                if (xxx === liste2[i]) {
+                    drumLyd1.play();
+                }
+            }
+            for (var i = 0; i < liste3.length; i++) {
+                if (xxx === liste3[i]) {
+                    drumLyd2.play();
+                }
+            }
+            for (var i = 0; i < liste4.length; i++) {
+                if (xxx === liste4[i]) {
+                    drumLyd3.play();
+                }
+            }
+            for (var i = 0; i < liste5.length; i++) {
+                if (xxx === liste5[i]) {
+                    drumLyd4.play();
+                }
+            }
+            for (var i = 0; i < liste6.length; i++) {
+                if (xxx === liste6[i]) {
+                    drumLyd5.play();
+                }
+            }
+            for (var i = 0; i < liste7.length; i++) {
+                if (xxx === liste7[i]) {
+                    drumLyd6.play();
+                }
+            }
+            for (var i = 0; i < liste8.length; i++) {
+                if (xxx === liste8[i]) {
+                    drumLyd7.play();
+                }
+            }
+            for (var i = 0; i < liste9.length; i++) {
+                if (xxx === liste9[i]) {
+                    drumLyd8.play();
+                }
+            }
+            for (var i = 0; i < liste10.length; i++) {
+                if (xxx === liste10[i]) {
+                    drumLyd9.play();
+                }
+            }
+
+        }
+        pause.onclick = function () {
+            cancelAnimationFrame(globalID)
+        };
+        start.onclick = function () {
+            globalID = requestAnimationFrame(MoveX)
+        };
+
+
+        var sirkel1 = document.getElementById("sirkel1");
+
+        musNede = false;
+
+        function m(e) {
+            musNede = true;
+            linje.style.left = e.pageX - 8 + "px";
+            xverdi = e.pageX - 8
+            //sirkel1.style.left = e.pageX;
+        }
+        sirkel1.onmousemove = function (e) {
+            if (musNede) {
+                linje.style.left = e.pageX - 8 + "px";
+                xverdi = e.pageX - 8
+            }
+        };
+        sirkel1.onmouseup = function () {
+            musNede = false;
+        };
+        mellomLinje.onmouseleave = function () {
+            musNede = false;
+        };
+        function s(e) {
+            linje.style.left = e.pageX - 8 + "px";
+            xverdi = e.pageX - 8
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
