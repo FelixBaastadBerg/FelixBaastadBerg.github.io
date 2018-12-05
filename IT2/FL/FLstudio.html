@@ -3,7 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Flstuido</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.15/howler.js"></script>
     <style>
+        body {
+            margin: 0;
+        }
+        h3 {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+        #over {
+            width: 100%;
+            text-align: center;
+        }
+        #takter {
+            margin: 7px;
+        }
+        #lydene {
+            margin: 25px;
+            display: grid;
+            grid-template-columns: repeat(20, 1fr)
+        }
+        #veldLyd {
+            margin: 7px;
+            margin-bottom: 0;
+        }
+        #testUt {
+            margin: 7px;
+            margin-bottom: 0;
+        }
         #rommet {
             position: relative;
             height: 400px;
@@ -17,6 +45,7 @@
             height: calc(100% + 3px);
             width: 2px;
             background-color: red;
+            z-index: 0.1;
         }
         #sirkel {
             position: relative;
@@ -38,15 +67,28 @@
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-top: 20px solid red;
+            z-index: 20;
         }
         #midten {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 100px auto 50px 1fr;
         }
         #addSound {
-            background-color: lightgrey;
+            background-color: #959595;
+            height: calc(100% + 46px);
+            margin-top: -46px;
+            box-shadow: #6f6f6f -3px 3px 7px;
+            z-index: 3;
         }
-        .firkant, .firkant1, .firkant2, .firkant3, .firkant4, .firkant5, .firkant6, .firkant7, .firkant8, .firkant9 {
+        #addSound {
+            color: white;
+        }
+        #basses {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        .firkant, .firkant1, .firkant2, .firkant3, .firkant4, .firkant5, .firkant6, .firkant7, .firkant8, .firkant9, .firkant10 {
             position: absolute;
             height: 37px;
             width: 10px;
@@ -82,10 +124,15 @@
         .firkant9 {
             background-color: violet;
         }
-        hr {
+        .firkant10 {
+            background-color: gold;
+        }
+        .håær {
             margin-top: 38px;
-            width: 100%;
+            width: calc(100% + 148px);
             z-index: 10;
+            margin-left: -100px;
+            overflow: visible;
         }
         #tid {
             width: 600px;
@@ -94,6 +141,7 @@
             display: grid;
             grid-template-columns: repeat(10, 1fr);
             border-bottom: solid grey 1px;
+            margin-left: 100px;
         }
         #tid > div {
             padding: 3px;
@@ -105,6 +153,10 @@
             height: 20px;
             border-bottom: solid grey 1px;
             position: relative;
+            margin-left: 100px;
+            cursor: cell;
+            box-shadow: #6f6f6f 1px 1px 7px;
+            z-index: 1;
         }
         .linene {
             position: absolute;
@@ -151,30 +203,353 @@
         #strek9 {
             margin-left: 600px;
         }
+        #venstre {
+            height: 100%;
+            width: 100%;
+            background-color: darkgray;
+            box-shadow: #6f6f6f 1px 1px 7px;
+            z-index: 4;
+        }
+        #pause {
+
+        }
+        #start {
+
+        }
+        #pause, #start {
+            background-color: #535353;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin: auto;
+            margin-top: 5px;
+            position: relative;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: .7;
+        }
+        #pause:hover, #start:hover {
+            opacity: 1;
+        }
+        #oppeV {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #eyo {
+            position: absolute;
+            width: 100px;
+            text-align: center;
+            background-color: darkgray;
+            height: 45px;
+            border-bottom: solid grey 1px;
+            border-right: solid grey 1px;
+            z-index: 15;
+        }
+        #inniPause {
+            height: 18px;
+            width: 5px;
+            border-width: 0 5px 0 5px;
+            border-color: white;
+            border-style: solid;
+            margin: auto;
+        }
+        #inniStart {
+            width: 0;
+            height: 0;
+            border-top: 9px solid transparent;
+            border-left: 18px solid white;
+            border-bottom: 9px solid transparent;
+            margin-left: 10px;
+        }
+        .inptV {
+            margin: 12.5px;
+            width: 67%;
+            margin-left: 25px;
+        }
+        #inptVolum::before {
+            content: '#1';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum1::before {
+            content: '#2';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum2::before {
+            content: '#3';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum3::before {
+            content: '#4';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum4::before {
+            content: '#5';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum5::before {
+            content: '#6';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum6::before {
+             content: '#7';
+             color: #111111;
+            margin-left: -18px;
+         }
+        #inptVolum7::before {
+            content: '#8';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum8::before {
+            content: '#9';
+            color: #111111;
+            margin-left: -18px;
+        }
+        #inptVolum9::before {
+            content: '#10';
+            color: #111111;
+            margin-left: -20px;
+        }
+        #hoyreH {
+            margin-top: -46px;
+            width: 50px;
+            height: 446px;
+            display: grid;
+            grid-template-rows: 46px repeat(10, 1fr);
+            background-color: lightgrey;
+        }
+        #hoyreH > div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            margin: auto;
+            padding: 7px;
+        }
+        #hoyreH > div:hover {
+            cursor: pointer;
+            color: red;
+        }
+        #storX {
+            background-color: darkgray;
+            border-bottom: solid grey 1px;
+            border-left: solid white 1px;
+            width: 36px;
+            height: 31px;
+            color: white;
+            margin: auto;
+            font-size: 150%;
+            z-index: 2;
+            box-shadow: #6f6f6f 0 1px 7px;
+        }
+        #langs {
+            width: 90%;
+            margin: auto;
+        }
+        #inputRad {
+            padding: 3px;
+            border-radius: 4px;
+            margin: 7px;
+            border: 2px lightgrey solid;
+        }
+        #sammeVerdi {
+            padding: 3px;
+            border-radius: 4px;
+            border: 2px lightgrey solid;
+        }
+        #sammeVerdi:hover {
+            background-color: #ff7677;
+            cursor: pointer;
+            color: white;
+        }
+        #basses > button:hover {
+            background-color: #ff7677;
+            cursor: pointer;
+            color: white;
+        }
+        #btnLeggTil:hover {
+            background-color: #ff7677;
+            cursor: pointer;
+            color: white;
+        }
+        #btnLeggTil {
+            margin: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 2px lightgrey solid;
+            font-size: 80%;
+        }
+        .legg {
+            width: 100%;
+            text-align: center;
+        }
+        .doown {
+            width: 40px;
+            padding: 3px;
+            border-radius: 4px;
+            margin: 7px;
+            border: 2px lightgrey solid;
+        }
+        #btnRekke {
+            margin: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 2px lightgrey solid;
+            font-size: 80%;
+        }
+        #btnRekke:hover {
+            background-color: #ff7677;
+            cursor: pointer;
+            color: white;
+        }
+        #heleNede {
+            margin: 10px;
+        }
+
+
+
+
+        #piano {
+            width: calc(100% - 30px);
+            height: 100px;
+            background-color: red;
+            display: grid;
+            /*grid-template-columns: repeat(36, 1fr);*/
+            grid-template-columns: 1.2fr 1fr 1.2fr 1fr 1.2fr 1.2fr 1fr 1.2fr 1fr 1.2fr 1fr 1.2fr 1.2fr 1fr 1.2fr 1fr 1.2fr 1.2fr 1fr 1.2fr 1fr 1.2fr 1fr 1.2fr 1.2fr 1fr 1.2fr 1fr 1.2fr 1.2fr 1fr 1.2fr 1fr 1.2fr 1fr 1.2fr ;
+            border-top: 15px solid #444;
+            border-left: 15px solid #777;
+            border-right: 15px solid #777;
+            border-bottom: 60px solid #bbb;
+            box-shadow: 0 5px 20px black;
+            z-index: 10;
+            position: relative;
+        }
+        #piano input {
+            position: absolute;
+        }
+        #piano > div {
+            position: relative;
+        }
+        .brikker {
+            width: 100%;
+            height: 100%;
+        }
+        .brikker:hover {
+            opacity: .8;
+        }
+        .sort {
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            color: white;
+        }
+        .hvit {
+            background-color: white;
+            width: 100%;
+            height: 103%;
+            border: black solid 1px;
+        }
+        .chckBox {
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            opacity: 0;
+        }
+        .chckBox:checked ~ .sort{
+            opacity: .6;
+        }
+        .chckBox:checked ~ .hvit {
+            opacity: .6;
+        }
+        #nedeNede {
+            height: calc(100% - 561px);
+            width: 100%;
+            background-color: lightblue;
+            position: absolute;
+            top: 140px;
+            left: 100px;
+            z-index: 20;
+        }
+        #nedeNede > * {
+            margin-right: 50px;
+        }
+        #down {
+            position: relative;
+        }
+        #leggTilFarge {
+            padding: 3px;
+            border-radius: 4px;
+            border: 2px lightgrey solid;
+        }
+        #leggTilFarge:hover {
+            background-color: #ff7677;
+            cursor: pointer;
+            color: white;
+        }
+        #fargeTid {
+            padding: 3px;
+            border-radius: 4px;
+            border: 2px lightgrey solid;
+        }
+        #fargeRad {
+            padding: 3px;
+            border-radius: 4px;
+            border: 2px lightgrey solid;
+        }
+        #desibel {
+            padding: 5px;
+            border: 1px black solid;
+            background-color: white;
+        }
+        #pianoLyd {
+            -webkit-appearance: none;
+            width: 20%;
+            height: 15px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            top: -10px;
+        }
+
+        #pianoLyd:hover {
+            opacity: 1;
+        }
+
+        #pianoLyd::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #af725b;
+            cursor: pointer;
+        }
+
+        #pianoLydr::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <button id="drum" onclick="Lyd()">Bass#1</button>
-    <button id="drum1" onclick="Lyd1()">Bass#2</button>
-    <button id="drum2" onclick="Lyd2()">Bass#3</button>
-    <button id="drum3" onclick="Lyd3()">Bass#4</button>
-    <button id="drum4" onclick="Lyd4()">Bass#5</button>
-    <button id="drum5" onclick="Lyd5()">Bass#6</button>
-    <button id="drum6" onclick="Lyd6()">Bass#7</button>
-    <button id="drum7" onclick="Lyd7()">Bass#8</button>
-    <button id="drum8" onclick="Lyd8()">Bass#9</button>
-    <button id="drum9" onclick="Lyd9()">Bass#10</button>
-    <audio src="lydfiler/01_fk_G.wav" id="drumLyd" preload="auto"></audio><!--jeg prøvde også preload ="auto", så på nettet at det kunne funke-->
-    <audio src="lydfiler/02_fk_F%23.wav" id="drumLyd1" preload="auto"></audio>
-    <audio src="lydfiler/03_fk_A%23.wav" id="drumLyd2" preload="auto"></audio>
-    <audio src="lydfiler/04_fk_F%23.wav" id="drumLyd3" preload="auto"></audio>
-    <audio src="lydfiler/05_fk_G.wav" id="drumLyd4" preload="auto"></audio>
-    <audio src="lydfiler/06_fk_E.wav" id="drumLyd5" preload="auto"></audio>
-    <audio src="lydfiler/07_fk_A%23.wav" id="drumLyd6" preload="auto"></audio>
-    <audio src="lydfiler/08_fk_F.wav" id="drumLyd7" preload="auto"></audio>
-    <audio src="lydfiler/09_fk_F.wav" id="drumLyd8" preload="auto"></audio>
-    <audio src="lydfiler/10_fk_G.wav" id="drumLyd9" preload="auto"></audio>
+
+   <div id="eyo">
+       <div id="oppeV">
+           <div id="pause"><div id="inniPause"></div></div>
+           <div id="start"><div id="inniStart"></div></div>
+       </div>
+   </div>
 
     <div id="tid">
         <div></div>
@@ -190,6 +565,18 @@
     </div>
     <div id="mellomLinje" onclick="s(event)"></div>
     <div id="midten">
+        <div id="venstre">
+            <input type="range" min="0" max="10" id="inptVolum" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum1" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum2" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum3" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum4" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum5" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum6" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum7" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum8" value="5" class="inptV">
+            <input type="range" min="0" max="10" id="inptVolum9" value="5" class="inptV">
+        </div>
         <div id="rommet">
             <div id="linje">
                 <div id="sirkel">
@@ -206,9 +593,61 @@
             <div id="strek7"></div>
             <div id="strek8"></div>
             <div id="strek9"></div>
-            <hr><hr><hr><hr><hr><hr><hr><hr><hr>
+            <hr class="håær"><hr class="håær"><hr class="håær"><hr class="håær"><hr class="håær"><hr class="håær"><hr class="håær"><hr class="håær"><hr class="håær">
+        </div>
+        <div id="hoyreH">
+
+            <div id="storX"><img src="bilder/again.png" alt="" width="100%" id="again"></div>
+            <div id="slett">X</div>
+            <div id="slett1">X</div>
+            <div id="slett2">X</div>
+            <div id="slett3">X</div>
+            <div id="slett4">X</div>
+            <div id="slett5">X</div>
+            <div id="slett6">X</div>
+            <div id="slett7">X</div>
+            <div id="slett8">X</div>
+            <div id="slett9">X</div>
         </div>
         <div id="addSound">
+
+            <h3 id="testUt">Test ut bass-lydene</h3>
+            <div id="basses">
+
+                <button id="drum" onclick="Lyd()">Bass#1</button>
+                <button id="drum1" onclick="Lyd1()">Bass#2</button>
+                <button id="drum2" onclick="Lyd2()">Bass#3</button>
+                <button id="drum3" onclick="Lyd3()">Bass#4</button>
+                <button id="drum4" onclick="Lyd4()">Bass#5</button>
+                <button id="drum5" onclick="Lyd5()">Bass#6</button>
+                <button id="drum6" onclick="Lyd6()">Bass#7</button>
+                <button id="drum7" onclick="Lyd7()">Bass#8</button>
+                <button id="drum8" onclick="Lyd8()">Bass#9</button>
+                <button id="drum9" onclick="Lyd9()">Bass#10</button>
+            </div>
+            <audio src="lydfiler/01_fk_G.wav" id="drumLyd"></audio><!--jeg prøvde også preload ="auto", så på nettet at det kunne funke-->
+            <audio src="lydfiler/02_fk_F%23.wav" id="drumLyd1" preload="auto"></audio>
+            <audio src="lydfiler/03_fk_A%23.wav" id="drumLyd2" preload="auto"></audio>
+            <audio src="lydfiler/04_fk_F%23.wav" id="drumLyd3" preload="auto"></audio>
+            <audio src="lydfiler/05_fk_G.wav" id="drumLyd4" preload="auto"></audio>
+            <audio src="lydfiler/06_fk_E.wav" id="drumLyd5" preload="auto"></audio>
+            <audio src="lydfiler/07_fk_A%23.wav" id="drumLyd6" preload="auto"></audio>
+            <audio src="lydfiler/08_fk_F.wav" id="drumLyd7" preload="auto"></audio>
+            <audio src="lydfiler/09_fk_F.wav" id="drumLyd8" preload="auto"></audio>
+            <audio src="lydfiler/10_fk_G.wav" id="drumLyd9" preload="auto"></audio>
+            <audio id="myAudio">
+                <source src="lydfiler/01_fk_G.wav" type="audio/wav">
+                <source src="lydfiler/02_fk_F%23.wav" type="audio/wav">
+                <source src="lydfiler/03_fk_A%23.wav" type="audio/wav">
+                <source src="lydfiler/04_fk_F%23.wav" type="audio/wav">
+                <source src="lydfiler/05_fk_G.wav" type="audio/wav">
+                <source src="lydfiler/06_fk_E.wav" type="audio/wav">
+                <source src="lydfiler/07_fk_A%23.wav" type="audio/wav">
+                <source src="lydfiler/08_fk_F.wav" type="audio/wav">
+                <source src="lydfiler/09_fk_F.wav" type="audio/wav">
+            </audio>
+
+            <h3 id="veldLyd">Velg en bass-lyd</h3>
             <div id="lydene">
                 <input type="radio" name="felix" value="1" class="inpRadio">#1
                 <input type="radio" name="felix" value="2" class="inpRadio">#2
@@ -221,21 +660,477 @@
                 <input type="radio" name="felix" value="9" class="inpRadio">#9
                 <input type="radio" name="felix" value="10" class="inpRadio">#10
             </div>
-            <input type="number" id="inputSek" min="1" max="10">HVILKEN RAD <br>
-            <input type="number" id="inputRad" min="0" max="40">etter hvor mange takter
-            <br>
-            <button id="btnLeggTil" onclick="leggTil()">Legg til</button>
+            <!--<input type="number" id="inputSek" min="1" max="10" required value="1">HVILKEN RAD <br>-->
+            <!--<hr id="langs">-->
+            <!--<div id="over"><h2>LEGG TIL ÉN BASS-LYD</h2></div>-->
+            <!--<h3 id="takter">Legg til én bass</h3>-->
+
+            <div id="heleNede">
+                <hr>
+                Etter hvor mange takter?<input type="number" id="inputRad" min="0" max="40" required value="0" step="0.1"><button id="sammeVerdi">Samme verdi som pila</button>
+                <br>
+                <div class="legg"><button id="btnLeggTil" onclick="leggTil()">Legg til én bass</button></div>
+                <hr>
+                Start på: <input type="number" id="input1" step="0.1" class="doown"> Repeter hver: <input type="number" id="input2" step="0.1" class="doown"> Avslutt etter: <input type="number" id="input3" step="1" class="doown">
+                <div class="legg"><button id="btnRekke">Legg til Rekke</button></div>
+            </div>
+
 
         </div>
     </div>
-    <button id="pause">pause</button>
-    <button id="start">start</button>
+
+   <div id="down">
+       <div id="piano">
+           <div class="brikker">
+               <input type="radio" id="chkBox1" class="chckBox" name="mille">
+               <div class="hvit">A0</div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox2" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox3" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox4" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox5" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox6" class="chckBox" name="mille">
+               <div class="hvit">B0</div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox7" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox8" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox9" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox10" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox11" class="chckBox" name="mille">
+               <div class="sort">C0</div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox12" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox13" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox14" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox15" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox16" class="chckBox" name="mille">
+               <div class="sort">D0</div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox17" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox18" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox19" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox20" class="chckBox" name="mille">
+               <div class="hvit">E0</div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox21" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox22" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox23" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox24" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox25" class="chckBox" name="mille">
+               <div class="hvit">F0</div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox26" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox27" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox28" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox29" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox30" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox31" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox32" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox33" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox34" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox35" class="chckBox" name="mille">
+               <div class="sort"></div>
+           </div>
+           <div class="brikker">
+               <input type="radio" id="chkBox36" class="chckBox" name="mille">
+               <div class="hvit"></div>
+           </div>
+
+       </div>
+       <div id="nedeNede">
+           Rad: <input type="number" id="fargeRad">
+           Tid: <input type="number" id="fargeTid" step="0.1">
+           <button id="leggTilFarge" onclick="leggTilTone()">Legg Til tone</button>
+           Volum: <input type="range" id="pianoLyd" max="100" min="0" value="50">
+           <span id="desibel">-50-</span>
+
+
+       </div>
+
+   </div>
 
 
 
 
 
     <script>
+
+
+
+
+
+        const trommer = ['lydfiler/01_fk_G.wav', 'lydfiler/02_fk_F%23.wav','lydfiler/03_fk_A%23.wav',
+            'lydfiler/04_fk_F%23.wav','lydfiler/05_fk_G.wav','lydfiler/06_fk_E.wav',
+            'lydfiler/07_fk_A%23.wav','lydfiler/08_fk_F.wav','lydfiler/09_fk_F.wav',
+            'lydfiler/10_fk_G.wav'
+        ];
+
+        const gitarer = ['lydfiler/1.wav', 'lydfiler/2.wav', 'lydfiler/3.wav', 'lydfiler/4.wav', 'lydfiler/5.wav',
+            'lydfiler/6.wav', 'lydfiler/7.wav', 'lydfiler/8.wav', 'lydfiler/9.wav', 'lydfiler/10.wav', 'lydfiler/11.wav',
+            'lydfiler/12.wav', 'lydfiler/13.wav', 'lydfiler/14.wav', 'lydfiler/15.wav', 'lydfiler/16.wav', 'lydfiler/17.wav',
+            'lydfiler/18.wav', 'lydfiler/19.wav', 'lydfiler/20.wav', 'lydfiler/21.wav', 'lydfiler/22.wav', 'lydfiler/23.wav',
+            'lydfiler/24.wav', 'lydfiler/25.wav', 'lydfiler/26.wav', 'lydfiler/27.wav', 'lydfiler/28.wav', 'lydfiler/29.wav',
+            'lydfiler/30.wav', 'lydfiler/31.wav', 'lydfiler/32.wav', 'lydfiler/33.wav', 'lydfiler/34.wav', 'lydfiler/35.wav',
+            'lydfiler/36.wav', ];
+
+        var pianoLyd = document.getElementById("pianoLyd");
+        pianoLyd.onmousemove = function () {
+            desibel.innerHTML = "-" + pianoLyd.value + "-";
+        };
+        pianoLyd.onchange = function () {
+            pianoLyden(Number(pianoLyd.value/100))
+        };
+
+        let gitarerHowl = [];
+        for (let i = 0; i < gitarer.length; i++){
+            gitarerHowl[i] = new Howl({
+                src: gitarer[i],
+                volume: 0.5
+            });
+            function pianoLyden(value) {
+                for (var o = 0; o < 36; o++) {
+                    gitarerHowl[o].volume(value);
+                }
+            }
+        }
+
+        
+        var chkBox1 = document.getElementById("chkBox1");
+        var chkBox2 = document.getElementById("chkBox2");
+        var chkBox3 = document.getElementById("chkBox3");
+        var chkBox4 = document.getElementById("chkBox4");
+        var chkBox5 = document.getElementById("chkBox5");
+        var chkBox6 = document.getElementById("chkBox6");
+        var chkBox7 = document.getElementById("chkBox7");
+        var chkBox8 = document.getElementById("chkBox8");
+        var chkBox9 = document.getElementById("chkBox9");
+        var chkBox10 = document.getElementById("chkBox10");
+        var chkBox11 = document.getElementById("chkBox11");
+        var chkBox12 = document.getElementById("chkBox12");
+        var chkBox13 = document.getElementById("chkBox13");
+        var chkBox14 = document.getElementById("chkBox14");
+        var chkBox15 = document.getElementById("chkBox15");
+        var chkBox16 = document.getElementById("chkBox16");
+        var chkBox17 = document.getElementById("chkBox17");
+        var chkBox18 = document.getElementById("chkBox18");
+        var chkBox19 = document.getElementById("chkBox19");
+        var chkBox20 = document.getElementById("chkBox20");
+        var chkBox21 = document.getElementById("chkBox21");
+        var chkBox22 = document.getElementById("chkBox22");
+        var chkBox23 = document.getElementById("chkBox23");
+        var chkBox24 = document.getElementById("chkBox24");
+        var chkBox25 = document.getElementById("chkBox25");
+        var chkBox26 = document.getElementById("chkBox26");
+        var chkBox27 = document.getElementById("chkBox27");
+        var chkBox28 = document.getElementById("chkBox28");
+        var chkBox29 = document.getElementById("chkBox29");
+        var chkBox30 = document.getElementById("chkBox30");
+        var chkBox31 = document.getElementById("chkBox31");
+        var chkBox32 = document.getElementById("chkBox32");
+        var chkBox33 = document.getElementById("chkBox33");
+        var chkBox34 = document.getElementById("chkBox34");
+        var chkBox35 = document.getElementById("chkBox35");
+        var chkBox36 = document.getElementById("chkBox36");
+
+        chkBox1.onclick = function () {
+            gitarerHowl[0].play();
+        };
+        chkBox2.onclick = function () {
+            gitarerHowl[1].play();
+        };
+        chkBox3.onclick = function () {
+            gitarerHowl[2].play();
+        };
+        chkBox4.onclick = function () {
+            gitarerHowl[3].play();
+        };
+        chkBox5.onclick = function () {
+            gitarerHowl[4].play();
+        };
+        chkBox6.onclick = function () {
+            gitarerHowl[5].play();
+        };
+        chkBox7.onclick = function () {
+            gitarerHowl[6].play();
+        };
+        chkBox8.onclick = function () {
+            gitarerHowl[7].play();
+        };
+        chkBox9.onclick = function () {
+            gitarerHowl[8].play();
+        };
+        chkBox10.onclick = function () {
+            gitarerHowl[9].play();
+        };
+        chkBox11.onclick = function () {
+            gitarerHowl[10].play();
+        };
+        chkBox12.onclick = function () {
+            gitarerHowl[11].play();
+        };
+        chkBox13.onclick = function () {
+            gitarerHowl[12].play();
+        };
+        chkBox14.onclick = function () {
+            gitarerHowl[13].play();
+        };
+        chkBox15.onclick = function () {
+            gitarerHowl[14].play();
+        };
+        chkBox16.onclick = function () {
+            gitarerHowl[15].play();
+        };
+        chkBox17.onclick = function () {
+            gitarerHowl[16].play();
+        };
+        chkBox18.onclick = function () {
+            gitarerHowl[17].play();
+        };
+        chkBox19.onclick = function () {
+            gitarerHowl[18].play();
+        };
+        chkBox20.onclick = function () {
+            gitarerHowl[19].play();
+        };
+        chkBox21.onclick = function () {
+            gitarerHowl[20].play();
+        };
+        chkBox22.onclick = function () {
+            gitarerHowl[21].play();
+        };
+        chkBox23.onclick = function () {
+            gitarerHowl[22].play();
+        };
+        chkBox24.onclick = function () {
+            gitarerHowl[23].play();
+        };
+        chkBox25.onclick = function () {
+            gitarerHowl[24].play();
+        };
+        chkBox26.onclick = function () {
+            gitarerHowl[25].play();
+        };
+        chkBox27.onclick = function () {
+            gitarerHowl[26].play();
+        };
+        chkBox28.onclick = function () {
+            gitarerHowl[27].play();
+        };
+        chkBox29.onclick = function () {
+            gitarerHowl[28].play();
+        };
+        chkBox30.onclick = function () {
+            gitarerHowl[29].play();
+        };
+        chkBox31.onclick = function () {
+            gitarerHowl[30].play();
+        };
+        chkBox32.onclick = function () {
+            gitarerHowl[31].play();
+        };
+        chkBox33.onclick = function () {
+            gitarerHowl[32].play();
+        };
+        chkBox34.onclick = function () {
+            gitarerHowl[33].play();
+        };
+        chkBox35.onclick = function () {
+            gitarerHowl[34].play();
+        };
+        chkBox36.onclick = function () {
+            gitarerHowl[35].play();
+        };
+
+
+        var mandarin = document.getElementById("inptVolum");
+        mandarin.onchange = function () {
+            updateVolume(Number(mandarin.value/10));
+        };
+        var mandarin1 = document.getElementById("inptVolum1");
+        mandarin1.onchange = function () {
+            updateVolume1(Number(mandarin1.value/10));
+        };
+        var mandarin2 = document.getElementById("inptVolum2");
+        mandarin2.onchange = function () {
+            updateVolume2(Number(mandarin2.value/10));
+        };
+        var mandarin3 = document.getElementById("inptVolum3");
+        mandarin3.onchange = function () {
+            updateVolume3(Number(mandarin3.value/10));
+        };
+        var mandarin4 = document.getElementById("inptVolum4");
+        mandarin4.onchange = function () {
+            updateVolume4(Number(mandarin4.value/10));
+        };
+        var mandarin5 = document.getElementById("inptVolum5");
+        mandarin5.onchange = function () {
+            updateVolume5(Number(mandarin5.value/10));
+        };
+        var mandarin6 = document.getElementById("inptVolum6");
+        mandarin6.onchange = function () {
+            updateVolume6(Number(mandarin6.value/10));
+        };
+        var mandarin7 = document.getElementById("inptVolum7");
+        mandarin7.onchange = function () {
+            updateVolume7(Number(mandarin7.value/10));
+        };
+        var mandarin8 = document.getElementById("inptVolum8");
+        mandarin8.onchange = function () {
+            updateVolume8(Number(mandarin8.value/10));
+        };
+        var mandarin9 = document.getElementById("inptVolum9");
+        mandarin9.onchange = function () {
+            updateVolume9(Number(mandarin9.value/10));
+        };
+        let trommerHowl = [];
+        for (let i = 0; i < trommer.length; i++){
+            trommerHowl[i] = new Howl({
+                src: trommer[i],
+                volume: 0.5
+            });
+            function updateVolume(value) {
+                console.log('before update volume:', trommerHowl[0].volume());
+                trommerHowl[0].volume(value);
+                console.log('after update volume:', trommerHowl[0].volume());
+            }
+            function updateVolume1(value) {
+                console.log('before update volume:', trommerHowl[1].volume());
+                trommerHowl[1].volume(value);
+                console.log('after update volume:', trommerHowl[1].volume());
+            }
+            function updateVolume2(value) {
+                console.log('before update volume:', trommerHowl[2].volume());
+                trommerHowl[2].volume(value);
+                console.log('after update volume:', trommerHowl[2].volume());
+            }
+            function updateVolume3(value) {
+                console.log('before update volume:', trommerHowl[3].volume());
+                trommerHowl[3].volume(value);
+                console.log('after update volume:', trommerHowl[3].volume());
+            }
+            function updateVolume4(value) {
+                console.log('before update volume:', trommerHowl[4].volume());
+                trommerHowl[4].volume(value);
+                console.log('after update volume:', trommerHowl[4].volume());
+            }
+            function updateVolume5(value) {
+                console.log('before update volume:', trommerHowl[5].volume());
+                trommerHowl[5].volume(value);
+                console.log('after update volume:', trommerHowl[5].volume());
+            }
+            function updateVolume6(value) {
+                console.log('before update volume:', trommerHowl[6].volume());
+                trommerHowl[6].volume(value);
+                console.log('after update volume:', trommerHowl[6].volume());
+            }
+            function updateVolume7(value) {
+                console.log('before update volume:', trommerHowl[7].volume());
+                trommerHowl[7].volume(value);
+                console.log('after update volume:', trommerHowl[7].volume());
+            }
+            function updateVolume8(value) {
+                console.log('before update volume:', trommerHowl[8].volume());
+                trommerHowl[8].volume(value);
+                console.log('after update volume:', trommerHowl[8].volume());
+            }
+            function updateVolume9(value) {
+                console.log('before update volume:', trommerHowl[9].volume());
+                trommerHowl[9].volume(value);
+                console.log('after update volume:', trommerHowl[9].volume());
+            }
+        }
+
+
 
         const drum = document.getElementById("drum");
         const drum1 = document.getElementById("drum1");
@@ -257,6 +1152,7 @@
         const drumLyd7 = document.getElementById("drumLyd7");
         const drumLyd8 = document.getElementById("drumLyd8");
         const drumLyd9 = document.getElementById("drumLyd9");
+        drumLyd.volume = 0.1;
 
         var btnLeggTil = document.getElementById("btnLeggTil");
         var inputRad = document.getElementById("inputRad");
@@ -264,13 +1160,31 @@
         var start = document.getElementById("start");
         var pause = document.getElementById("pause");
         var firkant = document.getElementsByClassName("firkant");
-        var firkant1 = document.getElementsByClassName("firkant");
-        var firkant2 = document.getElementsByClassName("firkant");
-        var firkant3 = document.getElementsByClassName("firkant");
-        var firkant4 = document.getElementsByClassName("firkant");
-        var firkant5 = document.getElementsByClassName("firkant");
+        var firkant1 = document.getElementsByClassName("firkant1");
+        var firkant2 = document.getElementsByClassName("firkant2");
+        var firkant3 = document.getElementsByClassName("firkant3");
+        var firkant4 = document.getElementsByClassName("firkant4");
+        var firkant5 = document.getElementsByClassName("firkant5");
+        var again = document.getElementById("again");
 
-var avstand = 0;
+
+
+        var slett = document.getElementById("slett");
+        var slett1 = document.getElementById("slett1");
+        var slett2 = document.getElementById("slett2");
+        var slett3 = document.getElementById("slett3");
+        var slett4 = document.getElementById("slett4");
+        var slett5 = document.getElementById("slett5");
+        var slett6 = document.getElementById("slett6");
+        var slett7 = document.getElementById("slett7");
+        var slett8 = document.getElementById("slett8");
+        var slett9 = document.getElementById("slett9");
+
+
+
+
+
+        var avstand = 0;
 
         for (var i = 0; i < 40; i++) {
 
@@ -305,65 +1219,582 @@ var avstand = 0;
         var hits = BPM/60*1000;
         var inputen;
 
+
+        again.onclick = function () {
+            var valget = confirm("vil du virkelig starte på nytt?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant");
+                var element1 = document.getElementsByClassName("firkant1");
+                var element2 = document.getElementsByClassName("firkant2");
+                var element3 = document.getElementsByClassName("firkant3");
+                var element4 = document.getElementsByClassName("firkant4");
+                var element5 = document.getElementsByClassName("firkant5");
+                var element6 = document.getElementsByClassName("firkant6");
+                var element7 = document.getElementsByClassName("firkant7");
+                var element8 = document.getElementsByClassName("firkant8");
+                var element9 = document.getElementsByClassName("firkant9");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste1.length = 0
+                }
+                while (element1.length > 0) {
+                    element1[0].parentNode.removeChild(element1[0]);
+                    liste2.length = 0
+                }
+                while (element2.length > 0) {
+                    element2[0].parentNode.removeChild(element2[0]);
+                    liste3.length = 0
+                }
+                while (element3.length > 0) {
+                    element3[0].parentNode.removeChild(element3[0]);
+                    liste4.length = 0
+                }
+                while (element4.length > 0) {
+                    element4[0].parentNode.removeChild(element4[0]);
+                    liste5.length = 0
+                }
+                while (element5.length > 0) {
+                    element5[0].parentNode.removeChild(element5[0]);
+                    liste6.length = 0
+                }
+                while (element6.length > 0) {
+                    element6[0].parentNode.removeChild(element6[0]);
+                    liste7.length = 0
+                }
+                while (element7.length > 0) {
+                    element7[0].parentNode.removeChild(element7[0]);
+                    liste8.length = 0
+                }
+                while (element8.length > 0) {
+                    element8[0].parentNode.removeChild(element8[0]);
+                    liste9.length = 0
+                }
+                while (element9.length > 0) {
+                    element9[0].parentNode.removeChild(element9[0]);
+                    liste10.length = 0
+                }
+            }
+        };
+        slett.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #1?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste1.length = 0
+                }
+            }
+        };
+        slett1.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #2?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant1");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste2.length = 0
+                }
+            }
+        };
+        slett2.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #3?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant2");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste3.length = 0
+                }
+            }
+        };
+        slett3.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #4?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant3");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste4.length = 0
+                }
+            }
+        };
+        slett4.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #5?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant4");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste5.length = 0
+                }
+            }
+        };
+        slett5.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #6?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant5");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste6.length = 0
+                }
+            }
+        };
+        slett6.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #7?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant6");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste7.length = 0
+                }
+            }
+        };
+        slett7.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #8?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant7");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste8.length = 0
+                }
+            }
+        };
+        slett8.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #9?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant8");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste9.length = 0
+                }
+            }
+        };
+        slett9.onclick = function () {
+            var valget = confirm("vil du virkelig slette rad #10?");
+            if (valget) {
+                var element = document.getElementsByClassName("firkant9");
+                while (element.length > 0) {
+                    element[0].parentNode.removeChild(element[0]);
+                    liste10.length = 0
+                }
+            }
+        };
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var input3 = document.getElementById("input3");
+        var btnRekke = document.getElementById("btnRekke");
+        var StaVer;
+
+        btnRekke.onclick = function () {
+            StaVer = Number(input1.value);
+            //alert(input1.value + input2.value + input3.value);
+            var inpRadio = document.getElementsByClassName("inpRadio");
+            var rommet = document.getElementById("rommet");
+
+            if (inpRadio[0].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant";
+                    fir.style.top = 0;
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste1.push(rolig*15);
+                    liste1.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[1].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant1";
+                    fir.style.top = "40px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste2.push(rolig*15);
+                    liste2.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[2].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant2";
+                    fir.style.top = "80px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste3.push(rolig*15);
+                    liste3.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[3].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant3";
+                    fir.style.top = "120px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste4.push(rolig*15);
+                    liste4.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[4].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant4";
+                    fir.style.top = "160px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste5.push(rolig*15);
+                    liste5.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[5].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant5";
+                    fir.style.top = "200px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste6.push(rolig*15);
+                    liste6.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[6].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant6";
+                    fir.style.top = "240px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste7.push(rolig*15);
+                    liste7.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[7].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant7";
+                    fir.style.top = "280px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste8.push(rolig*15);
+                    liste8.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[8].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant8";
+                    fir.style.top = "320px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste9.push(rolig*15);
+                    liste9.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+            if (inpRadio[9].checked) {
+                for (var i = 0; i < Number(input3.value); i++) {
+                    var fir = document.createElement("div");
+                    fir.className = "firkant9";
+                    fir.style.top = "360px";
+                    var rolig = StaVer.toFixed(1);
+                    fir.style.left = rolig*15 + "px";
+                    rommet.appendChild(fir);
+                    liste10.push(rolig*15);
+                    liste10.sort();
+                    console.log(rolig);
+                    StaVer += Number(input2.value)
+                }
+            }
+        };
+
         function leggTil() {
             var inpRadio = document.getElementsByClassName("inpRadio");
             var rommet = document.getElementById("rommet");
             var fir = document.createElement("div");
             if (inpRadio[0].checked) {
                 fir.className = "firkant";
+                fir.style.top = 0;
                 liste1.push(Number(inputRad.value)*15);
                 liste1.sort()
             }
             if (inpRadio[1].checked) {
                 fir.className = "firkant1";
+                fir.style.top = "40px";
                 liste2.push(Number(inputRad.value)*15);
                 liste2.sort()
             }
             if (inpRadio[2].checked) {
                 fir.className = "firkant2";
+                fir.style.top = "80px";
                 liste3.push(Number(inputRad.value)*15);
                 liste3.sort()
             }
             if (inpRadio[3].checked) {
                 fir.className = "firkant3";
+                fir.style.top = "120px";
                 liste4.push(Number(inputRad.value)*15);
                 liste4.sort()
             }
             if (inpRadio[4].checked) {
                 fir.className = "firkant4";
+                fir.style.top = "160px";
                 liste5.push(Number(inputRad.value)*15);
                 liste5.sort()
             }
             if (inpRadio[5].checked) {
                 fir.className = "firkant5";
+                fir.style.top = "200px";
                 liste6.push(Number(inputRad.value)*15);
                 liste6.sort()
             }
             if (inpRadio[6].checked) {
                 fir.className = "firkant6";
+                fir.style.top = "240px";
                 liste7.push(Number(inputRad.value)*15);
                 liste7.sort()
             }
             if (inpRadio[7].checked) {
                 fir.className = "firkant7";
+                fir.style.top = "280px";
                 liste8.push(Number(inputRad.value)*15);
                 liste8.sort()
             }
             if (inpRadio[8].checked) {
                 fir.className = "firkant8";
+                fir.style.top = "320px";
                 liste9.push(Number(inputRad.value)*15);
                 liste9.sort()
             }
             if (inpRadio[9].checked) {
                 fir.className = "firkant9";
+                fir.style.top = "360px";
                 liste10.push(Number(inputRad.value)*15);
                 liste10.sort()
             }
-            console.log(inputRad.value*inputSek.value);
-            fir.style.top = inputSek.value*40 - 40 + "px";
+            //console.log(inputRad.value*inputSek.value);
+            //fir.style.top = inputSek.value*40 - 40 + "px";
             fir.style.left = inputRad.value*15 + "px";
             rommet.appendChild(fir);
 
+
+        }
+        var fargeRad = document.getElementById("fargeRad");
+        var fargeTid = document.getElementById("fargeTid");
+        var leggTilFarge = document.getElementById("leggTilFarge");
+
+        var list = [];
+        var list1 = [];
+        var list2 = [];
+        var list3 = [];
+        var list4 = [];
+        var list5 = [];
+        var list6 = [];
+        var list7 = [];
+        var list8 = [];
+        var list9 = [];
+        var list10 = [];
+        var list11 = [];
+        var list12 = [];
+        var list13 = [];
+        var list14 = [];
+        var list15 = [];
+        var list16 = [];
+        var list17 = [];
+        var list18 = [];
+        var list19 = [];
+        var list20 = [];
+        var list21 = [];
+        var list22 = [];
+        var list23 = [];
+        var list24 = [];
+        var list25 = [];
+        var list26 = [];
+        var list27 = [];
+        var list28 = [];
+        var list29 = [];
+        var list30 = [];
+        var list31 = [];
+        var list32 = [];
+        var list33 = [];
+        var list34 = [];
+        var list35 = [];
+
+        function leggTilTone () {
+            var rad = Number(fargeRad.value);
+            var tid = Number(fargeTid.value);
+            var rommet = document.getElementById("rommet");
+            var fir = document.createElement("div");
+            var boksen = document.getElementsByClassName("chckBox");
+            if (boksen[0].checked) {
+                list.push(tid*15);
+                list.sort();
+            }
+            if (boksen[1].checked) {
+                list1.push(tid*15);
+                list1.sort();
+            }
+            if (boksen[2].checked) {
+                list2.push(tid*15);
+                list2.sort();
+            }
+            if (boksen[3].checked) {
+                list3.push(tid*15);
+                list3.sort();
+            }
+            if (boksen[4].checked) {
+                list4.push(tid*15);
+                list4.sort();
+            }
+            if (boksen[5].checked) {
+                list5.push(tid*15);
+                list5.sort();
+            }
+            if (boksen[6].checked) {
+                list6.push(tid*15);
+                list6.sort();
+            }
+            if (boksen[7].checked) {
+                list7.push(tid*15);
+                list7.sort();
+            }
+            if (boksen[8].checked) {
+                list8.push(tid*15);
+                list8.sort();
+            }
+            if (boksen[9].checked) {
+                list9.push(tid*15);
+                list9.sort();
+            }
+            if (boksen[10].checked) {
+                list10.push(tid*15);
+                list10.sort();
+            }
+            if (boksen[11].checked) {
+                list11.push(tid*15);
+                list11.sort();
+            }
+            if (boksen[12].checked) {
+                list12.push(tid*15);
+                list12.sort();
+            }
+            if (boksen[13].checked) {
+                list13.push(tid*15);
+                list13.sort();
+            }
+            if (boksen[14].checked) {
+                list14.push(tid*15);
+                list14.sort();
+            }
+            if (boksen[15].checked) {
+                list15.push(tid*15);
+                list15.sort();
+            }
+            if (boksen[16].checked) {
+                list16.push(tid*15);
+                list16.sort();
+            }
+            if (boksen[17].checked) {
+                list17.push(tid*15);
+                list17.sort();
+            }
+            if (boksen[18].checked) {
+                list18.push(tid*15);
+                list18.sort();
+            }
+            if (boksen[19].checked) {
+                list19.push(tid*15);
+                list19.sort();
+            }
+            if (boksen[20].checked) {
+                list20.push(tid*15);
+                list20.sort();
+            }
+            if (boksen[21].checked) {
+                list21.push(tid*15);
+                list21.sort();
+            }
+            if (boksen[22].checked) {
+                list22.push(tid*15);
+                list22.sort();
+            }
+            if (boksen[23].checked) {
+                list23.push(tid*15);
+                list23.sort();
+            }
+            if (boksen[24].checked) {
+                list24.push(tid*15);
+                list24.sort();
+            }
+            if (boksen[25].checked) {
+                list25.push(tid*15);
+                list25.sort();
+            }
+            if (boksen[26].checked) {
+                list26.push(tid*15);
+                list26.sort();
+            }
+            if (boksen[27].checked) {
+                list27.push(tid*15);
+                list27.sort();
+            }
+            if (boksen[28].checked) {
+                list28.push(tid*15);
+                list28.sort();
+            }
+            if (boksen[29].checked) {
+                list29.push(tid*15);
+                list29.sort();
+            }
+            if (boksen[30].checked) {
+                list30.push(tid*15);
+                list30.sort();
+            }
+            if (boksen[31].checked) {
+                list31.push(tid*15);
+                list31.sort();
+            }
+            if (boksen[32].checked) {
+                list32.push(tid*15);
+                list32.sort();
+            }
+            if (boksen[33].checked) {
+                list33.push(tid*15);
+                list33.sort();
+            }
+            if (boksen[34].checked) {
+                list34.push(tid*15);
+                list34.sort();
+            }
+            if (boksen[35].checked) {
+                list35.push(tid*15);
+                list35.sort();
+            }
+            fir.className = "firkant10";
+            fir.style.top = (rad - 1) * 40 +  "px";
+            fir.style.left = tid * 15 + "px";
+            rommet.appendChild(fir);
         }
         /*function func() {
             var condition = document.getElementsByClassName("cond");
@@ -384,6 +1815,8 @@ var avstand = 0;
 
         }*/
 
+
+
         drum1.onclick = Lyd1;
         drum2.onclick = Lyd2;
         drum3.onclick = Lyd3;
@@ -395,38 +1828,34 @@ var avstand = 0;
         drum9.onclick = Lyd9;
 
         function Lyd() {
-
-            var clone = drumLyd.cloneNode(true);//det var en på nettet som sa at dette burde fungere
-            clone.play();                       //men det hjalp ikke noe og lydene kunne fortsatt ikke være for tett
+            trommerHowl[0].play();
         }
         function Lyd1() {
-            var clone = drumLyd1.cloneNode(true);
-            clone.play();
+            trommerHowl[1].play();
         }
         function Lyd2() {
-            var clone = drumLyd2.cloneNode(true);
-            clone.play();
+            trommerHowl[2].play();
         }
         function Lyd3() {
-            drumLyd3.play();
+            trommerHowl[3].play();
         }
         function Lyd4() {
-            drumLyd4.play();
+            trommerHowl[4].play();
         }
         function Lyd5() {
-            drumLyd5.play();
+            trommerHowl[5].play();
         }
         function Lyd6() {
-            drumLyd6.play();
+            trommerHowl[6].play();
         }
         function Lyd7() {
-            drumLyd7.play();
+            trommerHowl[7].play();
         }
         function Lyd8() {
-            drumLyd8.play();
+            trommerHowl[8].play();
         }
         function Lyd9() {
-            drumLyd9.play();
+            trommerHowl[9].play();
         }
 
         var globalID;
@@ -434,57 +1863,238 @@ var avstand = 0;
         var xverdi = 0;
         function MoveX() {
             globalID = requestAnimationFrame(MoveX);
-                xverdi += 0.2;
+                xverdi += 0.1;
                 xxx = Number(xverdi.toFixed(1));
                 linje.style.left = xverdi + "px";
             for (var i = 0; i < liste1.length; i++) {
                 if (xxx === liste1[i]) {
-                    drumLyd.play();
+                    trommerHowl[0].play();
                 }
             }
             for (var i = 0; i < liste2.length; i++) {
                 if (xxx === liste2[i]) {
-                    drumLyd1.play();
+                    trommerHowl[1].play();
                 }
             }
             for (var i = 0; i < liste3.length; i++) {
                 if (xxx === liste3[i]) {
-                    drumLyd2.play();
+                    trommerHowl[2].play();
                 }
             }
             for (var i = 0; i < liste4.length; i++) {
                 if (xxx === liste4[i]) {
-                    drumLyd3.play();
+                    trommerHowl[3].play();
                 }
             }
             for (var i = 0; i < liste5.length; i++) {
                 if (xxx === liste5[i]) {
-                    drumLyd4.play();
+                    trommerHowl[4].play();
                 }
             }
             for (var i = 0; i < liste6.length; i++) {
                 if (xxx === liste6[i]) {
-                    drumLyd5.play();
+                    trommerHowl[5].play();
                 }
             }
             for (var i = 0; i < liste7.length; i++) {
                 if (xxx === liste7[i]) {
-                    drumLyd6.play();
+                    trommerHowl[6].play();
                 }
             }
             for (var i = 0; i < liste8.length; i++) {
                 if (xxx === liste8[i]) {
-                    drumLyd7.play();
+                    trommerHowl[7].play();
+
                 }
             }
             for (var i = 0; i < liste9.length; i++) {
                 if (xxx === liste9[i]) {
-                    drumLyd8.play();
+                    trommerHowl[8].play();
                 }
             }
             for (var i = 0; i < liste10.length; i++) {
                 if (xxx === liste10[i]) {
-                    drumLyd9.play();
+                    trommerHowl[9].play();
+                }
+            }
+            for (var i = 0; i < list.length; i++) {
+                if (xxx === list[i]) {
+                    gitarerHowl[0].play();
+                }
+            }
+            for (var i = 0; i < list1.length; i++) {
+                if (xxx === list1[i]) {
+                    gitarerHowl[1].play();
+                }
+            }
+            for (var i = 0; i < list2.length; i++) {
+                if (xxx === list2[i]) {
+                    gitarerHowl[2].play();
+                }
+            }
+            for (var i = 0; i < list3.length; i++) {
+                if (xxx === list3[i]) {
+                    gitarerHowl[3].play();
+                }
+            }
+            for (var i = 0; i < list4.length; i++) {
+                if (xxx === list4[i]) {
+                    gitarerHowl[4].play();
+                }
+            }
+            for (var i = 0; i < list5.length; i++) {
+                if (xxx === list5[i]) {
+                    gitarerHowl[5].play();
+                }
+            }
+            for (var i = 0; i < list6.length; i++) {
+                if (xxx === list6[i]) {
+                    gitarerHowl[6].play();
+                }
+            }
+            for (var i = 0; i < list7.length; i++) {
+                if (xxx === list7[i]) {
+                    gitarerHowl[7].play();
+                }
+            }
+            for (var i = 0; i < list8.length; i++) {
+                if (xxx === list8[i]) {
+                    gitarerHowl[8].play();
+                }
+            }
+            for (var i = 0; i < list9.length; i++) {
+                if (xxx === list9[i]) {
+                    gitarerHowl[9].play();
+                }
+            }
+            for (var i = 0; i < list10.length; i++) {
+                if (xxx === list10[i]) {
+                    gitarerHowl[10].play();
+                }
+            }
+            for (var i = 0; i < list11.length; i++) {
+                if (xxx === list11[i]) {
+                    gitarerHowl[11].play();
+                }
+            }
+            for (var i = 0; i < list12.length; i++) {
+                if (xxx === list12[i]) {
+                    gitarerHowl[12].play();
+                }
+            }
+            for (var i = 0; i < list13.length; i++) {
+                if (xxx === list13[i]) {
+                    gitarerHowl[13].play();
+                }
+            }
+            for (var i = 0; i < list14.length; i++) {
+                if (xxx === list14[i]) {
+                    gitarerHowl[14].play();
+                }
+            }
+            for (var i = 0; i < list15.length; i++) {
+                if (xxx === list15[i]) {
+                    gitarerHowl[15].play();
+                }
+            }
+            for (var i = 0; i < list16.length; i++) {
+                if (xxx === list16[i]) {
+                    gitarerHowl[16].play();
+                }
+            }
+            for (var i = 0; i < list17.length; i++) {
+                if (xxx === list17[i]) {
+                    gitarerHowl[17].play();
+                }
+            }
+            for (var i = 0; i < list18.length; i++) {
+                if (xxx === list18[i]) {
+                    gitarerHowl[18].play();
+                }
+            }
+            for (var i = 0; i < list19.length; i++) {
+                if (xxx === list19[i]) {
+                    gitarerHowl[19].play();
+                }
+            }
+            for (var i = 0; i < list20.length; i++) {
+                if (xxx === list20[i]) {
+                    gitarerHowl[20].play();
+                }
+            }
+            for (var i = 0; i < list21.length; i++) {
+                if (xxx === list21[i]) {
+                    gitarerHowl[21].play();
+                }
+            }
+            for (var i = 0; i < list22.length; i++) {
+                if (xxx === list22[i]) {
+                    gitarerHowl[22].play();
+                }
+            }
+            for (var i = 0; i < list23.length; i++) {
+                if (xxx === list23[i]) {
+                    gitarerHowl[23].play();
+                }
+            }
+            for (var i = 0; i < list24.length; i++) {
+                if (xxx === list24[i]) {
+                    gitarerHowl[24].play();
+                }
+            }
+            for (var i = 0; i < list25.length; i++) {
+                if (xxx === list25[i]) {
+                    gitarerHowl[25].play();
+                }
+            }
+            for (var i = 0; i < list26.length; i++) {
+                if (xxx === list26[i]) {
+                    gitarerHowl[26].play();
+                }
+            }
+            for (var i = 0; i < list27.length; i++) {
+                if (xxx === list27[i]) {
+                    gitarerHowl[27].play();
+                }
+            }
+            for (var i = 0; i < list28.length; i++) {
+                if (xxx === list28[i]) {
+                    gitarerHowl[28].play();
+                }
+            }
+            for (var i = 0; i < list29.length; i++) {
+                if (xxx === list29[i]) {
+                    gitarerHowl[29].play();
+                }
+            }
+            for (var i = 0; i < list30.length; i++) {
+                if (xxx === list30[i]) {
+                    gitarerHowl[30].play();
+                }
+            }
+            for (var i = 0; i < list31.length; i++) {
+                if (xxx === list31[i]) {
+                    gitarerHowl[31].play();
+                }
+            }
+            for (var i = 0; i < list32.length; i++) {
+                if (xxx === list32[i]) {
+                    gitarerHowl[32].play();
+                }
+            }
+            for (var i = 0; i < list33.length; i++) {
+                if (xxx === list33[i]) {
+                    gitarerHowl[33].play();
+                }
+            }
+            for (var i = 0; i < list34.length; i++) {
+                if (xxx === list34[i]) {
+                    gitarerHowl[34].play();
+                }
+            }
+            for (var i = 0; i < list35.length; i++) {
+                if (xxx === list35[i]) {
+                    gitarerHowl[35].play();
                 }
             }
 
@@ -493,7 +2103,8 @@ var avstand = 0;
             cancelAnimationFrame(globalID)
         };
         start.onclick = function () {
-            globalID = requestAnimationFrame(MoveX)
+            globalID = requestAnimationFrame(MoveX);
+
         };
 
 
@@ -503,14 +2114,14 @@ var avstand = 0;
 
         function m(e) {
             musNede = true;
-            linje.style.left = e.pageX - 8 + "px";
-            xverdi = e.pageX - 8
+            linje.style.left = e.pageX - 100 + "px";
+            xverdi = e.pageX - 100
             //sirkel1.style.left = e.pageX;
         }
         sirkel1.onmousemove = function (e) {
             if (musNede) {
-                linje.style.left = e.pageX - 8 + "px";
-                xverdi = e.pageX - 8
+                linje.style.left = e.pageX - 100 + "px";
+                xverdi = e.pageX - 100
             }
         };
         sirkel1.onmouseup = function () {
@@ -520,9 +2131,21 @@ var avstand = 0;
             musNede = false;
         };
         function s(e) {
-            linje.style.left = e.pageX - 8 + "px";
-            xverdi = e.pageX - 8
+            linje.style.left = e.pageX - 100 + "px";
+            xverdi = e.pageX - 100
         }
+
+        var sammeVerdi = document.getElementById("sammeVerdi");
+        sammeVerdi.onclick = function () {
+            var talla = xverdi/15;
+            inputRad.value = talla.toFixed(1)
+        };
+
+        //var myAudio = document.getElementById("myAudio");
+        //mandarin.onchange = function () {
+        //    drumLyd.volume = Number(mandarin.value/10);
+        //    drumLyd.play()
+        //};
 
 
 
