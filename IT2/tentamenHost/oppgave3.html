@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 3</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        body {
+            background-color: #80A894;
+            text-align: center;
+        }
+        h1 {
+            color: white;
+        }
+        #btn {
+            background-color: #516C5D;
+            color: white;
+            transition: 1s;
+        }
+        #btn:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+        #btn, #inpGrader {
+            padding: 5px;
+            font-size: 100%;
+        }
+        #hele {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: center;
+        }
+        #hele > #div1 {
+            text-align: right;
+        }
+        #resultat {
+            transform: scale(5);
+            margin-top: 50px;
+        }
+        #header {
+            width: 100%;
+            height: 50px;
+            background-color: lightcoral;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        #header > div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        #header > div > a {
+            width: 70px;
+            margin: auto;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div><a href="oppgave1.html">Oppgave 1</a></div>
+    <div><a href="oppgave2.html">Oppgave 2</a></div>
+    <div><a href="oppgave3.html">Oppgave 3</a></div>
+    <div><a href="oppgave4.html">Oppgave 4</a></div>
+    <div><a href="oppgave5.html">Oppgave 5</a></div>
+</header>
+
+<h1>Regn om fra fahrenheit til celcius</h1>
+
+<div id="hele">
+    <div id="div1">
+        <img src="tentBilder/termometer.png" alt="">
+    </div>
+
+    <div>
+        <input type="number" id="inpGrader" placeholder="20...">
+        <button id="btn">Regn om til Celcius</button>
+        <br>
+        <div id="resultat"></div>
+    </div>
+</div>
+
+
+<script>
+
+    var inpGrader = document.getElementById("inpGrader");
+    var btn = document.getElementById("btn");
+    var resultat = document.getElementById("resultat");
+
+
+
+
+    btn.onclick = function () {
+        var celcius = (inpGrader.value - 32)*(5/9);
+        resultat.innerHTML = celcius.toFixed(2) + "C"
+    }
+
+
+</script>
+
+</body>
+</html>

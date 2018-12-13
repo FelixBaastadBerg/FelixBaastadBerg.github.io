@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>granstua</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #oppe {
+            text-align: center;
+        }
+        #lang {
+            width: 300%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            transition: 1s;
+        }
+        #lang > div {
+            text-align: center;
+        }
+        #slideHolder {
+            position: relative;
+        }
+        #btnV,#btnH {
+            position: absolute;
+            font-size: 60px;
+            top: calc(50% - 30px);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        #btnV:hover,#btnH:hover {
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 50px;
+        }
+
+        #btnV {
+            left: 20%;
+        }
+        #btnH {
+            right: 20%;
+        }
+        #btnV > div, #btnH > div {
+            width: 80px;
+            margin: auto;
+        }
+        #nede {
+            text-align: center;
+        }
+        #btn {
+            transform: scale(1.4);
+            padding: 5px;
+            border-radius: 4px;
+        }
+        #btn:hover {
+            cursor: pointer;
+            transform: scale(1.6);
+        }
+        #header {
+            width: 100%;
+            height: 50px;
+            background-color: lightcoral;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        #header > div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        #header > div > a {
+            width: 70px;
+            margin: auto;
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<header id="header">
+    <div><a href="oppgave1.html">Oppgave 1</a></div>
+    <div><a href="oppgave2.html">Oppgave 2</a></div>
+    <div><a href="oppgave3.html">Oppgave 3</a></div>
+    <div><a href="oppgave4.html">Oppgave 4</a></div>
+    <div><a href="oppgave5.html">Oppgave 5</a></div>
+</header>
+
+<div id="oppe"><h1>Granbo</h1></div>
+
+<div id="slideHolder">
+    <div id="lang">
+        <div><img src="tentBilder/granbo01.jpg" alt=""></div>
+        <div><img src="tentBilder/granbo02.jpg" alt=""></div>
+        <div><img src="tentBilder/granbo03.jpg" alt=""></div>
+
+    </div>
+    <div id="btnH"><div>></div></div>
+    <div id="btnV"><div><</div></div>
+</div>
+
+
+<div id="nede">
+    <h3 class="ya">Sengeplasser: 6</h3>
+    <h3 class="ya">Standard: Middels</h3>
+    <h3 class="ya">Badstue: nei</h3>
+    <h3 class="ya">Ukepris: 15 000</h3>
+    <a href="oppgave5.html"><button id="btn">Tilbake til hjemsiden</button></a>
+</div>
+
+<script>
+
+    var lang = document.getElementById("lang");
+
+
+    var marginen = 0;
+    btnH.onclick = function () {
+        if (marginen > -200) {
+            marginen -= 100;
+            lang.style.marginLeft = marginen + "%"
+        } else {
+            lang.animate([
+                {transform: "translateX(20px)"},
+                {transform: "translateX(0)"},
+                {transform: "translateX(10px)"},
+                {transform: "translateX(0)"}
+            ], {
+                duration: 200
+            });
+        }
+    };
+    btnV.onclick = function () {
+        if (marginen < 0) {
+            marginen += 100;
+            lang.style.marginLeft = marginen +"%"
+        } else {
+            lang.animate([
+                {transform: "translateX(-20px)"},
+                {transform: "translateX(0)"},
+                {transform: "translateX(-10px)"},
+                {transform: "translateX(0)"}
+            ], {
+                duration: 200
+            });
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 2</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #header {
+            width: 100%;
+            height: 50px;
+            background-color: lightcoral;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        #header > div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        #header > div > a {
+            width: 70px;
+            margin: auto;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div><a href="oppgave1.html">Oppgave 1</a></div>
+    <div><a href="oppgave2.html">Oppgave 2</a></div>
+    <div><a href="oppgave3.html">Oppgave 3</a></div>
+    <div><a href="oppgave4.html">Oppgave 4</a></div>
+    <div><a href="oppgave5.html">Oppgave 5</a></div>
+</header>
+
+<script>
+
+    var tilfeldigTall = 0;
+
+    while (tilfeldigTall != 3) {
+        tilfeldigTall = Math.floor(Math.random()*10);
+        console.log("svaret er ikke 3");
+    }
+    console.log("Svaret er 3");
+
+    for (var i = 0; i < 50; i++) {
+        document.write(i*3 + 3 + " ")
+    }
+
+</script>
+
+</body>
+</html>

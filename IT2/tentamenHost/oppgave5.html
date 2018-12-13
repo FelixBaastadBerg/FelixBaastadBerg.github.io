@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 5</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #oppe {
+            text-align: center;
+        }
+        #utenforSlide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #slide1 {
+            position: relative;
+            text-align: center;
+        }
+        #slide2 {
+            position: relative;
+            text-align: center;
+        }
+        #header {
+            width: 100%;
+            height: 50px;
+            background-color: lightcoral;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        #header > div {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        #header > div > a {
+            width: 70px;
+            margin: auto;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div><a href="oppgave1.html">Oppgave 1</a></div>
+    <div><a href="oppgave2.html">Oppgave 2</a></div>
+    <div><a href="oppgave3.html">Oppgave 3</a></div>
+    <div><a href="oppgave4.html">Oppgave 4</a></div>
+    <div><a href="oppgave5.html">Oppgave 5</a></div>
+</header>
+
+<div id="oppe"><h1>Hytteutleie</h1></div>
+
+<div id="utenforSlide">
+    <div id="slide1">
+            <div>
+                <h3>Granbo</h3>
+                <a href="granbo.html"><img src="tentBilder/granbo.jpg" alt=""></a>
+            </div>
+
+    </div>
+    <div id="slide2">
+            <div>
+                <h3>Granstua</h3>
+                <a href="granstua.html"><img src="tentBilder/granstua.jpg" alt=""></a>
+            </div>
+
+    </div>
+</div>
+
+
+<script>
+
+    var slide1 = document.getElementById("slide1");
+    var slide2 = document.getElementById("slide2");
+
+
+
+</script>
+
+</body>
+</html>
