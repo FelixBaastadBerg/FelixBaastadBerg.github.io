@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {box-sizing: border-box;}
+        ul {list-style-type: none;}
+        body {font-family: Verdana, sans-serif;}
+
+        .month {
+            padding: 50px 25px;
+            width: 100%;
+            background: #1abc9c;
+            text-align: center;
+        }
+
+        .month ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .month ul li {
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .month .prev {
+            float: left;
+            padding-top: 10px;
+        }
+
+        .month .next {
+            float: right;
+            padding-top: 10px;
+        }
+
+        .weekdays {
+            margin: 0;
+            padding: 10px 0;
+            background-color: #ddd;
+        }
+
+        .weekdays li {
+            display: inline-block;
+            width: 13.6%;
+            color: #666;
+            text-align: center;
+        }
+
+        .days {
+            padding: 10px 0;
+            background: #eee;
+            margin: 0;
+        }
+
+        .days li {
+            list-style-type: none;
+            display: inline-block;
+            width: 13.6%;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size:12px;
+            color: #777;
+        }
+
+        .days li .active {
+            padding: 5px;
+            background: #1abc9c;
+            color: white !important
+        }
+        .days li input:checked {
+            background-color: red;
+        }
+
+        /* Add media queries for smaller screens */
+        @media screen and (max-width:720px) {
+            .weekdays li, .days li {width: 13.1%;}
+        }
+
+        @media screen and (max-width: 420px) {
+            .weekdays li, .days li {width: 12.5%;}
+            .days li .active {padding: 2px;}
+        }
+
+        @media screen and (max-width: 290px) {
+            .weekdays li, .days li {width: 12.2%;}
+        }
+        .chk1, .chk2 {
+            margin-left: 4px;
+            margin-right: 25px;
+        }
+        #btn:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            transition-duration: 100ms;
+        }
+        #btn {
+            opacity: .9;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+            margin-bottom: 7px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="month">
+    <ul>
+        <li>
+            Rucker Park<br>
+            <span style="font-size:18px">Rulleplass-kalkulatoren - mai 2019</span>
+        </li>
+    </ul>
+</div>
+
+<ul class="weekdays">
+    <li>Ons</li>
+    <li>Tors</li>
+    <li>Fre</li>
+    <li>Lør</li>
+    <li>Søn</li>
+    <li>Man</li>
+    <li>Tirs</li>
+</ul>
+
+<ul class="days">
+    <li class="lili">1 <input type="radio" name="felix" value="1" class="chk"></li>
+    <li class="lili">2 <input type="radio" name="felix" value="2" class="chk"></li>
+    <li class="lili">3 <input type="radio" name="felix" value="3" class="chk"></li>
+    <li class="lili">4 <input type="radio" name="felix" value="4" class="chk"></li>
+    <li class="lili">5 <input type="radio" name="felix" value="5" class="chk"></li>
+    <li class="lili">6 <input type="radio" name="felix" value="6" class="chk"></li>
+    <li class="lili">7 <input type="radio" name="felix" value="7" class="chk"></li>
+    <li class="lili">8 <input type="radio" name="felix" value="8" class="chk"></li>
+    <li class="lili">9 <input type="radio" name="felix" value="9" class="chk"></li>
+    <li class="lili">10 <input type="radio" name="felix" value="10" class="chk"></li>
+    <li class="lili">11 <input type="radio" name="felix" value="11" class="chk"></li>
+    <li class="lili">12 <input type="radio" name="felix" value="12" class="chk"></li>
+    <li class="lili">13 <input type="radio" name="felix" value="13" class="chk"></li>
+    <li class="lili">14 <input type="radio" name="felix" value="14" class="chk"></li>
+    <li class="lili">15 <input type="radio" name="felix" value="15" class="chk"></li>
+    <li class="lili">16 <input type="radio" name="felix" value="16" class="chk"></li>
+    <li class="lili">17 <input type="radio" name="felix" value="17" class="chk"></li>
+    <li class="lili">18 <input type="radio" name="felix" value="18" class="chk"></li>
+    <li class="lili">19 <input type="radio" name="felix" value="19" class="chk"></li>
+    <li class="lili">20 <input type="radio" name="felix" value="20" class="chk"></li>
+    <li class="lili">21 <input type="radio" name="felix" value="21" class="chk"></li>
+    <li class="lili">22 <input type="radio" name="felix" value="22" class="chk"></li>
+    <li class="lili">23 <input type="radio" name="felix" value="23" class="chk"></li>
+    <li class="lili">24 <input type="radio" name="felix" value="24" class="chk"></li>
+    <li class="lili">25 <input type="radio" name="felix" value="25" class="chk"></li>
+    <li class="lili">26 <input type="radio" name="felix" value="26" class="chk"></li>
+    <li class="lili">27 <input type="radio" name="felix" value="27" class="chk"></li>
+    <li class="lili">28 <input type="radio" name="felix" value="28" class="chk"></li>
+    <li class="lili">29 <input type="radio" name="felix" value="29" class="chk"></li>
+    <li class="lili">30 <input type="radio" name="felix" value="30" class="chk"></li>
+    <li class="lili">31 <input type="radio" name="felix" value="31" class="chk"></li>
+</ul>
+
+<h3 id="alder">Hvor gammel er du?</h3>
+
+00<input type="radio" class="chk1" name="ho" value="5">
+01<input type="radio" class="chk1" name="ho" value="7">
+02<input type="radio" class="chk1" name="ho" value="9">
+03<input type="radio" class="chk1" name="ho" value="10">
+
+<h3>Hvilken skole er du ifra?</h3>
+
+STB<input type="radio" class="chk2" name="hole" value="10">
+Eikeli<input type="radio" class="chk2" name="hole" value="9">
+Sandvika<input type="radio" class="chk2" name="hole" value="8">
+Nadderud<input type="radio" class="chk2" name="hole" value="7">
+Ungdomsskolen:)<input type="radio" class="chk2" name="hole" value="11">
+<br><br>
+<button id="btn">Send inn søknad</button>
+
+<div id="ref"></div>
+
+<script>
+    var liste = document.querySelectorAll(".lili");
+    var ref = document.getElementById("ref");
+    var chk = document.querySelectorAll(".chk");
+    var days = document.querySelectorAll(".days");
+    var btn = document.getElementById("btn");
+    var chk1 = document.querySelectorAll(".chk1");
+    var chk2 = document.querySelectorAll(".chk2");
+
+
+
+
+
+
+   btn.onclick = function () {
+       var dato;
+       var alder;
+       var skole;
+       for (var i = 0; i< liste.length; i++) {
+           if (chk[i].checked) {
+               dato = chk[i].value;
+           }
+       }
+       for (var i = 0; i < chk1.length; i++) {
+           if (chk1[i].checked) {
+               alder = chk1[i].value;
+           }
+       }
+       for (var i = 0; i < chk2.length; i++) {
+           if (chk2[i].checked) {
+               skole = chk2[i].value;
+           }
+       }
+       ref.innerHTML = "Det er " + alder*skole + "% sannsynelighet for at du får rulle " + dato + ".mai"
+
+   }
+
+
+</script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+        authDomain: "data2000bass.firebaseapp.com",
+        databaseURL: "https://data2000bass.firebaseio.com",
+        projectId: "data2000bass",
+        storageBucket: "data2000bass.appspot.com",
+        messagingSenderId: "838934922279"
+    };
+    firebase.initializeApp(config);
+</script>
+</body>
+</html>

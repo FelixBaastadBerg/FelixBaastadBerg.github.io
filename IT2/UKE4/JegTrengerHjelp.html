@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NettBank</title>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDXBCFWq8jAB_yuXK5YUn8B7xU3F7h4jAo",
+            authDomain: "data2000bass.firebaseapp.com",
+            databaseURL: "https://data2000bass.firebaseio.com",
+            projectId: "data2000bass",
+            storageBucket: "data2000bass.appspot.com",
+            messagingSenderId: "838934922279"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- *******************************************************************************************
+      * TODO(DEVELOPER): Paste the initialization snippet from:
+      * Firebase Console > Overview > Add Firebase to your web app. *
+      ***************************************************************************************** -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.css" />
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: 'rulleplass.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>'
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <style>
+        #firebaseui-auth-container:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            transition-duration: 100ms;
+        }
+        #firebaseui-auth-container {
+            opacity: .9;
+            cursor: pointer;
+        }
+        body {
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            color: darkred;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Rucker Park Rulle-plass Generator</h1>
+
+<div id="firebaseui-auth-container"></div>
+
+</body>
+</html>
