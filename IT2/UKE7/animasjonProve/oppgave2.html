@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="number" id="nok" placeholder="antall norske kroner">
+<select name="valutaer" id="velgValuta">
+
+    <option value="SEK" id="sek">SEK</option>
+    <option value="GBP" id="gbp">GBP</option>
+    <option value="USD" id="usd">USD</option>
+
+</select>
+
+<button id="btn">Kalkulér</button>
+
+<div id="resultat"></div>
+
+<script>
+
+    var nok = document.getElementById("nok");
+    var sek = document.getElementById("sek");
+    var gbp = document.getElementById("gbp");
+    var usd = document.getElementById("usd");
+    var btn = document.getElementById("btn");
+    var resultat = document.getElementById("resultat");
+
+
+    btn.onclick = function () {
+        if (sek.selected == true) {
+            var sekKroner = nok.value * 1.07;
+            var s = sekKroner.toFixed(2);
+            resultat.innerHTML = nok.value + "NOK er det samme som " + s + "SEK"
+        } else if (gbp.selected == true) {
+            var gbpKroner = nok.value * 0.089;
+            var g = gbpKroner.toFixed(2);
+            resultat.innerHTML = nok.value + "NOK er det samme som " + g + "GBP";
+        } else if (usd.selected == true) {
+            var usdKroner = nok.value * 0.11;
+            var u = usdKroner.toFixed(2);
+            resultat.innerHTML = nok.value + "NOK er det samme som " + u + "GBP";
+        }
+    }
+    
+
+
+</script>
+
+</body>
+</html>

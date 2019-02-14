@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave1</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        #container {
+            height: 100vh;
+            transition: 1s;
+        }
+        #blå {
+            background-color: blue;
+            width: 200px;
+            height: 20%;
+            margin-bottom: 1.5%;
+            margin-top: 3%;
+
+        }
+        #grønn {
+            background-color: green;
+            width: 200px;
+            height: 20%;
+            margin-bottom: 1.5%;
+            margin-top: 1.5%;
+        }
+        #gul {
+            background-color: yellow;
+            width: 200px;
+            height: 20%;
+            margin-bottom: 1.5%;
+            margin-top: 1.5%;
+        }
+        #rød {
+            background-color: red;
+            width: 200px;
+            height: 20%;
+            margin-top: 1.5%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="blå" class="farge"></div>
+    <div id="grønn" class="farge"></div>
+    <div id="gul" class="farge"></div>
+    <div id="rød" class="farge"></div>
+</div>
+
+<script>
+
+    var blå = document.getElementById("blå");
+    var grønn = document.getElementById("grønn");
+    var gul = document.getElementById("gul");
+    var rød = document.getElementById("rød");
+
+
+
+    blå.onmouseleave = function () {
+        blå.style.transition = "1s";
+        blå.style.transform = "rotate(0deg)"
+
+    };
+    blå.onmouseover = function () {
+        blå.style.transition = "1s";
+        blå.style.transformOrigin = "bottom right";
+        blå.style.transform = "rotate(90deg)"
+    };
+    grønn.onmouseleave = function () {
+        grønn.style.transition = "1s";
+        grønn.style.transform = "rotate(0deg)"
+
+    };
+    grønn.onmouseover = function () {
+        grønn.style.transition = "1s";
+        grønn.style.transform = "rotate(60deg)"
+    };
+    gul.onmouseleave = function () {
+        gul.style.transition = "1s";
+        gul.style.transform = "scale(1)"
+
+    };
+    gul.onmouseover = function () {
+        gul.style.transition = "1s";
+        gul.style.transform = "scale(2)"
+    };
+    rød.onmouseover = function () {
+        rød.style.transition = "1s";
+        rød.style.marginLeft = "calc(100vw - 200px)";
+    }
+
+</script>
+
+</body>
+</html>
