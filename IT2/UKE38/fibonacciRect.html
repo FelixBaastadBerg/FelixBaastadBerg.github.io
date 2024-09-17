@@ -14,20 +14,19 @@
 <canvas id="canvas"></canvas>
 
 <script>
-
     var canvas = document.getElementById("canvas");
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
     var c = canvas.getContext("2d");
-
+    c.fillStyle = getRandomColor();//--- Ny bakgrunnsfarge--
+    c.fillRect(0, 0, canvas.width, canvas.height);//--- Ny bakgrunnsfarge--
+    c.lineWidth=5;//--- Tykkere linjer--
     var startX = 470;
     var startY = 250;
     var tall = 5;
     var tall2 = 5;
-
     var hx;
     var hy;
-
     var o = {
         x: 5,
         y: 5
@@ -44,12 +43,13 @@
         x: 10,
         y: 5
     };
-
     //c.strokeRect(startX - tall2, startY - tall2, tall2, tall2);
+    c.strokeStyle = getRandomColor();
     c.beginPath();
     c.arc(startX, startY, tall2, Math.PI, Math.PI * 1.5, false);
     c.stroke();
     //c.strokeRect(startX - tall2, startY, tall, tall);
+    c.strokeStyle = getRandomColor();
     c.beginPath();
     c.arc(startX, startY, tall, Math.PI * 0.5, Math.PI, false);
     c.stroke();
@@ -57,33 +57,27 @@
     hx = 0;
     hy = tall2;
     //c.strokeRect(startX + hx, startY - hy, tall, tall);
+    c.strokeStyle = getRandomColor();
     c.beginPath();
     c.arc(startX + hx, startY - hy, tall, 0, Math.PI * 0.5, false);
     c.stroke();
     c.stroke();
-
-
     var op, ve, ne, ho;
-
-
-
     for (var i = 1; i < 3; i++) {
-
-
         function opp() {
-
             tall += tall2;
             //c.strokeRect(startX - o.x, startY - o.y - tall, tall, tall);
+            c.strokeStyle = getRandomColor();
             c.beginPath();
             c.arc(startX - o.x, startY - o.y, tall, Math.PI * 1.5, 0, false);
             c.stroke();
-
         }
         function venstre() {
             if (i < 2) {
                 tall2 += tall + 5;
                 v.x += tall2;
                 //c.strokeRect(startX - v.x, startY - o.y - tall, tall2, tall2);
+                c.strokeStyle = getRandomColor();
                 c.beginPath();
                 c.arc(startX - v.x + tall2, startY - o.y - tall + tall2, tall2, Math.PI, Math.PI * 1.5, false);
                 c.stroke();
@@ -94,6 +88,7 @@
                 tall2 += tall;
                 v.x += tall2;
                 //c.strokeRect(startX - v.x, startY - o.y - tall, tall2, tall2);
+                c.strokeStyle = getRandomColor();
                 c.beginPath();
                 c.arc(startX - v.x + tall2, startY - o.y - tall + tall2, tall2, Math.PI, Math.PI * 1.5, false);
                 c.stroke();
@@ -105,6 +100,7 @@
         function ned() {
             tall += tall2;
             //c.strokeRect(startX - v.x, startY + n.y, tall, tall);
+            c.strokeStyle = getRandomColor();
             c.beginPath();
             c.arc(startX - v.x + tall, startY + n.y, tall, Math.PI * 0.5, Math.PI, false);
             c.stroke();
@@ -113,17 +109,26 @@
         function hoyre() {
             tall2 += tall;
             //c.strokeRect(startX + h.x, startY - h.y, tall2, tall2);
+            c.strokeStyle = getRandomColor();
             c.beginPath();
             c.arc(startX + h.x, startY - h.y, tall2, 0, Math.PI * 0.5, false);
             c.stroke();
             h.x += tall2;
-
         }
-
         opp();
         venstre();
         ned();
         hoyre();
+    }
+
+        function getRandomColor() {
+        // ----- En funksjon som gir en tilfeldig farge ---
+        var letters = "0123456789ABCDEF"; // Alle tegn i en HEX-fargekode
+        var color = "#"; // En variabel for fargen, alle HEX-koder starter med #
+        for (var i = 0; i < 6; i++) { // En for-løkke som teller opp i fra 0 til 5
+            color += letters[Math.floor(Math.random() * letters.length)]; // Legg et tilfeldig tegn fra letters til i color
+        }
+        return color; // Returner fargen, eks: "#615C85"
     }
 </script>
 
