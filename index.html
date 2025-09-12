@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Projects & Writing</title>
+  <title>Felix Baastad Berg - Imperial College London</title>
   <meta name="description" content="Portfolio of Your Name: selected projects, writing, and contact." />
   <!-- Social preview -->
   <meta property="og:title" content="Your Name — Projects" />
@@ -11,177 +11,776 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yourusername.github.io/" />
   <meta property="og:image" content="/og-card.png" />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#ffffff" />
 
   <link rel="icon" href="/favicon.ico" />
 
   <style>
     /* —— Minimal, tasteful styles (no framework) —— */
     :root{
-      --bg:#0b0d10;        /* page background */
-      --panel:#11151a;     /* cards/nav background */
-      --text:#e6eef7;      /* primary text */
-      --muted:#a8b3c0;     /* secondary text */
-      --brand:#6ee7b7;     /* accent */
-      --brand-2:#93c5fd;   /* subtle accent */
-      --ring: 0 0 0 3px rgba(110,231,183,.35);
+      --bg:#fff;              /* page background: white */
+      --panel:#f5f7fa;        /* cards/nav background: light gray */
+      --text:#1a2230;         /* primary text: dark */
+      --muted:#4b5563;        /* secondary text: muted dark */
+      --brand:#10b981;        /* accent: teal/emerald */
+      --brand-2:#2563eb;      /* subtle accent: blue */
+      --ring: 0 0 0 3px rgba(16,185,129,.25);
       --radius:16px;
-      --shadow:0 4px 20px rgba(0,0,0,.22);
+      --shadow:0 4px 20px rgba(0,0,0,.08);
       --font:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0; font-family:var(--font); color:var(--text); background:radial-gradient(1200px 800px at 80% -10%, #1a2230 0%, #0b0d10 60%), var(--bg)}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-    .container{max-width:980px; margin:0 auto; padding:24px}
-    header{position:sticky; top:0; z-index:10; background:linear-gradient(180deg, rgba(11,13,16,.85), rgba(11,13,16,.65)); backdrop-filter:saturate(1.2) blur(6px);}
+    .centered-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 0 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container{max-width:1280px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; z-index:10; background:linear-gradient(180deg, rgba(245,247,250,.95), rgba(255,255,255,.85)); backdrop-filter:saturate(1.2) blur(6px);}
     nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 24px}
     .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
     .avatar{width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:var(--shadow)}
     .name{font-weight:700; letter-spacing:.2px}
     .links a{color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:10px}
-    .links a:hover{color:var(--text); background:rgba(255,255,255,.04)}
+    .links a:hover{color:var(--text); background:rgba(16,185,129,.08)}
 
     .hero{padding:72px 24px 12px}
     h1{font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0}
     .tagline{color:var(--muted); margin:10px 0 0; max-width:60ch}
 
-    .section{padding:32px 24px}
-    .section h2{font-size:clamp(20px,3.5vw,28px); margin:0 0 16px}
+    .section{padding:32px 24px; width: 100%; box-sizing: border-box;}
+    .section h2{font-size:clamp(20px,3.5vw,28px); margin:0 0 16px; text-align: center;}
 
-    .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.05); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
-    .thumb{aspect-ratio:16/9; background:#0e1116; display:flex; align-items:center; justify-content:center; color:#8aa0b2; font-size:14px}
-    .card-body{padding:14px}
-    .card h3{margin:0 0 6px; font-size:18px}
-    .meta{color:var(--muted); font-size:14px; margin:0 0 10px}
-    .card p{margin:0 0 10px; color:#cbd5e1}
-    .actions{display:flex; gap:8px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; text-decoration:none; color:#0b0d10; background:var(--brand); font-weight:600}
-    .btn.secondary{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.12)}
-    .btn:focus-visible{outline:none; box-shadow:var(--ring)}
+    .about-contact {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      margin-top: 8px;
+    }
+    .about-contact a, .about-contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 8px;
+      padding: 2px 8px;
+      transition: background 0.15s;
+    }
+    .about-contact a:hover {
+      background: rgba(16,185,129,.08);
+      color: var(--text);
+    }
+    .about-contact .icon {
+      display: inline-block;
+      width: 1.1em;
+      height: 1.1em;
+      vertical-align: middle;
+      margin-right: 2px;
+    }
 
-    .list{display:grid; gap:10px}
-    .list a{display:block; padding:12px 14px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:12px; color:var(--text); text-decoration:none}
-    .list a:hover{background:rgba(255,255,255,.05)}
-    .list small{color:var(--muted)}
+    /* New: About top flex layout */
+    .about-top-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 48px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto 0 auto;
+    }
+    .about-schools {
+      flex: 2 1 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+    .about-awards {
+      flex: 1 1 240px;
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 24px 18px 24px;
+      min-width: 220px;
+      max-width: 320px;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .about-awards h3 {
+      font-size: 1.1em;
+      margin: 0 0 10px 0;
+      color: var(--brand-2);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .about-awards ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .about-awards li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+    .about-awards .award-icon {
+      color: var(--brand);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .about-awards a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    .about-awards a:hover {
+      color: var(--brand-2);
+      text-decoration: underline;
+    }
+    .about-school-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .about-school-row img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+    .about-school-row span {
+      display: block;
+    }
+    .about-profile {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end; /* Push image to the right edge */
+  align-items: flex-start;
+}
 
-    footer{padding:24px; color:var(--muted); text-align:center}
+.about-profile img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+
+.about-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.about-contact a {
+  color: var(--brand-2);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-contact a:hover {
+  text-decoration: underline;
+  color: var(--brand);
+}
+
+
+
+    @media (max-width: 900px) {
+      .about-top-row {
+        flex-direction: column;
+        gap: 28px;
+        align-items: stretch;
+      }
+      .about-awards {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+    @media (max-width:700px){
+      .centered-content {
+        max-width: 100vw;
+        padding: 12px 0 0 0;
+      }
+      .section {
+        padding: 20px 4vw;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .about-contact {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+      .about-top-row {
+        flex-direction: column;
+        gap: 18px;
+        max-width: 100vw;
+        padding: 0;
+      }
+      .about-awards {
+        padding: 16px 10px 12px 10px;
+      }
+    }
+
+
+
+    /* --- Projects Section --- */
+#projects h2 {
+  text-align: left;          /* float the heading left */
+  margin-bottom: 32px;
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 700;
+}
+
+/* The project list container */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;                 /* spacing between projects */
+  max-width: 100%;
+}
+
+/* Each project row */
+.project {
+  display: grid;
+  grid-template-columns: 280px 1fr; /* image left, text right */
+  gap: 24px;
+  align-items: start;
+}
+
+/* Project image (thumbnail) */
+.project-thumb {
+  width: 100%;
+  height: 180px;              /* fixed height for consistency */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius);
+  /*box-shadow: var(--shadow);*/
+}
+
+/* Text body */
+.project-body h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2em;
+}
+
+.project-body .meta {
+  font-size: 0.95em;
+  color: var(--muted);
+  margin: 0 0 12px 0;
+}
+
+.project-body p {
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.project-body .btn {
+  background: var(--brand);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.project-body .btn:hover {
+  background: var(--brand-2);
+}
+
+.project-body .btn.secondary {
+  background: transparent;
+  color: var(--brand-2);
+  border: 1px solid rgba(37,99,235,.25);
+}
+
+.project-body .btn.secondary:hover {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+/* Responsive: stack image above text */
+@media (max-width: 800px) {
+  .project {
+    grid-template-columns: 1fr;
+  }
+  .project-thumb {
+    height: 200px; /* slightly taller on mobile */
+  }
+}
 
     @media (max-width:480px){
       nav{padding:10px 16px}
       .links{display:flex; gap:6px}
       .btn{padding:8px 10px}
+      .section {
+        padding: 12px 2vw;
+      }
+      .about-awards {
+        padding: 10px 4px 8px 4px;
+      }
     }
+
+    .about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.about-header h2 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.about-links {
+  display: flex;
+  gap: 20px;
+  font-size: 0.95em;
+}
+
+.about-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.about-links a:hover {
+  color: var(--brand-2);
+  text-decoration: underline;
+}
+
+/* —— Shared list style (same as projects list look) —— */
+.section h2 {
+  text-align: left;
+  margin-bottom: 24px;
+  font-size: clamp(22px, 3.5vw, 28px);
+  font-weight: 700;
+}
+
+/* Generic list container */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;              /* vertical spacing between entries */
+  max-width: 100%;
+}
+
+/* Each entry */
+.item {
+  display: grid;
+  grid-template-columns: 1fr; /* text-only by default */
+  gap: 16px;
+  align-items: start;
+}
+
+/* Entry body */
+.item h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.15em;
+}
+
+.item .meta {
+  font-size: 0.95em;
+  color: var(--muted);
+  margin: 0 0 10px 0;
+}
+
+.item p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Optional actions row (links/buttons under an item) */
+.item .actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.item .btn {
+  background: var(--brand);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.item .btn.secondary {
+  background: transparent;
+  color: var(--brand-2);
+  border: 1px solid rgba(37,99,235,.25);
+}
+
+/* Optional slim divider between items (uncomment to enable)
+.item { border-top: 1px solid rgba(0,0,0,.06); padding-top: 20px; }
+.item:first-child { border-top: 0; padding-top: 0; }
+*/
+
+/* Responsive keeps it simple — text-only stacks naturally */
+@media (max-width: 700px) {
+  .item-list { gap: 24px; }
+}
+
+/* --- Masthead (name left, links right) --- */
+.masthead{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:24px;
+  margin-bottom:16px;
+}
+.masthead h2{
+  margin:0;
+  font-size:clamp(26px,4.2vw,40px);
+  line-height:1.1;
+  letter-spacing:.2px;
+}
+.masthead-links{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.masthead-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:clamp(14px,1.5vw,18px);
+}
+.masthead-links a:hover{ color:var(--text); text-decoration:underline; }
+
+/* --- Two-column layout --- */
+.about-grid{
+  display:grid;
+  grid-template-columns: 1fr 320px; /* left text, right photo */
+  gap:32px;
+  align-items:start;
+}
+
+/* --- Education list with icons aligned to first line --- */
+.edu-list{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  max-width:68ch;       /* comfortable line length for reading */
+}
+.edu-item{
+  display:grid;
+  grid-template-columns: 42px 1fr; /* icon + text */
+  gap:16px;
+  align-items:start;     /* align icon to first line of text */
+}
+.edu-icon {
+  width: 42px;
+  height: 42px;
+  display: block;
+  object-fit: contain;   /* 👈 show the whole logo */
+  background: #fff;      /* 👈 clean backdrop for non-square logos */
+  border-radius: 8px;    /* optional, for consistency */
+  padding: 4px;          /* add breathing space inside the box */
+  box-shadow: var(--shadow);
+  margin-top: 5px;
+}
+
+.edu-item p{
+  margin:0;
+  line-height:1.6;
+  font-size:clamp(15px,1.6vw,18px);
+}
+.edu-item a{ color:var(--brand-2); text-decoration:underline; }
+.edu-item a:hover{ color:var(--brand); }
+
+/* --- Profile image pinned to the right edge --- */
+.profile{
+  margin:0;
+  justify-self:end;          /* hugs right side */
+}
+.profile img{
+  display:block;
+  width:320px; height:auto;  /* keeps aspect ratio */
+  border-radius:14px;
+  box-shadow: var(--shadow);
+}
+
+/* --- Optional: subtle divider under the section for structure --- */
+#about.section{ padding-top:16px; }
+#about + .section{ border-top:1px solid rgba(0,0,0,.06); }
+
+/* --- Responsive --- */
+@media (max-width: 900px){
+  .about-grid{
+    grid-template-columns:1fr;   /* stack */
+    gap:20px;
+  }
+  .profile{
+    order:-1;                    /* photo above text; remove if you prefer below */
+    justify-self:start;
+  }
+  .profile img{ width:100%; max-width:520px; }
+  .masthead{ align-items:flex-start; }
+  .masthead-links{ gap:16px; }
+}
+
+
   </style>
 </head>
 <body>
-  <!-- —— Top bar —— -->
-  <header aria-label="Site header">
-    <nav class="container" role="navigation">
-      <a class="brand" href="#top">
-        <span class="avatar" aria-hidden="true"></span>
-        <span class="name">Your Name</span>
-      </a>
-      <div class="links" aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#writing">Writing</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+  <div class="centered-content">
 
-  <!-- —— Hero —— -->
-  <main id="top" class="container">
-    <section class="hero" aria-labelledby="intro-title">
-      <h1 id="intro-title">I build <em>useful</em> things with code and math.</h1>
-      <p class="tagline">Short sentence about your focus & taste. Example: "Master’s student in Advanced Computing at Imperial. Interested in RL, SNNs, and elegant data viz."</p>
-    </section>
-
-    <!-- —— Projects —— -->
-    <section id="projects" class="section" aria-labelledby="projects-title">
-      <h2 id="projects-title">Selected projects</h2>
-      <div class="grid">
-        <!-- Card 1 -->
-        <article class="card">
-          <div class="thumb" role="img" aria-label="Project thumbnail">Add image: /img/p1.png</div>
-          <div class="card-body">
-            <h3>Project Title One</h3>
-            <p class="meta">2025 · Python, JAX</p>
-            <p>One-line summary of what it does and why it matters. Keep it crisp and outcome‑focused.</p>
-            <div class="actions">
-              <a class="btn" href="#" target="_blank" rel="noopener">Live demo</a>
-              <a class="btn secondary" href="#" target="_blank" rel="noopener">Source</a>
-            </div>
-          </div>
-        </article>
-        <!-- Card 2 -->
-        <article class="card">
-          <div class="thumb" role="img" aria-label="Project thumbnail">/img/p2.png</div>
-          <div class="card-body">
-            <h3>Project Two</h3>
-            <p class="meta">2024 · PyTorch, RL</p>
-            <p>What problem it solves; include a metric if possible (↑ accuracy 7%, ↓ latency 30%).</p>
-            <div class="actions">
-              <a class="btn" href="#" target="_blank" rel="noopener">Paper</a>
-              <a class="btn secondary" href="#" target="_blank" rel="noopener">Code</a>
-            </div>
-          </div>
-        </article>
-        <!-- Card 3 -->
-        <article class="card">
-          <div class="thumb" role="img" aria-label="Project thumbnail">/img/p3.png</div>
-          <div class="card-body">
-            <h3>Project Three</h3>
-            <p class="meta">2023 · Jekyll plugin</p>
-            <p>Another short description. Link to a blog post or talk if relevant.</p>
-            <div class="actions">
-              <a class="btn" href="#" target="_blank" rel="noopener">Blog post</a>
-              <a class="btn secondary" href="#" target="_blank" rel="noopener">Code</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- —— Writing —— -->
-    <section id="writing" class="section" aria-labelledby="writing-title">
-      <h2 id="writing-title">Writing</h2>
-      <div class="list" role="list">
-        <a href="#" target="_blank" rel="noopener" role="listitem">
-          <div><strong>Title of a recent post</strong></div>
-          <small>Jan 3, 2025 — short teaser sentence about the idea.</small>
-        </a>
-        <a href="#" target="_blank" rel="noopener" role="listitem">
-          <div><strong>Notes on X</strong></div>
-          <small>Nov 12, 2024 — one more sentence.</small>
-        </a>
-      </div>
-    </section>
-
-    <!-- —— About —— -->
     <section id="about" class="section" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <p>Two or three lines about who you are, what you value in work, and what you’re exploring. Keep it human. Example: "I like clean abstractions, fast feedback loops, and shipping small, useful tools."</p>
-    </section>
-
-    <!-- —— Contact —— -->
-    <section id="contact" class="section" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <div class="list">
-        <a href="mailto:you@example.com">you@example.com</a>
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a>
-        <a href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      <div class="masthead">
+        <h2 id="about-title">Felix Baastad Berg</h2>
+        <nav class="masthead-links" aria-label="primary">
+          <a href="mailto:felix.berg@hotmail.no">Mail</a>
+          <a href="https://www.linkedin.com/in/felix-baastad-berg/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://kateter.no" target="_blank" rel="noopener">Company</a>
+          <a href="/img/Felix_Berg_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </nav>
+      </div>
+    
+      <div class="about-grid">
+        <!-- Left: education blurbs -->
+        <div class="edu-list" role="list">
+          <div class="edu-item" role="listitem">
+            <img src="/img/imperial_logo.jpg" alt="" class="edu-icon" />
+            <p>
+              I am pursuing an <strong>MSc in Advanced Computing</strong> at Imperial College London. My research interests are in reinforcement learning, high-performance computing, and statistical methods.
+            </p>
+          </div>
+          <div class="edu-item" role="listitem">
+            <img src="/img/mit_logo.png" alt="" class="edu-icon" />
+            <p>
+              Previously, I was a <strong>Fulbright Scholar</strong> at MIT. In addition to classes, I spent a year with the
+              <a href="https://www.rajanlab.com/">Rajan Lab</a> at Harvard University, where I researched deep reinforcement learning simulations to model animal behavior.
+            </p>
+          </div>
+          <div class="edu-item" role="listitem">
+            <img src="/img/ntnu_logo.svg" alt="" class="edu-icon" />
+            <p>
+              I also hold a <strong>MSc in Mathematics</strong> from the Norwegian University of Science and Technology, where my thesis explored continuous attractor networks and memory in deep reinforcement learning.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Right: profile image -->
+        <figure class="profile">
+          <img src="/img/meg1.png" alt="Felix Baastad Berg" />
+        </figure>
       </div>
     </section>
-  </main>
+      
+    </section>
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title" style="margin-top: -10px;">Highlighted Research</h2>
+    
+      <div class="project-list">
+    
+        <!-- Project 1 -->
+        <div class="project">
+          <div class="project-thumb" style="background-image:url('/img/neurips.jpeg')"></div>
+          <div class="project-body">
+            <h3>Deep RL Needs Deep Behavior Analysis</h3>
+            <p class="meta">2025 · NeurIPS (rebuttal complete) · Harvard University · JAX, RL, HPC</p>
+            <p>
+              We show model-free agents display <em>implicit planning</em> in open-ended environments and introduce a behavior-analysis toolkit to reveal how policies reason and generalize.
+            </p>
+            <a class="btn" href="https://arxiv.org/abs/2506.06981" target="_blank" rel="noopener">Paper (arXiv)</a>
+          </div>
+        </div>
+    
+        <!-- Project 2 -->
+        <div class="project">
+          <div class="project-thumb" style="background-image:url('/img/master-thesis.png')"></div>
+          <div class="project-body">
+            <h3>Spatial Representation Learned in the Recurrent Memory of Artificial Neural Agents</h3>
+            <p class="meta">2025 · MSc Thesis · NTNU · JAX, RL, attractor networks</p>
+            <p>
+              Developed biologically inspired reinforcement learning agents with LSTM memory, path integration, and continuous attractor networks. Showed efficient navigation and interpretable grid-cell–like codes in open-ended environments.
+            </p>
+            <a class="btn" href="/img/MasterThesis.pdf" target="_blank" rel="noopener">Read Thesis (PDF)</a>
+          </div>
+        </div>
+    
+        <!-- Project 3 -->
+        <div class="project">
+          <div class="project-thumb" style="background-image:url('/img/generalization-bounds.png')"></div>
+          <div class="project-body">
+            <h3>Rethought Generalization: Empirical Analysis of Bounds for Compositionally Sparse Networks</h3>
+            <p class="meta">2024 · MIT · CNNs, Generalization Theory, PyTorch</p>
+            <p>
+              Empirical study of norm-based generalization bounds in CNNs under varying data sizes, random labels, and optimization strategies. Highlights when tighter bounds provide insight into generalization performance.
+            </p>
+            <div class="actions">
+              <a class="btn" href="/img/Generalization.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
+              <a class="btn secondary" href="https://github.com/rickconci/GeneralisationBounds_SLT" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Project 4 -->
+        <div class="project">
+          <div class="project-thumb" style="background-image:url('/img/bilde_voltage.png')"></div>
+          <div class="project-body">
+            <h3>Unsupervised Time Series Forecasting with Spiking Neural Networks leveraging STDP</h3>
+            <p class="meta">2025 · MIT · Spiking Neural Networks, Time Series</p>
+            <p>
+              Explored spiking neural networks with STDP for one-step-ahead time series forecasting. Compared against AR(5) models, showing the potential of biologically inspired networks for unsupervised prediction tasks.
+            </p>
+            <a class="btn" href="/img/MatrixMethodsProject.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
+          </div>
+        </div>
+    
+        <!-- Project 5 -->
+        <div class="project">
+          <div class="project-thumb" style="background-image:url('/img/agent_pred.png')"></div>
+          <div class="project-body">
+            <h3>Deep Reinforcement Learning for Memory-Driven Navigation in Predator-Prey Environments</h3>
+            <p class="meta">2024 · Harvard · LSTM, RL, PyTorch</p>
+            <p>
+              Built a custom predator-prey grid world to study memory in reinforcement learning. Showed that LSTM-based agents trained with PPO significantly outperform feed-forward policies, demonstrating survival behaviors such as revisiting resources and evading predators.
+            </p>
+            <div class="actions">
+              <a class="btn" href="/img/PredatorPreyRL.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
+              <a class="btn secondary" href="https://github.com/FelixBaastadBerg/RL-project" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <h2 id="experience-title">Professional Experience</h2>
+    
+      <div class="item-list">
+        <div class="item">
+          <div class="item-body">
+            <h3>Co-Founder (CTO → COO)</h3>
+            <p class="meta">2021–Present · Kateter AS</p>
+            <p>
+              Co-founded <a href="https://kateter.no/"><i>Kateter</i></a>, a digital learning platform for scientific courses with ~10,000 users.
+              Led development of an interactive math-visualization library on top of Three.js, building innovative tools to enhance digital education.
+            </p>
+          </div>
+        </div>
+    
+        <div class="item">
+          <div class="item-body">
+            <h3>LLM Intern (Summer & Winter)</h3>
+            <p class="meta">01/2023 – 08/2023 · Firda</p>
+            <p>
+              Worked as an LLM intern at a venture capital firm focused on scaling Norwegian technology companies.
+              Built a LangChain-based chatbot that returned verified sources to support decision-making and organizational work.
+            </p>
+          </div>
+        </div>
+    
+        <div class="item">
+          <div class="item-body">
+            <h3>Data Scientist (Intern and Part-time)</h3>
+            <p class="meta">06/2022 – 12/2022 · Heimstaden</p>
+            <p>
+              Created predictive models for rent prices in Python at Europe’s second-largest residential real estate company.
+            </p>
+          </div>
+        </div>
+    
+        <div class="item">
+          <div class="item-body">
+            <h3>Data Science Intern</h3>
+            <p class="meta">06/2021 – 08/2021 · Enernite</p>
+            <p>
+              Built functionality and algorithms to analyze geospatial satellite data.
+              Worked with Django, GeoPandas, and SQL to support renewable energy projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="awards" class="section" aria-labelledby="awards-title">
+      <h2 id="awards-title">Honors</h2>
+    
+      <div class="item-list">
+        <div class="item">
+          <div class="item-body">
+            <h3>Aker Scholarship</h3>
+            <p class="meta">2025 · Norway's top graduate scholarship</p>
+            <p>
+              Prestigious scholarship awarded to exceptional Norwegian students pursuing graduate studies abroad.
+              Covers full tuition and living expenses for advanced degree programs.
+            </p>
+          </div>
+        </div>
+    
+        <div class="item">
+          <div class="item-body">
+            <h3>Fulbright Scholarship</h3>
+            <p class="meta">2024 · U.S. Department of State Scholarship</p>
+            <p>
+              Awarded for academic excellence and leadership potential.
+              Supported one year of research at Harvard and MIT as part of an international exchange program.
+            </p>
+          </div>
+        </div>
+    
+        <div class="item">
+          <div class="item-body">
+            <h3>Norwegian Finals of Physics Olympiad</h3>
+            <p class="meta">2019 · National Competition</p>
+            <p>
+              Selected among Norway’s top high school physics students to compete in the national finals of the Physics Olympiad.
+              Recognized for strong problem-solving and analytical skills in physics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
 
-  <footer>
-    © <span id="year"></span> Your Name. Built with semantic HTML & tiny CSS.
-  </footer>
-
+    <footer>
+      © <span id="year"></span> Felix Baastad Berg. Built with semantic HTML & tiny CSS.
+    </footer>
+  </div>
   <script>
     // Auto‑update year; no frameworks.
     document.getElementById('year').textContent = new Date().getFullYear();
