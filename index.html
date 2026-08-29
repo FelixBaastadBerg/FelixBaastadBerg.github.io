@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Felix Baastad Berg — Machine Learning Research</title>
-  <meta name="description" content="Felix Baastad Berg — Aker Scholar and MSc Advanced Computing student at Imperial College London. Research on grokking, representation geometry, generative models and deep reinforcement learning." />
+  <meta name="description" content="Felix Baastad Berg — Aker Scholar and MSc Advanced Computing student at Imperial College London. Research on representation geometry, generative models, deep reinforcement learning and computational neuroscience." />
   <link rel="canonical" href="https://felixbaastadberg.github.io/" />
 
   <!-- Social preview -->
   <meta property="og:title" content="Felix Baastad Berg — Machine Learning Research" />
-  <meta property="og:description" content="Research on grokking, representation geometry, generative models and deep reinforcement learning. Imperial College London." />
+  <meta property="og:description" content="Representation geometry, generative models, deep reinforcement learning and computational neuroscience. Imperial College London." />
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://felixbaastadberg.github.io/" />
   <meta property="og:image" content="https://felixbaastadberg.github.io/img/meg1.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0a0e13" />
+  <meta name="theme-color" content="#ffffff" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e13'/%3E%3Ctext x='32' y='44' font-family='ui-monospace,monospace' font-size='30' font-weight='700' fill='%2310b981' text-anchor='middle'%3EFB%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23047857'/%3E%3Ctext x='32' y='44' font-family='ui-monospace,monospace' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EFB%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,30 +25,31 @@
   <style>
     /* ————————————————————————————————————————————————
        Felix Baastad Berg — one file, no framework.
-       Single dark palette; every colour comes from a token.
+       Single light palette; every colour comes from a token.
        ———————————————————————————————————————————————— */
     :root{
-      color-scheme: dark;
+      color-scheme: light;
 
-      --bg:#0a0e13;
-      --bg-soft:#0d131a;
-      --panel:#101922;
-      --panel-2:#14202b;
-      --line:rgba(255,255,255,.075);
-      --line-strong:rgba(255,255,255,.15);
+      --bg:#ffffff;
+      --bg-soft:#fbfcfe;          /* the sheet each figure sits on */
+      --panel:#f6f8fb;
+      --panel-2:#eef3f9;
+      --line:rgba(12,22,34,.09);
+      --line-strong:rgba(12,22,34,.16);
 
-      --text:#e8eff7;
-      --text-dim:#c2cdda;
-      --muted:#8593a4;
-      --faint:#5d6b7c;
+      --text:#0f1720;
+      --text-dim:#28323e;
+      --muted:#55606e;
+      --faint:#6b7684;
 
-      --brand:#10b981;
-      --brand-2:#38bdf8;
-      --brand-3:#a78bfa;
-      --brand-soft:rgba(16,185,129,.13);
+      --brand:#047857;            /* accents that carry text — AA on white */
+      --brand-bright:#059669;     /* graphic fills and borders */
+      --brand-2:#1d4ed8;
+      --brand-3:#6d28d9;
+      --brand-soft:rgba(5,150,105,.10);
 
-      --shadow:0 24px 60px -28px rgba(0,0,0,.9);
-      --shadow-sm:0 10px 30px -18px rgba(0,0,0,.9);
+      --shadow:0 22px 48px -30px rgba(15,23,32,.45);
+      --shadow-sm:0 10px 28px -20px rgba(15,23,32,.5);
 
       --radius:18px;
       --radius-sm:11px;
@@ -72,7 +73,7 @@
     }
     a{color:inherit}
     img{max-width:100%; display:block}
-    ::selection{background:var(--brand); color:#04120c}
+    ::selection{background:var(--brand-soft)}
     :focus-visible{outline:2px solid var(--brand); outline-offset:3px; border-radius:6px}
 
     .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px; width:100%}
@@ -88,16 +89,16 @@
     .progress{
       position:fixed; top:0; left:0; height:2px; width:100%; z-index:60;
       transform:scaleX(0); transform-origin:0 50%;
-      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      background:linear-gradient(90deg,var(--brand-bright),var(--brand-2));
       will-change:transform;
     }
 
     /* ———————————————— Nav ———————————————— */
     .nav{
       position:sticky; top:0; z-index:50;
-      background:rgba(10,14,19,.72);
-      backdrop-filter:saturate(170%) blur(14px);
-      -webkit-backdrop-filter:saturate(170%) blur(14px);
+      background:rgba(255,255,255,.82);
+      backdrop-filter:saturate(150%) blur(14px);
+      -webkit-backdrop-filter:saturate(150%) blur(14px);
       border-bottom:1px solid transparent;
       transition:border-color .25s ease;
     }
@@ -111,13 +112,13 @@
     .nav-mark{
       width:27px; height:27px; border-radius:9px; flex:0 0 auto;
       display:grid; place-items:center;
-      font-family:var(--mono); font-size:11px; font-weight:600; color:#04120c;
+      font-family:var(--mono); font-size:11px; font-weight:600; color:#fff;
       background:linear-gradient(135deg,var(--brand),var(--brand-2));
     }
     .nav-links{display:flex; align-items:center; gap:2px}
     .nav-links a{
       position:relative;
-      font-family:var(--mono); font-size:12.5px; color:var(--muted);
+      font-family:var(--mono); font-size:12.5px; color:var(--faint);
       text-decoration:none; padding:9px 12px; border-radius:9px;
       transition:color .18s ease;
     }
@@ -142,14 +143,14 @@
     .hero{position:relative; padding:84px 0 60px; overflow:hidden}
     .hero::before{
       content:""; position:absolute; inset:-46% -22% auto -22%; height:700px; z-index:0;
-      pointer-events:none; filter:blur(8px);
+      pointer-events:none; filter:blur(10px);
       background:
-        radial-gradient(44% 52% at 20% 32%, rgba(16,185,129,.22), transparent 70%),
-        radial-gradient(40% 46% at 74% 16%, rgba(56,189,248,.16), transparent 72%),
-        radial-gradient(34% 40% at 52% 60%, rgba(167,139,250,.10), transparent 74%);
+        radial-gradient(44% 52% at 20% 32%, rgba(5,150,105,.13), transparent 70%),
+        radial-gradient(40% 46% at 74% 16%, rgba(37,99,235,.10), transparent 72%),
+        radial-gradient(34% 40% at 54% 62%, rgba(109,40,217,.07), transparent 74%);
     }
     .hero::after{
-      content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.6;
+      content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.9;
       background-image:
         linear-gradient(var(--line) 1px, transparent 1px),
         linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -187,13 +188,13 @@
       padding:9px 14px; border-radius:11px;
       transition:color .18s ease, border-color .18s ease, transform .18s ease;
     }
-    .chip:hover{color:var(--brand); border-color:rgba(16,185,129,.45); transform:translateY(-2px)}
+    .chip:hover{color:var(--brand); border-color:rgba(5,150,105,.45); transform:translateY(-2px)}
     .chip svg{width:15px; height:15px; flex:0 0 auto}
     .chip.primary{
-      color:#04120c; font-weight:600; border-color:transparent;
-      background:linear-gradient(135deg,var(--brand),#1fc9a0);
+      color:#fff; font-weight:600; border-color:transparent;
+      background:linear-gradient(135deg,var(--brand),#0a8f6a);
     }
-    .chip.primary:hover{color:#04120c; filter:brightness(1.08)}
+    .chip.primary:hover{color:#fff; filter:brightness(1.06)}
 
     .portrait{position:relative; justify-self:end}
     .portrait img{
@@ -203,8 +204,8 @@
     }
     .portrait::before{
       content:""; position:absolute; inset:-16px; border-radius:28px; z-index:-1;
-      background:linear-gradient(135deg,var(--brand),var(--brand-2));
-      opacity:.22; filter:blur(28px);
+      background:linear-gradient(135deg,var(--brand-bright),var(--brand-2));
+      opacity:.16; filter:blur(28px);
     }
     @media (max-width:880px){
       .hero{padding:52px 0 42px}
@@ -223,14 +224,31 @@
     }
     .edu-card:hover{border-color:var(--line-strong); transform:translateY(-3px); background:var(--panel-2)}
     .edu-head{display:flex; align-items:center; gap:12px; margin-bottom:13px}
-    .edu-head img{width:34px; height:34px; object-fit:contain; flex:0 0 auto; background:#fff; border-radius:9px; padding:4px}
+    .edu-head img{width:34px; height:34px; object-fit:contain; flex:0 0 auto; background:#fff; border-radius:9px; padding:4px; border:1px solid var(--line)}
     .edu-head .where{font-family:var(--display); font-weight:700; font-size:14.5px; line-height:1.25; letter-spacing:-.01em}
     .edu-head .when{font-family:var(--mono); font-size:11px; color:var(--faint)}
     .edu-card p{margin:0; font-size:14.4px; line-height:1.62; color:var(--muted)}
     .edu-card p strong{color:var(--text-dim); font-weight:600}
-    .edu-card a{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(16,185,129,.35)}
+    .edu-card a{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(4,120,87,.35)}
     .edu-card a:hover{border-bottom-color:var(--brand)}
     @media (max-width:880px){ .edu{grid-template-columns:1fr; margin-top:38px} }
+
+    /* ———————————————— Focus strip ———————————————— */
+    .focus{
+      margin-top:56px; padding-top:30px; border-top:1px solid var(--line);
+      display:grid; grid-template-columns:repeat(4,1fr); gap:28px;
+    }
+    .focus-item{display:flex; flex-direction:column; gap:10px}
+    .focus-item svg{width:30px; height:30px; color:var(--brand-bright)}
+    .focus-item h3{
+      margin:0; font-family:var(--mono); font-size:11.5px; font-weight:600;
+      letter-spacing:.1em; text-transform:uppercase; color:var(--text);
+    }
+    .focus-item p{margin:0; font-size:13.6px; line-height:1.55; color:var(--muted)}
+    @media (max-width:880px){
+      .focus{grid-template-columns:repeat(2,1fr); gap:26px; margin-top:38px}
+    }
+    @media (max-width:520px){ .focus{grid-template-columns:1fr} }
 
     /* ———————————————— Sections ———————————————— */
     section[id]{padding:84px 0 8px; scroll-margin-top:88px}
@@ -254,14 +272,14 @@
     }
     .paper::before{
       content:""; position:absolute; top:0; left:0; right:0; height:1px;
-      background:linear-gradient(90deg, transparent, var(--brand), var(--brand-2), transparent);
+      background:linear-gradient(90deg, transparent, var(--brand-bright), var(--brand-2), transparent);
       opacity:0; transition:opacity .28s ease;
     }
     .paper:hover{
-      border-color:var(--line-strong); background:var(--panel-2);
+      border-color:var(--line-strong); background:#fff;
       transform:translateY(-3px); box-shadow:var(--shadow-sm);
     }
-    .paper:hover::before{opacity:.85}
+    .paper:hover::before{opacity:.9}
 
     .paper-thumb{
       border-radius:var(--radius-sm); border:1px solid var(--line);
@@ -269,21 +287,21 @@
       aspect-ratio:14/9;
       transition:border-color .22s ease;
     }
-    .paper:hover .paper-thumb{border-color:rgba(16,185,129,.3)}
+    .paper:hover .paper-thumb{border-color:rgba(5,150,105,.3)}
 
     .paper-body{min-width:0; display:flex; flex-direction:column}
     .paper-meta{
       font-family:var(--mono); font-size:11.5px; color:var(--faint);
       margin:0 0 9px; display:flex; flex-wrap:wrap; align-items:center; gap:9px;
     }
-    .paper-meta .num{color:var(--brand); font-weight:500}
+    .paper-meta .num{color:var(--brand); font-weight:600}
     .badge{
       font-family:var(--mono); font-size:10px; font-weight:600;
       text-transform:uppercase; letter-spacing:.09em;
       padding:3px 8px; border-radius:6px;
-      color:var(--brand); background:var(--brand-soft); border:1px solid rgba(16,185,129,.38);
+      color:var(--brand); background:var(--brand-soft); border:1px solid rgba(5,150,105,.32);
     }
-    .badge.alt{color:var(--brand-2); background:rgba(56,189,248,.12); border-color:rgba(56,189,248,.38)}
+    .badge.alt{color:var(--brand-2); background:rgba(37,99,235,.09); border-color:rgba(37,99,235,.3)}
     .badge.neutral{color:var(--muted); background:transparent; border-color:var(--line-strong)}
     .paper h3{
       margin:0 0 10px; font-family:var(--display); font-weight:500;
@@ -294,19 +312,19 @@
     .tags{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 15px}
     .tag{
       font-family:var(--mono); font-size:10.5px; color:var(--faint);
-      border:1px solid var(--line); border-radius:6px; padding:3px 8px; background:var(--bg-soft);
+      border:1px solid var(--line); border-radius:6px; padding:3px 8px; background:var(--bg);
     }
     .actions{display:flex; flex-wrap:wrap; gap:9px; margin-top:auto}
     .btn{
       display:inline-flex; align-items:center; gap:7px;
       font-family:var(--mono); font-size:12px; font-weight:600;
       text-decoration:none; padding:8px 14px; border-radius:9px; border:1px solid transparent;
-      background:linear-gradient(135deg,var(--brand),#1fc9a0); color:#04120c;
+      background:linear-gradient(135deg,var(--brand),#0a8f6a); color:#fff;
       transition:filter .18s ease, transform .18s ease;
     }
-    .btn:hover{filter:brightness(1.08); transform:translateY(-1px)}
-    .btn.secondary{background:transparent; color:var(--text-dim); border-color:var(--line-strong)}
-    .btn.secondary:hover{color:var(--brand); border-color:rgba(16,185,129,.5)}
+    .btn:hover{filter:brightness(1.07); transform:translateY(-1px)}
+    .btn.secondary{background:none; color:var(--text-dim); border-color:var(--line-strong)}
+    .btn.secondary:hover{color:var(--brand); border-color:rgba(5,150,105,.5)}
     .btn svg{width:13px; height:13px}
     @media (max-width:780px){
       .paper{grid-template-columns:1fr; gap:18px}
@@ -331,7 +349,7 @@
     .job-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
     .job h3{margin:0; font-family:var(--display); font-weight:700; font-size:16.5px; letter-spacing:-.018em}
     .job .at{color:var(--muted); font-size:16px}
-    .job .at a{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(16,185,129,.32)}
+    .job .at a{color:var(--brand); text-decoration:none; border-bottom:1px solid rgba(4,120,87,.32)}
     .job .at a:hover{border-bottom-color:var(--brand)}
     .job .when{font-family:var(--mono); font-size:11px; color:var(--faint); margin-left:auto; white-space:nowrap}
     .job p{margin:9px 0 0; font-size:14.6px; line-height:1.65; color:var(--muted); max-width:74ch}
@@ -465,6 +483,50 @@
             <p>Five-year integrated <strong>MSc in Mathematics</strong>. Thesis on continuous attractor networks and memory in deep reinforcement learning.</p>
           </article>
         </div>
+
+        <!-- what the work is made of -->
+        <div class="focus">
+          <div class="focus-item reveal">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <ellipse cx="20" cy="20" rx="16" ry="9.5"/>
+              <ellipse cx="20" cy="20" rx="6.5" ry="3"/>
+              <path d="M8.4 14.2c1.4 2.6 5.6 4.4 11.6 4.4s10.2-1.8 11.6-4.4"/>
+              <path d="M12 25.6c2 1.4 5 2.2 8 2.2s6-.8 8-2.2"/>
+            </svg>
+            <h3>Mathematics</h3>
+            <p>Persistent homology, intrinsic dimension, and the manifolds representations live on.</p>
+          </div>
+          <div class="focus-item reveal">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <circle cx="8" cy="12" r="3"/><circle cx="8" cy="28" r="3"/>
+              <circle cx="20" cy="20" r="3"/>
+              <circle cx="32" cy="12" r="3"/><circle cx="32" cy="28" r="3"/>
+              <path d="M11 12.8 17.4 18.6M11 27.2 17.4 21.4M22.6 18.6 29 12.8M22.6 21.4 29 27.2"/>
+            </svg>
+            <h3>Machine learning</h3>
+            <p>Generative models, generalization, and deep reinforcement learning with memory.</p>
+          </div>
+          <div class="focus-item reveal">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="13" cy="20" r="5.5"/>
+              <path d="M9.1 16.1 4 11M7.5 20H2M9.1 23.9 4 29"/>
+              <path d="M18.5 20H29"/>
+              <path d="M29 20l6.5-6M29 20l6.5 6"/>
+              <circle cx="29" cy="20" r="2.2" fill="currentColor" stroke="none"/>
+            </svg>
+            <h3>Neuroscience</h3>
+            <p>Grid cells, continuous attractors, and spiking models of biological memory.</p>
+          </div>
+          <div class="focus-item reveal">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <rect x="12" y="12" width="16" height="16" rx="2.5"/>
+              <rect x="18" y="18" width="4" height="4" rx="1"/>
+              <path d="M16 12V7M24 12V7M16 28v5M24 28v5M12 16H7M12 24H7M28 16h5M28 24h5"/>
+            </svg>
+            <h3>Computing</h3>
+            <p>JAX on GPU clusters, large-scale simulation, and numerical methods in C++.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -539,8 +601,10 @@
               <p class="paper-meta"><span class="num">04</span> <span class="badge">Published</span> 2025 · NeurIPS · Harvard University</p>
               <h3>Deep RL Needs Deep Behavior Analysis</h3>
               <p>
-                We show that model-free agents display <em>implicit planning</em> in open-ended environments, and
-                introduce a behavior-analysis toolkit that reveals how policies reason and generalize.
+                Two agents can earn the same return while solving the task in completely different ways, so a reward
+                curve says almost nothing about what a policy has learned. We show that model-free agents display
+                <em>implicit planning</em> in open-ended environments, and introduce a behavior-analysis toolkit that
+                reveals how policies reason and generalize.
               </p>
               <div class="tags"><span class="tag">JAX</span><span class="tag">reinforcement learning</span><span class="tag">HPC</span><span class="tag">statistics</span></div>
               <div class="actions">
@@ -553,16 +617,17 @@
           </article>
 
           <article class="paper reveal">
-            <div class="paper-thumb" style="background-image:url('/img/spatial-memory.svg')"></div>
+            <div class="paper-thumb" style="background-image:url('/img/torus-attractor.svg')"></div>
             <div class="paper-body">
               <p class="paper-meta"><span class="num">05</span> <span class="badge neutral">Thesis</span> 2025 · MSc Mathematics · NTNU</p>
               <h3>Spatial Representation Learned in the Recurrent Memory of Artificial Neural Agents</h3>
               <p>
-                Biologically inspired RL agents with LSTM memory, path integration and continuous attractor networks.
-                I designed analytical and numerical grid-cell modules, integrated them into JAX networks, and analysed
-                statistically how space is encoded in recurrent memory.
+                Grid-cell activity lives on a torus: two periodic phases that a moving agent has to integrate. I built
+                biologically inspired RL agents with LSTM memory and continuous attractor networks, designed analytical
+                and numerical grid-cell modules in JAX, and analysed statistically how that toroidal structure appears
+                in recurrent memory.
               </p>
-              <div class="tags"><span class="tag">JAX</span><span class="tag">attractor networks</span><span class="tag">grid cells</span></div>
+              <div class="tags"><span class="tag">JAX</span><span class="tag">attractor networks</span><span class="tag">grid cells</span><span class="tag">Fourier basis</span></div>
               <div class="actions">
                 <a class="btn" href="/img/MasterThesis.pdf" target="_blank" rel="noopener">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>

@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-label="Three class clouds of activations with their centroids marked, separating centroid configuration from within-class geometry">
-  <g fill="#38bdf8" opacity=".75">
+  <g fill="#2563eb" opacity=".75">
     <circle cx="150" cy="118" r="5"/><circle cx="128" cy="138" r="5"/><circle cx="170" cy="136" r="5"/>
     <circle cx="140" cy="158" r="5"/><circle cx="166" cy="102" r="5"/><circle cx="182" cy="156" r="5"/>
     <circle cx="118" cy="110" r="5"/><circle cx="156" cy="172" r="5"/>
   </g>
-  <g fill="#10b981" opacity=".75">
+  <g fill="#059669" opacity=".75">
     <circle cx="392" cy="128" r="5"/><circle cx="414" cy="146" r="5"/><circle cx="372" cy="152" r="5"/>
     <circle cx="404" cy="106" r="5"/><circle cx="428" cy="118" r="5"/><circle cx="386" cy="178" r="5"/>
     <circle cx="418" cy="174" r="5"/><circle cx="356" cy="124" r="5"/>
   </g>
-  <g fill="#a78bfa" opacity=".75">
+  <g fill="#7c3aed" opacity=".75">
     <circle cx="266" cy="256" r="5"/><circle cx="288" cy="238" r="5"/><circle cx="246" cy="234" r="5"/>
     <circle cx="278" cy="276" r="5"/><circle cx="304" cy="262" r="5"/><circle cx="252" cy="276" r="5"/>
     <circle cx="228" cy="256" r="5"/><circle cx="296" cy="216" r="5"/>
   </g>
-  <g stroke="#8b9bb0" stroke-width="1.6" stroke-dasharray="6 5" opacity=".85">
+  <g stroke="#64748b" stroke-width="1.6" stroke-dasharray="6 5" opacity=".85">
     <line x1="152" y1="136" x2="394" y2="142"/>
     <line x1="152" y1="136" x2="271" y2="252"/>
     <line x1="394" y1="142" x2="271" y2="252"/>
   </g>
-  <g stroke="#e7eef6" stroke-width="2.6">
+  <g stroke="#334155" stroke-width="2.6">
     <path d="M144 136 l16 0 M152 128 l0 16"/>
     <path d="M386 142 l16 0 M394 134 l0 16"/>
     <path d="M263 252 l16 0 M271 244 l0 16"/>
   </g>
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#8b9bb0">
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#64748b">
     <text x="54" y="58">class centroids</text>
     <text x="332" y="326">within-class residuals</text>
   </g>

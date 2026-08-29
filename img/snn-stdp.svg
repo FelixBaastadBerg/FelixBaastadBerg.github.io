@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-label="A spike raster above a membrane-potential trace that integrates to threshold and resets">
-  <g stroke="#38bdf8" stroke-width="3" stroke-linecap="round">
+  <g stroke="#2563eb" stroke-width="3" stroke-linecap="round">
     <g opacity=".9">
       <line x1="86" y1="46" x2="86" y2="72"/><line x1="132" y1="46" x2="132" y2="72"/>
       <line x1="206" y1="46" x2="206" y2="72"/><line x1="248" y1="46" x2="248" y2="72"/>
@@ -17,16 +17,16 @@
       <line x1="388" y1="126" x2="388" y2="152"/><line x1="470" y1="126" x2="470" y2="152"/>
     </g>
   </g>
-  <line x1="70" y1="212" x2="510" y2="212" stroke="#a78bfa" stroke-width="2" stroke-dasharray="7 6"/>
+  <line x1="70" y1="212" x2="510" y2="212" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 6"/>
   <path d="M70 296 L150 214 L150 296 L214 214 L214 296 L308 214 L308 296 L376 214 L376 296 L470 214 L470 296 L510 274"
-        fill="none" stroke="#10b981" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
-  <g fill="#a78bfa">
+        fill="none" stroke="#059669" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <g fill="#7c3aed">
     <circle cx="150" cy="212" r="4.5"/><circle cx="214" cy="212" r="4.5"/>
     <circle cx="308" cy="212" r="4.5"/><circle cx="376" cy="212" r="4.5"/><circle cx="470" cy="212" r="4.5"/>
   </g>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">
-    <text x="70" y="32" fill="#38bdf8">spike raster</text>
-    <text x="392" y="204" fill="#a78bfa">threshold</text>
-    <text x="70" y="330" fill="#10b981">membrane potential</text>
+    <text x="70" y="32" fill="#2563eb">spike raster</text>
+    <text x="392" y="204" fill="#7c3aed">threshold</text>
+    <text x="70" y="330" fill="#059669">membrane potential</text>
   </g>
 </svg>
