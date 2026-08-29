@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-label="A norm-based bound decaying slowly above the true generalization gap, with the slack between them shaded">
+  <g stroke="#8b9bb0" stroke-opacity=".18" stroke-width="1">
+    <line x1="80" y1="80" x2="510" y2="80"/>
+    <line x1="80" y1="150" x2="510" y2="150"/>
+    <line x1="80" y1="220" x2="510" y2="220"/>
+  </g>
+  <path d="M92 78 C 190 108, 280 140, 380 158 C 430 166, 470 170, 500 172
+           L500 268 C 470 268, 430 266, 380 262 C 280 254, 190 244, 92 226 Z"
+        fill="#38bdf8" fill-opacity=".12"/>
+  <path d="M92 78 C 190 108, 280 140, 380 158 C 430 166, 470 170, 500 172"
+        fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M92 226 C 190 244, 280 254, 380 262 C 430 266, 470 268, 500 268"
+        fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round"/>
+  <g stroke="#8b9bb0" stroke-opacity=".55" stroke-width="1.6" stroke-dasharray="5 5">
+    <line x1="250" y1="130" x2="250" y2="250"/>
+  </g>
+  <g stroke="#8b9bb0" stroke-opacity=".5" stroke-width="1.5">
+    <line x1="80" y1="290" x2="510" y2="290"/>
+    <line x1="80" y1="56" x2="80" y2="290"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">
+    <text x="336" y="140" fill="#38bdf8">bound</text>
+    <text x="292" y="246" fill="#10b981">true gap</text>
+    <text x="262" y="196" fill="#8b9bb0">slack</text>
+    <text x="80" y="322" fill="#8b9bb0">dataset size</text>
+  </g>
+</svg>

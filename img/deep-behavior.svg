@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-label="Agent rollouts in an open environment: several discarded routes and one executed trajectory that detours around an obstacle to reach the goal">
+  <g stroke="#8b9bb0" stroke-opacity=".14" stroke-width="1">
+    <line x1="60" y1="60" x2="60" y2="300"/><line x1="160" y1="60" x2="160" y2="300"/>
+    <line x1="260" y1="60" x2="260" y2="300"/><line x1="360" y1="60" x2="360" y2="300"/>
+    <line x1="460" y1="60" x2="460" y2="300"/>
+    <line x1="60" y1="60" x2="500" y2="60"/><line x1="60" y1="140" x2="500" y2="140"/>
+    <line x1="60" y1="220" x2="500" y2="220"/><line x1="60" y1="300" x2="500" y2="300"/>
+  </g>
+  <rect x="248" y="128" width="76" height="104" rx="8" fill="#8b9bb0" fill-opacity=".16" stroke="#8b9bb0" stroke-opacity=".5" stroke-width="1.5"/>
+  <g fill="none" stroke="#8b9bb0" stroke-opacity=".38" stroke-width="2.5" stroke-dasharray="6 7" stroke-linecap="round">
+    <path d="M92 180 C 170 150, 210 108, 286 112 C 360 116, 400 150, 452 180"/>
+    <path d="M92 180 C 168 214, 214 268, 292 258 C 362 250, 406 214, 452 180"/>
+  </g>
+  <path d="M92 180 C 156 176, 186 130, 232 112 C 286 92, 348 116, 388 148 C 416 170, 432 176, 452 180"
+        fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#10b981">
+    <circle cx="176" cy="140" r="4.5"/><circle cx="248" cy="107" r="4.5"/>
+    <circle cx="330" cy="120" r="4.5"/><circle cx="398" cy="157" r="4.5"/>
+  </g>
+  <circle cx="92" cy="180" r="9" fill="#38bdf8"/>
+  <path d="M452 162 l6.5 13.5 L473 178 l-10.5 10 2.6 14.6 L452 195.5 438.9 202.6 441.5 188 431 178 l14.5 -2.5z" fill="#10b981"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#8b9bb0">
+    <text x="60" y="332">start</text>
+    <text x="230" y="326" fill="#8b9bb0">obstacle</text>
+    <text x="424" y="332">goal</text>
+    <text x="60" y="42" fill="#10b981">executed rollout</text>
+  </g>
+</svg>
