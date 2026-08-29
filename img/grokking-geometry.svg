@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" width="560" height="360" role="img" aria-label="Three class clouds of activations with their centroids marked, separating centroid configuration from within-class geometry">
+  <g fill="#38bdf8" opacity="0.55">
+    <circle cx="150" cy="112" r="5"/><circle cx="128" cy="132" r="5"/><circle cx="170" cy="130" r="5"/>
+    <circle cx="140" cy="152" r="5"/><circle cx="166" cy="96" r="5"/><circle cx="182" cy="150" r="5"/>
+    <circle cx="118" cy="104" r="5"/><circle cx="156" cy="166" r="5"/>
+  </g>
+  <g fill="#10b981" opacity="0.55">
+    <circle cx="392" cy="122" r="5"/><circle cx="414" cy="140" r="5"/><circle cx="372" cy="146" r="5"/>
+    <circle cx="404" cy="100" r="5"/><circle cx="428" cy="112" r="5"/><circle cx="386" cy="172" r="5"/>
+    <circle cx="418" cy="168" r="5"/><circle cx="356" cy="118" r="5"/>
+  </g>
+  <g fill="#a78bfa" opacity="0.55">
+    <circle cx="266" cy="252" r="5"/><circle cx="288" cy="234" r="5"/><circle cx="246" cy="230" r="5"/>
+    <circle cx="278" cy="272" r="5"/><circle cx="304" cy="258" r="5"/><circle cx="252" cy="272" r="5"/>
+    <circle cx="228" cy="252" r="5"/><circle cx="296" cy="212" r="5"/>
+  </g>
+  <g stroke="#64748b" stroke-width="1.6" stroke-dasharray="6 5">
+    <line x1="152" y1="130" x2="394" y2="136"/>
+    <line x1="152" y1="130" x2="271" y2="248"/>
+    <line x1="394" y1="136" x2="271" y2="248"/>
+  </g>
+  <g stroke="#64748b" stroke-width="2.6">
+    <path d="M144 130 l16 0 M152 122 l0 16"/>
+    <path d="M386 136 l16 0 M394 128 l0 16"/>
+    <path d="M263 248 l16 0 M271 240 l0 16"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17" fill="#64748b">
+    <text x="60" y="52">class centroids</text>
+    <text x="330" y="322">within-class residuals</text>
+  </g>
+</svg>

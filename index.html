@@ -1,798 +1,860 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Felix Baastad Berg - Imperial College London</title>
-  <meta name="description" content="Portfolio of Your Name: selected projects, writing, and contact." />
-  <!-- Social preview -->
-  <meta property="og:title" content="Your Name — Projects" />
-  <meta property="og:description" content="Selected projects, writing, and contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourusername.github.io/" />
-  <meta property="og:image" content="/og-card.png" />
-  <meta name="theme-color" content="#ffffff" />
+  <title>Felix Baastad Berg — Machine Learning Research</title>
+  <meta name="description" content="Felix Baastad Berg — Aker Scholar and MSc Advanced Computing student at Imperial College London. Research on grokking, representation geometry, generative models and deep reinforcement learning." />
+  <link rel="canonical" href="https://felixbaastadberg.github.io/" />
 
-  <link rel="icon" href="/favicon.ico" />
+  <!-- Social preview -->
+  <meta property="og:title" content="Felix Baastad Berg — Machine Learning Research" />
+  <meta property="og:description" content="Research on grokking, representation geometry, generative models and deep reinforcement learning. Imperial College London." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://felixbaastadberg.github.io/" />
+  <meta property="og:image" content="https://felixbaastadberg.github.io/img/meg1.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f14'/%3E%3Ctext x='32' y='44' font-family='ui-monospace,monospace' font-size='30' font-weight='700' fill='%2310b981' text-anchor='middle'%3EFB%3C/text%3E%3C/svg%3E" />
 
   <style>
-    /* —— Minimal, tasteful styles (no framework) —— */
+    /* ——————————————————————————————————————————————
+       Felix Baastad Berg — single file, no framework
+       ——————————————————————————————————————————————
+       Palette is defined once as tokens on :root (dark),
+       then overridden for light. Everything else uses tokens.
+    */
     :root{
-      --bg:#fff;              /* page background: white */
-      --panel:#f5f7fa;        /* cards/nav background: light gray */
-      --text:#1a2230;         /* primary text: dark */
-      --muted:#4b5563;        /* secondary text: muted dark */
-      --brand:#10b981;        /* accent: teal/emerald */
-      --brand-2:#2563eb;      /* subtle accent: blue */
-      --ring: 0 0 0 3px rgba(16,185,129,.25);
+      color-scheme: dark;
+      --bg:#0b0f14;
+      --bg-soft:#0f151c;
+      --panel:#111922;
+      --panel-2:#151f2a;
+      --line:rgba(255,255,255,.09);
+      --line-strong:rgba(255,255,255,.16);
+      --text:#e7eef6;
+      --text-dim:#c3cede;
+      --muted:#8b98a8;
+      --brand:#10b981;
+      --brand-2:#38bdf8;
+      --brand-soft:rgba(16,185,129,.14);
+      --glow-1:rgba(16,185,129,.20);
+      --glow-2:rgba(56,189,248,.16);
+      --shadow:0 18px 50px -22px rgba(0,0,0,.85);
+      --shadow-sm:0 6px 24px -14px rgba(0,0,0,.8);
       --radius:16px;
-      --shadow:0 4px 20px rgba(0,0,0,.08);
-      --font:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+      --radius-sm:10px;
+      --maxw:1080px;
+      --font:ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     }
+    html[data-theme="light"]{
+      color-scheme: light;
+      --bg:#ffffff;
+      --bg-soft:#f7f9fc;
+      --panel:#f6f8fb;
+      --panel-2:#eef3f8;
+      --line:rgba(12,22,34,.10);
+      --line-strong:rgba(12,22,34,.18);
+      --text:#0f1720;
+      --text-dim:#26313d;
+      --muted:#5a6675;
+      --brand:#059669;
+      --brand-2:#2563eb;
+      --brand-soft:rgba(5,150,105,.10);
+      --glow-1:rgba(5,150,105,.13);
+      --glow-2:rgba(37,99,235,.10);
+      --shadow:0 18px 44px -26px rgba(15,23,32,.45);
+      --shadow-sm:0 6px 20px -14px rgba(15,23,32,.45);
+    }
+
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth; scroll-padding-top:88px; -webkit-text-size-adjust:100%}
     body{
       margin:0;
-      font-family:var(--font);
-      color:var(--text);
       background:var(--bg);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      color:var(--text);
+      font-family:var(--font);
+      font-size:16px;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
     }
+    a{color:inherit}
+    img{max-width:100%; display:block}
+    ::selection{background:var(--brand); color:#04120c}
+    :focus-visible{outline:2px solid var(--brand); outline-offset:3px; border-radius:6px}
 
-    .centered-content {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 16px 0 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px; width:100%}
+    .mono{font-family:var(--mono)}
 
-    .container{max-width:1280px; margin:0 auto; padding:24px}
-    header{position:sticky; top:0; z-index:10; background:linear-gradient(180deg, rgba(245,247,250,.95), rgba(255,255,255,.85)); backdrop-filter:saturate(1.2) blur(6px);}
-    nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 24px}
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
-    .avatar{width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:var(--shadow)}
-    .name{font-weight:700; letter-spacing:.2px}
-    .links a{color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:10px}
-    .links a:hover{color:var(--text); background:rgba(16,185,129,.08)}
+    /* —— Skip link —— */
+    .skip{
+      position:absolute; left:-9999px; top:8px; z-index:100;
+      background:var(--panel); color:var(--text); padding:10px 16px;
+      border:1px solid var(--line-strong); border-radius:10px;
+    }
+    .skip:focus{left:16px}
 
-    .hero{padding:72px 24px 12px}
-    h1{font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0}
-    .tagline{color:var(--muted); margin:10px 0 0; max-width:60ch}
-
-    .section{padding:32px 24px; width: 100%; box-sizing: border-box;}
-    .section h2{font-size:clamp(20px,3.5vw,28px); margin:0 0 16px; text-align: center;}
-
-    .about-contact {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin-bottom: 18px;
-      margin-top: 8px;
+    /* ——————————————— Nav ——————————————— */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter:saturate(160%) blur(12px);
+      -webkit-backdrop-filter:saturate(160%) blur(12px);
+      border-bottom:1px solid transparent;
+      transition:border-color .25s ease, background .25s ease;
     }
-    .about-contact a, .about-contact span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 1rem;
-      border-radius: 8px;
-      padding: 2px 8px;
-      transition: background 0.15s;
+    .nav.is-stuck{border-bottom-color:var(--line)}
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; height:64px;
     }
-    .about-contact a:hover {
-      background: rgba(16,185,129,.08);
-      color: var(--text);
+    .nav-brand{
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none; font-weight:650; letter-spacing:-.01em;
+      font-size:15px; white-space:nowrap;
     }
-    .about-contact .icon {
-      display: inline-block;
-      width: 1.1em;
-      height: 1.1em;
-      vertical-align: middle;
-      margin-right: 2px;
+    .nav-mark{
+      width:26px; height:26px; border-radius:8px; flex:0 0 auto;
+      display:grid; place-items:center;
+      font-family:var(--mono); font-size:11px; font-weight:700;
+      color:#04120c;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
     }
-
-    /* New: About top flex layout */
-    .about-top-row {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 48px;
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto 0 auto;
+    .nav-links{display:flex; align-items:center; gap:4px}
+    .nav-links a{
+      font-family:var(--mono); font-size:13px; color:var(--muted);
+      text-decoration:none; padding:8px 11px; border-radius:9px;
+      transition:color .18s ease, background .18s ease;
     }
-    .about-schools {
-      flex: 2 1 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-width: 0;
+    .nav-links a:hover{color:var(--text); background:var(--panel)}
+    .nav-links a.active{color:var(--brand)}
+    .theme-toggle{
+      width:36px; height:36px; flex:0 0 auto; margin-left:6px;
+      display:grid; place-items:center; cursor:pointer;
+      background:var(--panel); color:var(--muted);
+      border:1px solid var(--line); border-radius:10px;
+      transition:color .18s ease, border-color .18s ease, transform .18s ease;
     }
-    .about-awards {
-      flex: 1 1 240px;
-      background: var(--panel);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px 24px 18px 24px;
-      min-width: 220px;
-      max-width: 320px;
-      margin-top: 0;
-      margin-bottom: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .about-awards h3 {
-      font-size: 1.1em;
-      margin: 0 0 10px 0;
-      color: var(--brand-2);
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .about-awards ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color: var(--muted);
-      font-size: 1em;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .about-awards li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      line-height: 1.4;
-    }
-    .about-awards .award-icon {
-      color: var(--brand);
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-    .about-awards a {
-      color: var(--brand);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.15s ease;
-    }
-    .about-awards a:hover {
-      color: var(--brand-2);
-      text-decoration: underline;
-    }
-    .about-school-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .about-school-row img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      flex-shrink: 0;
-      display: block;
-    }
-    .about-school-row span {
-      display: block;
-    }
-    .about-profile {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: flex-end; /* Push image to the right edge */
-  align-items: flex-start;
-}
-
-.about-profile img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  box-shadow: var(--shadow);
-}
-
-
-.about-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-}
-
-.about-contact a {
-  color: var(--brand-2);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.about-contact a:hover {
-  text-decoration: underline;
-  color: var(--brand);
-}
-
-
-
-    @media (max-width: 900px) {
-      .about-top-row {
-        flex-direction: column;
-        gap: 28px;
-        align-items: stretch;
-      }
-      .about-awards {
-        max-width: 100%;
-        width: 100%;
-        margin: 0 auto;
-      }
-    }
+    .theme-toggle:hover{color:var(--brand); border-color:var(--line-strong)}
+    .theme-toggle:active{transform:scale(.94)}
+    .theme-toggle svg{width:17px; height:17px}
+    html[data-theme="dark"] .icon-sun{display:block}
+    html[data-theme="dark"] .icon-moon{display:none}
+    html[data-theme="light"] .icon-sun{display:none}
+    html[data-theme="light"] .icon-moon{display:block}
     @media (max-width:700px){
-      .centered-content {
-        max-width: 100vw;
-        padding: 12px 0 0 0;
-      }
-      .section {
-        padding: 20px 4vw;
-      }
-      .grid {
-        grid-template-columns: 1fr;
-      }
-      .about-contact {
-        flex-direction: column;
-        gap: 8px;
-        align-items: center;
-      }
-      .about-top-row {
-        flex-direction: column;
-        gap: 18px;
-        max-width: 100vw;
-        padding: 0;
-      }
-      .about-awards {
-        padding: 16px 10px 12px 10px;
-      }
+      .nav-links a{padding:8px 8px; font-size:12px}
+      .nav-links a[data-optional]{display:none}
+    }
+    @media (max-width:560px){
+      .nav-brand{font-size:0; gap:0}   /* keep the mark, drop the wordmark */
+      .nav-mark{font-size:11px}
     }
 
+    /* ——————————————— Hero ——————————————— */
+    .hero{position:relative; padding:72px 0 56px; overflow:hidden}
+    .hero::before{
+      content:""; position:absolute; inset:-40% -20% auto -20%; height:640px;
+      background:
+        radial-gradient(46% 52% at 22% 34%, var(--glow-1), transparent 70%),
+        radial-gradient(40% 46% at 76% 20%, var(--glow-2), transparent 72%);
+      filter:blur(6px); pointer-events:none; z-index:0;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size:56px 56px;
+      -webkit-mask-image:radial-gradient(72% 62% at 50% 26%, #000 0%, transparent 78%);
+      mask-image:radial-gradient(72% 62% at 50% 26%, #000 0%, transparent 78%);
+      opacity:.55;
+    }
+    .hero .wrap{position:relative; z-index:1}
+    .hero-grid{
+      display:grid; grid-template-columns:minmax(0,1fr) 260px;
+      gap:56px; align-items:center;
+    }
+    .status{
+      display:inline-flex; align-items:center; gap:9px;
+      font-family:var(--mono); font-size:12.5px; letter-spacing:.02em;
+      color:var(--text-dim);
+      background:var(--brand-soft);
+      border:1px solid color-mix(in srgb, var(--brand) 32%, transparent);
+      padding:6px 13px; border-radius:999px; margin-bottom:22px;
+    }
+    @media (max-width:620px){
+      /* a pill that wraps to three lines should stop pretending to be a pill */
+      .status{border-radius:12px; font-size:11.5px; padding:8px 12px; align-items:flex-start}
+      .status .dot{margin-top:6px}
+    }
+    .status .dot{
+      width:7px; height:7px; border-radius:50%; background:var(--brand);
+      box-shadow:0 0 0 0 color-mix(in srgb, var(--brand) 60%, transparent);
+      animation:pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--brand) 55%, transparent)}
+      70%{box-shadow:0 0 0 9px transparent}
+      100%{box-shadow:0 0 0 0 transparent}
+    }
+    h1{
+      margin:0;
+      font-size:clamp(38px, 6.4vw, 62px);
+      line-height:1.02; letter-spacing:-.035em; font-weight:700;
+    }
+    .hero-role{
+      margin:16px 0 0; max-width:56ch;
+      font-size:clamp(16.5px, 1.9vw, 19px); line-height:1.55; color:var(--text-dim);
+    }
+    .hero-role strong{color:var(--text); font-weight:650}
+    .hero-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:var(--mono); font-size:13px; text-decoration:none;
+      color:var(--text-dim);
+      background:var(--panel); border:1px solid var(--line);
+      padding:8px 14px; border-radius:10px;
+      transition:color .18s ease, border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    .chip:hover{color:var(--brand); border-color:color-mix(in srgb, var(--brand) 45%, transparent); transform:translateY(-2px)}
+    .chip svg{width:15px; height:15px; flex:0 0 auto}
+    .chip.primary{
+      color:#04120c; font-weight:650; border-color:transparent;
+      background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 62%, var(--brand-2)));
+    }
+    .chip.primary:hover{color:#04120c; filter:brightness(1.07)}
 
-
-    /* --- Projects Section --- */
-#projects h2 {
-  text-align: left;          /* float the heading left */
-  margin-bottom: 32px;
-  font-size: clamp(22px, 3.5vw, 28px);
-  font-weight: 700;
-}
-
-/* The project list container */
-.project-list {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;                 /* spacing between projects */
-  max-width: 100%;
-}
-
-/* Each project row */
-.project {
-  display: grid;
-  grid-template-columns: 280px 1fr; /* image left, text right */
-  gap: 24px;
-  align-items: start;
-}
-
-/* Project image (thumbnail) */
-.project-thumb {
-  width: 100%;
-  height: 180px;              /* fixed height for consistency */
-  background-size: cover;
-  background-position: center;
-  border-radius: var(--radius);
-  /*box-shadow: var(--shadow);*/
-}
-
-/* Text body */
-.project-body h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.2em;
-}
-
-.project-body .meta {
-  font-size: 0.95em;
-  color: var(--muted);
-  margin: 0 0 12px 0;
-}
-
-.project-body p {
-  margin: 0 0 16px 0;
-  line-height: 1.5;
-}
-
-/* Buttons */
-.project-body .btn {
-  background: var(--brand);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9em;
-  font-weight: 500;
-  display: inline-block;
-}
-
-.project-body .btn:hover {
-  background: var(--brand-2);
-}
-
-.project-body .btn.secondary {
-  background: transparent;
-  color: var(--brand-2);
-  border: 1px solid rgba(37,99,235,.25);
-}
-
-.project-body .btn.secondary:hover {
-  color: var(--brand);
-  border-color: var(--brand);
-}
-
-/* Responsive: stack image above text */
-@media (max-width: 800px) {
-  .project {
-    grid-template-columns: 1fr;
-  }
-  .project-thumb {
-    height: 200px; /* slightly taller on mobile */
-  }
-}
-
-    @media (max-width:480px){
-      nav{padding:10px 16px}
-      .links{display:flex; gap:6px}
-      .btn{padding:8px 10px}
-      .section {
-        padding: 12px 2vw;
-      }
-      .about-awards {
-        padding: 10px 4px 8px 4px;
-      }
+    .portrait{position:relative; justify-self:end}
+    .portrait img{
+      width:260px; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:center 22%;
+      border-radius:20px; border:1px solid var(--line-strong); box-shadow:var(--shadow);
+    }
+    .portrait::before{
+      content:""; position:absolute; inset:-14px -14px 26px 26px;
+      border-radius:24px; z-index:-1;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2));
+      opacity:.20; filter:blur(24px);
+    }
+    @media (max-width:860px){
+      .hero{padding:48px 0 40px}
+      .hero-grid{grid-template-columns:1fr; gap:32px}
+      .portrait{justify-self:start; order:-1}
+      .portrait img{width:132px; border-radius:16px}
+      .portrait::before{inset:-8px}
     }
 
-    .about-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 24px;
-}
+    /* ——————————————— Education strip ——————————————— */
+    .edu{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+      margin-top:56px;
+    }
+    .edu-card{
+      background:var(--panel); border:1px solid var(--line);
+      border-radius:var(--radius); padding:20px;
+      transition:border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+    .edu-card:hover{border-color:var(--line-strong); transform:translateY(-3px); background:var(--panel-2)}
+    .edu-head{display:flex; align-items:center; gap:12px; margin-bottom:12px}
+    .edu-head img{
+      width:34px; height:34px; object-fit:contain; flex:0 0 auto;
+      background:#fff; border-radius:8px; padding:4px;
+    }
+    .edu-head .where{font-weight:650; font-size:14.5px; line-height:1.25}
+    .edu-head .when{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
+    .edu-card p{margin:0; font-size:14.5px; line-height:1.6; color:var(--muted)}
+    .edu-card p strong{color:var(--text-dim); font-weight:650}
+    .edu-card a{color:var(--brand); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--brand) 35%, transparent)}
+    .edu-card a:hover{border-bottom-color:var(--brand)}
+    @media (max-width:860px){ .edu{grid-template-columns:1fr; margin-top:36px} }
 
-.about-header h2 {
-  margin: 0;
-  font-size: 1.8em;
-  font-weight: 700;
-}
+    /* ——————————————— Sections ——————————————— */
+    section[id]{padding:76px 0 8px; scroll-margin-top:84px}
+    .sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:34px}
+    .sec-head h2{
+      margin:0; font-size:clamp(24px,3.4vw,32px);
+      letter-spacing:-.025em; font-weight:700; white-space:nowrap;
+    }
+    .sec-head .rule{flex:1 1 auto; height:1px; background:var(--line)}
+    .sec-head .count{font-family:var(--mono); font-size:12.5px; color:var(--muted)}
 
-.about-links {
-  display: flex;
-  gap: 20px;
-  font-size: 0.95em;
-}
+    /* ——————————————— Research ——————————————— */
+    .papers{display:flex; flex-direction:column; gap:16px}
+    .paper{
+      display:grid; grid-template-columns:236px minmax(0,1fr); gap:26px;
+      background:var(--panel); border:1px solid var(--line);
+      border-radius:var(--radius); padding:20px;
+      transition:border-color .22s ease, transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+    .paper:hover{
+      border-color:var(--line-strong); background:var(--panel-2);
+      transform:translateY(-3px); box-shadow:var(--shadow-sm);
+    }
+    /* Thumbs read as "paper figures": a light sheet, image contained, never cropped */
+    .paper-thumb{
+      position:relative; overflow:hidden;
+      border-radius:var(--radius-sm); border:1px solid var(--line);
+      background-color:#fbfcfe;
+      background-position:center; background-repeat:no-repeat; background-size:contain;
+      aspect-ratio:14/9;
+      opacity:.94;
+      transition:opacity .22s ease, border-color .22s ease;
+    }
+    .paper:hover .paper-thumb{
+      opacity:1;
+      border-color:color-mix(in srgb,var(--brand) 30%, transparent);
+    }
+    .paper-body{min-width:0; display:flex; flex-direction:column}
+    .paper-meta{
+      font-family:var(--mono); font-size:12px; color:var(--muted);
+      letter-spacing:.01em; margin:0 0 8px;
+      display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+    }
+    .badge{
+      font-family:var(--mono); font-size:10.5px; font-weight:650;
+      text-transform:uppercase; letter-spacing:.07em;
+      padding:3px 8px; border-radius:6px;
+      border:1px solid color-mix(in srgb, var(--brand) 40%, transparent);
+      color:var(--brand); background:var(--brand-soft);
+    }
+    .badge.alt{
+      color:var(--brand-2);
+      border-color:color-mix(in srgb, var(--brand-2) 40%, transparent);
+      background:color-mix(in srgb, var(--brand-2) 12%, transparent);
+    }
+    .badge.neutral{color:var(--muted); border-color:var(--line-strong); background:transparent}
+    .paper h3{
+      margin:0 0 10px; font-size:17.5px; line-height:1.32;
+      letter-spacing:-.015em; font-weight:650;
+    }
+    .paper p{margin:0 0 14px; font-size:14.7px; line-height:1.62; color:var(--muted)}
+    .paper p em{color:var(--text-dim); font-style:italic}
+    .tags{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px}
+    .tag{
+      font-family:var(--mono); font-size:11px; color:var(--muted);
+      border:1px solid var(--line); border-radius:6px; padding:3px 8px;
+      background:var(--bg-soft);
+    }
+    .actions{display:flex; flex-wrap:wrap; gap:9px; margin-top:auto}
+    .btn{
+      display:inline-flex; align-items:center; gap:7px;
+      font-family:var(--mono); font-size:12.5px; font-weight:600;
+      text-decoration:none; padding:7px 13px; border-radius:9px;
+      border:1px solid transparent;
+      background:linear-gradient(135deg,var(--brand),color-mix(in srgb,var(--brand) 60%, var(--brand-2)));
+      color:#04120c;
+      transition:filter .18s ease, transform .18s ease;
+    }
+    .btn:hover{filter:brightness(1.08); transform:translateY(-1px)}
+    .btn.secondary{
+      background:transparent; color:var(--text-dim);
+      border-color:var(--line-strong);
+    }
+    .btn.secondary:hover{color:var(--brand); border-color:color-mix(in srgb,var(--brand) 50%, transparent)}
+    .btn svg{width:13px; height:13px}
+    @media (max-width:760px){
+      .paper{grid-template-columns:1fr; gap:16px}
+      .paper-thumb{aspect-ratio:16/9}
+    }
 
-.about-links a {
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
+    /* ——————————————— Experience timeline ——————————————— */
+    .timeline{position:relative; padding-left:26px}
+    .timeline::before{
+      content:""; position:absolute; left:6px; top:8px; bottom:8px; width:1px;
+      background:linear-gradient(180deg, var(--brand), var(--line-strong) 14%, var(--line-strong) 86%, transparent);
+    }
+    .job{position:relative; padding:0 0 34px 0}
+    .job:last-child{padding-bottom:6px}
+    .job::before{
+      content:""; position:absolute; left:-24px; top:7px;
+      width:9px; height:9px; border-radius:50%;
+      background:var(--bg); border:2px solid var(--line-strong);
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .job:hover::before{border-color:var(--brand); box-shadow:0 0 0 4px var(--brand-soft)}
+    .job-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
+    .job h3{margin:0; font-size:16.5px; font-weight:650; letter-spacing:-.012em}
+    .job .at{color:var(--muted); font-size:16.5px}
+    .job .at a{color:var(--brand); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--brand) 32%, transparent)}
+    .job .at a:hover{border-bottom-color:var(--brand)}
+    .job .when{
+      font-family:var(--mono); font-size:11.5px; color:var(--muted);
+      margin-left:auto; white-space:nowrap;
+    }
+    .job p{margin:8px 0 0; font-size:14.7px; line-height:1.62; color:var(--muted); max-width:74ch}
+    @media (max-width:620px){ .job .when{margin-left:0; width:100%} }
 
-.about-links a:hover {
-  color: var(--brand-2);
-  text-decoration: underline;
-}
+    /* ——————————————— Honors ——————————————— */
+    .honors{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .honor{
+      background:var(--panel); border:1px solid var(--line);
+      border-radius:var(--radius); padding:20px;
+      transition:border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+    .honor:hover{border-color:var(--line-strong); transform:translateY(-3px); background:var(--panel-2)}
+    .honor .when{font-family:var(--mono); font-size:11.5px; color:var(--brand); display:block; margin-bottom:9px}
+    .honor h3{margin:0 0 8px; font-size:16px; font-weight:650; letter-spacing:-.012em}
+    .honor h3 a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line-strong)}
+    .honor h3 a:hover{color:var(--brand); border-bottom-color:var(--brand)}
+    .honor p{margin:0; font-size:14.2px; line-height:1.6; color:var(--muted)}
+    @media (max-width:860px){ .honors{grid-template-columns:1fr} }
 
-/* —— Shared list style (same as projects list look) —— */
-.section h2 {
-  text-align: left;
-  margin-bottom: 24px;
-  font-size: clamp(22px, 3.5vw, 28px);
-  font-weight: 700;
-}
+    /* ——————————————— Footer ——————————————— */
+    footer{
+      margin-top:88px; border-top:1px solid var(--line);
+      padding:26px 0 40px;
+    }
+    .foot-inner{
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;
+      font-family:var(--mono); font-size:12.5px; color:var(--muted);
+    }
+    .foot-inner a{color:var(--muted); text-decoration:none}
+    .foot-inner a:hover{color:var(--brand)}
+    .foot-links{display:flex; gap:16px; flex-wrap:wrap}
 
-/* Generic list container */
-.item-list {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;              /* vertical spacing between entries */
-  max-width: 100%;
-}
+    /* ——————————————— Reveal on scroll ——————————————— */
+    .reveal{opacity:0; transform:translateY(14px); transition:opacity .55s ease, transform .55s ease}
+    .reveal.in{opacity:1; transform:none}
 
-/* Each entry */
-.item {
-  display: grid;
-  grid-template-columns: 1fr; /* text-only by default */
-  gap: 16px;
-  align-items: start;
-}
-
-/* Entry body */
-.item h3 {
-  margin: 0 0 6px 0;
-  font-size: 1.15em;
-}
-
-.item .meta {
-  font-size: 0.95em;
-  color: var(--muted);
-  margin: 0 0 10px 0;
-}
-
-.item p {
-  margin: 0;
-  line-height: 1.55;
-}
-
-/* Optional actions row (links/buttons under an item) */
-.item .actions {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.item .btn {
-  background: var(--brand);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9em;
-  font-weight: 500;
-}
-.item .btn.secondary {
-  background: transparent;
-  color: var(--brand-2);
-  border: 1px solid rgba(37,99,235,.25);
-}
-
-/* Optional slim divider between items (uncomment to enable)
-.item { border-top: 1px solid rgba(0,0,0,.06); padding-top: 20px; }
-.item:first-child { border-top: 0; padding-top: 0; }
-*/
-
-/* Responsive keeps it simple — text-only stacks naturally */
-@media (max-width: 700px) {
-  .item-list { gap: 24px; }
-}
-
-/* --- Masthead (name left, links right) --- */
-.masthead{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  gap:24px;
-  margin-bottom:16px;
-}
-.masthead h2{
-  margin:0;
-  font-size:clamp(26px,4.2vw,40px);
-  line-height:1.1;
-  letter-spacing:.2px;
-}
-.masthead-links{
-  display:flex;
-  gap:24px;
-  flex-wrap:wrap;
-}
-.masthead-links a{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:clamp(14px,1.5vw,18px);
-}
-.masthead-links a:hover{ color:var(--text); text-decoration:underline; }
-
-/* --- Two-column layout --- */
-.about-grid{
-  display:grid;
-  grid-template-columns: 1fr 320px; /* left text, right photo */
-  gap:32px;
-  align-items:start;
-}
-
-/* --- Education list with icons aligned to first line --- */
-.edu-list{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  max-width:68ch;       /* comfortable line length for reading */
-}
-.edu-item{
-  display:grid;
-  grid-template-columns: 42px 1fr; /* icon + text */
-  gap:16px;
-  align-items:start;     /* align icon to first line of text */
-}
-.edu-icon {
-  width: 42px;
-  height: 42px;
-  display: block;
-  object-fit: contain;   /* 👈 show the whole logo */
-  background: #fff;      /* 👈 clean backdrop for non-square logos */
-  border-radius: 8px;    /* optional, for consistency */
-  padding: 4px;          /* add breathing space inside the box */
-  box-shadow: var(--shadow);
-  margin-top: 5px;
-}
-
-.edu-item p{
-  margin:0;
-  line-height:1.6;
-  font-size:clamp(15px,1.6vw,18px);
-}
-.edu-item a{ color:var(--brand-2); text-decoration:underline; }
-.edu-item a:hover{ color:var(--brand); }
-
-/* --- Profile image pinned to the right edge --- */
-.profile{
-  margin:0;
-  justify-self:end;          /* hugs right side */
-}
-.profile img{
-  display:block;
-  width:320px; height:auto;  /* keeps aspect ratio */
-  border-radius:14px;
-  box-shadow: var(--shadow);
-}
-
-/* --- Optional: subtle divider under the section for structure --- */
-#about.section{ padding-top:16px; }
-/*#about + .section{ border-top:1px solid rgba(0,0,0,.06); }*/
-.section + .section {
-  border-top: 1px solid rgba(0,0,0,.06);
-}
-
-/* --- Responsive --- */
-@media (max-width: 900px){
-  .about-grid{
-    grid-template-columns:1fr;   /* stack */
-    gap:20px;
-  }
-  .profile{
-    order:-1;                    /* photo above text; remove if you prefer below */
-    justify-self:start;
-  }
-  .profile img{ width:100%; max-width:520px; }
-  .masthead{ align-items:flex-start; }
-  .masthead-links{ gap:16px; }
-}
-
-
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none !important; transition:none !important}
+      .reveal{opacity:1; transform:none}
+    }
   </style>
 </head>
 <body>
-  <div class="centered-content">
+  <a class="skip" href="#main">Skip to content</a>
 
-    <section id="about" class="section" aria-labelledby="about-title">
-      <div class="masthead">
-        <h2 id="about-title">Felix Baastad Berg</h2>
-        <nav class="masthead-links" aria-label="primary">
-          <a href="mailto:felix.berg@hotmail.no">Mail</a>
-          <a href="https://www.linkedin.com/in/felix-baastad-berg/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://kateter.no" target="_blank" rel="noopener">Company</a>
-          <a href="/img/Resume_web.pdf" target="_blank" rel="noopener">Resume</a>
-          <a href="https://scholar.google.com/citations?user=NuS5cGIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        </nav>
-      </div>
-    
-      <div class="about-grid">
-        <!-- Left: education blurbs -->
-        <div class="edu-list" role="list">
-          <div class="edu-item" role="listitem">
-            <img src="/img/imperial_logo.jpg" alt="" class="edu-icon" />
-            <p>
-              I am an <a href="https://www.akerscholarship.no/">Aker Scholar</a> pursuing an <strong>MSc in Advanced Computing</strong> at Imperial College London. My research interests are in reinforcement learning, high-performance computing, and statistical methods.
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="nav-brand" href="#top">
+        <span class="nav-mark" aria-hidden="true">FB</span>
+        Felix Baastad Berg
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#research">research</a>
+        <a href="#experience">experience</a>
+        <a href="#honors" data-optional>honors</a>
+        <a href="/img/Resume_web.pdf" target="_blank" rel="noopener" data-optional>cv</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ————————————————— Hero ————————————————— -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="status"><span class="dot" aria-hidden="true"></span> Finishing my MSc thesis at Imperial — open to research roles from late 2026</span>
+            <h1>Felix Baastad&nbsp;Berg</h1>
+            <p class="hero-role">
+              I work on <strong>why neural networks learn what they learn</strong> — the geometry of internal
+              representations, when generalization actually arrives, and how generative models move noise into data.
+              Currently an <strong>Aker Scholar</strong> finishing an MSc in Advanced Computing at Imperial College London.
             </p>
-          </div>
-          <div class="edu-item" role="listitem">
-            <img src="/img/mit_logo.png" alt="" class="edu-icon" />
-            <p>
-              Previously, I was a <strong>Fulbright Scholar in Mathematics</strong> at MIT. I spent a year with the
-              <a href="https://www.rajanlab.com/">Rajan Lab</a> at Harvard University, where I researched deep reinforcement learning simulations to model animal behavior.
-            </p>
-          </div>
-          <div class="edu-item" role="listitem">
-            <img src="/img/ntnu_logo.svg" alt="" class="edu-icon" />
-            <p>
-              I also hold a five-year integrated <strong>MSc in Mathematics</strong> from the Norwegian University of Science and Technology, where my thesis explored continuous attractor networks and memory in deep reinforcement learning.
-            </p>
-          </div>
-        </div>
-    
-        <!-- Right: profile image -->
-        <figure class="profile">
-          <img src="/img/meg1.png" alt="Felix Baastad Berg" />
-        </figure>
-      </div>
-    </section>
-      
-    </section>
-    <section id="projects" class="section" aria-labelledby="projects-title">
-      <h2 id="projects-title" style="margin-top: -10px;">Highlighted Research</h2>
-    
-      <div class="project-list">
-    
-        <!-- Project 1 -->
-        <div class="project">
-          <div class="project-thumb" style="background-image:url('/img/neurips.jpeg')"></div>
-          <div class="project-body">
-            <h3>Deep RL Needs Deep Behavior Analysis</h3>
-            <p class="meta">2025 · NeurIPS Publication · Harvard University · JAX, RL, HPC, Statistical Methods</p>
-            <p>
-              We show model-free agents display <em>implicit planning</em> in open-ended environments and introduce a behavior-analysis toolkit to reveal how policies reason and generalize.
-            </p>
-            <a class="btn" href="https://arxiv.org/abs/2506.06981" target="_blank" rel="noopener">Paper (arXiv)</a>
-          </div>
-        </div>
-    
-        <!-- Project 2 -->
-        <div class="project">
-          <div class="project-thumb" style="background-image:url('/img/master-thesis.png')"></div>
-          <div class="project-body">
-            <h3>Spatial Representation Learned in the Recurrent Memory of Artificial Neural Agents</h3>
-            <p class="meta">2025 · MSc Thesis · NTNU · JAX, RL, Attractor Networks</p>
-            <p>
-              Built biologically inspired reinforcement learning agents with LSTM memory, path integration, and continuous attractor networks. Designed analytical and numerical grid-cell modules, integrated into JAX-based neural networks. Statistical analyses of spatial encoding in recurrent memory.
-            </p>
-            <a class="btn" href="/img/MasterThesis.pdf" target="_blank" rel="noopener">Read Thesis (PDF)</a>
-          </div>
-        </div>
-    
-        <!-- Project 3 -->
-        <div class="project">
-          <div class="project-thumb" style="background-image:url('/img/generalization-bounds.png')"></div>
-          <div class="project-body">
-            <h3>Rethought Generalization: Empirical Analysis of Bounds for Compositionally Sparse Networks</h3>
-            <p class="meta">2024 · MIT · CNNs, Generalization Theory, PyTorch Lightning</p>
-            <p>
-              Conducted an empirical study of norm-based generalization bounds in CNNs under varying data sizes, random labels, and optimization strategies. Demonstrated when tighter bounds provide meaningful insight into generalization performance, and analyzed the effects of mini-batch size in SGD and regularization on generalization.            </p>
-            <div class="actions">
-              <a class="btn" href="/img/Generalization.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
-              <a class="btn secondary" href="https://github.com/rickconci/GeneralisationBounds_SLT" target="_blank" rel="noopener">Code</a>
+            <div class="hero-links">
+              <a class="chip primary" href="mailto:felix.berg@hotmail.no">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                Email
+              </a>
+              <a class="chip" href="https://scholar.google.com/citations?user=NuS5cGIAAAAJ&hl=en" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8.5 12 14l10-5.5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+                Scholar
+              </a>
+              <a class="chip" href="https://github.com/FelixBaastadBerg" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+                GitHub
+              </a>
+              <a class="chip" href="https://www.linkedin.com/in/felix-baastad-berg/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg>
+                LinkedIn
+              </a>
+              <a class="chip" href="/img/Resume_web.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                CV
+              </a>
             </div>
           </div>
+          <figure class="portrait">
+            <img src="/img/meg1.png" alt="Felix Baastad Berg" width="260" height="260" />
+          </figure>
         </div>
-    
-        <!-- Project 4 -->
-        <div class="project">
-          <div class="project-thumb" style="background-image:url('/img/bilde_voltage.png')"></div>
-          <div class="project-body">
-            <h3>Unsupervised Time Series Forecasting with Spiking Neural Networks leveraging STDP</h3>
-            <p class="meta">2025 · MIT · Spiking Neural Networks, Time Series, Sklearn</p>
-            <p>
-              Implemented spiking neural networks with STDP for time series forecasting. Benchmarked performance against autoregressive models, evaluating predictive capacity on unclustered datasets.            </p>
-            <a class="btn" href="/img/MatrixMethodsProject.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
-            <a class="btn secondary" href="https://github.com/FelixBaastadBerg/snn_stdp" target="_blank" rel="noopener">Code</a>
-          </div>
-        </div>
-    
-        <!-- Project 5 -->
-        <div class="project">
-          <div class="project-thumb" style="background-image:url('/img/agent_pred.png')"></div>
-          <div class="project-body">
-            <h3>Deep Reinforcement Learning for Memory-Driven Navigation in Predator-Prey Environments</h3>
-            <p class="meta">2024 · Harvard · LSTM, RL, PyTorch</p>
-            <p>
-              Developed a custom predator-prey grid world to evaluate memory in reinforcement learning agents. Found LSTM-based agents outperformed feedforward models and analyzed behavioral patterns including resource revisiting and predator evasion.            </p>
-            <div class="actions">
-              <a class="btn" href="/img/PredatorPreyRL.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
-              <a class="btn secondary" href="https://github.com/FelixBaastadBerg/RL-project" target="_blank" rel="noopener">Code</a>
-            </div>
-          </div>
-        </div>
-    
-      </div>
-    </section>
-    
-    <section id="experience" class="section" aria-labelledby="experience-title">
-      <h2 id="experience-title">Professional Experience</h2>
-    
-      <div class="item-list">
-        <div class="item">
-          <div class="item-body">
-            <h3>Co-Founder (CTO → COO)</h3>
-            <p class="meta">2021–Present · <a href="https://kateter.no/">Kateter</a></p>
-            <p>
-              A digital learning platform for scientific courses with ~10,000 users.
-              Led development of an interactive math-visualization library on top of Three.js, building innovative tools to enhance digital education.
-            </p>
-          </div>
-        </div>
-    
-        <div class="item">
-          <div class="item-body">
-            <h3>ML Intern (Summer & Winter)</h3>
-            <p class="meta">01/2023 – 08/2023 · <a href="https://firda.com/">Firda</a></p>
-            <p>
-              Worked as an LLM intern at a venture capital firm focused on scaling Norwegian technology companies.
-              Built a LangChain-based chatbot that returned verified sources to support decision-making and organizational work.
-            </p>
-          </div>
-        </div>
-    
-        <div class="item">
-          <div class="item-body">
-            <h3>Data Scientist (Intern and Part-time)</h3>
-            <p class="meta">06/2022 – 12/2022 · <a href="https://www.heimstadenbostad.com/home/default.aspx">Heimstaden</a></p>
-            <p>
-              Created predictive models for rent prices in Python at Europe’s second-largest residential real estate company.
-            </p>
-          </div>
-        </div>
-    
-        <div class="item">
-          <div class="item-body">
-            <h3>Data Science Intern</h3>
-            <p class="meta">06/2021 – 08/2021 · <a href="https://atlas.co/">Atlas</a></p>
-            <p>
-              Built functionality and algorithms to analyze geospatial satellite data.
-              Worked with Django, GeoPandas, and SQL to support renewable energy projects.
-            </p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="item-body">
-            <h3>Lead of Developement of Simulator</h3>
-            <p class="meta">09/2020 – 06/2021 · <a href="https://www.propulse.no/Projects/Penumbra">Penumbra</a></p>
-            <p>
-              Led development of a rocket flight simulator for a student-built rocket (Propulse NTNU) that ranked 2nd of 75 teams at Spaceport America Cup 30K COTS.
-              Programmed in C++ and developed Computational Fluid Dynamics (CFD) simulations.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section id="awards" class="section" aria-labelledby="awards-title">
-      <h2 id="awards-title">Honors</h2>
-    
-      <div class="item-list">
-        <div class="item">
-          <div class="item-body">
-            <h3><a href="https://www.akerscholarship.no/">Aker Scholarship</a></h3>
-            <p class="meta">2025 · Norway's top graduate scholarship</p>
-            <p>
-              Awarded Norway’s most prestigious graduate scholarship, providing full funding for advanced studies at leading global universities.
-            </p>
-          </div>
-        </div>
-    
-        <div class="item">
-          <div class="item-body">
-            <h3><a href="https://us.fulbrightonline.org/">Fulbright Scholarship</a></h3>
-            <p class="meta">2024 · U.S. Department of State Scholarship</p>
-            <p>
-              Selected as one of six candidates for the non-degree Fulbright fellowship, where I spent a year at MIT.
-            </p>
-          </div>
-        </div>
-    
-        <div class="item">
-          <div class="item-body">
-            <h3>Norwegian Finals of Physics Olympiad</h3>
-            <p class="meta">2019 · National Competition</p>
-            <p>
-              Reached the national finals, ranking among Norway’s top high school physics students.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
 
-    <footer>
-      © <span id="year"></span> Felix Baastad Berg. Built with semantic HTML & tiny CSS.
-    </footer>
-  </div>
+        <!-- Education -->
+        <div class="edu">
+          <article class="edu-card reveal">
+            <div class="edu-head">
+              <img src="/img/imperial_logo.jpg" alt="" />
+              <div>
+                <div class="where">Imperial College London</div>
+                <div class="when">2025 — 2026</div>
+              </div>
+            </div>
+            <p><strong>MSc Advanced Computing</strong> as an <a href="https://www.akerscholarship.no/" target="_blank" rel="noopener">Aker Scholar</a>. Working on representation geometry in grokking and on generative models, supervised by Tolga Birdal.</p>
+          </article>
+          <article class="edu-card reveal">
+            <div class="edu-head">
+              <img src="/img/mit_logo.png" alt="" />
+              <div>
+                <div class="where">MIT &amp; Harvard</div>
+                <div class="when">2024 — 2025</div>
+              </div>
+            </div>
+            <p><strong>Fulbright Scholar in Mathematics</strong> at MIT, and a year with the <a href="https://www.rajanlab.com/" target="_blank" rel="noopener">Rajan Lab</a> at Harvard building deep RL simulations to model animal behaviour.</p>
+          </article>
+          <article class="edu-card reveal">
+            <div class="edu-head">
+              <img src="/img/ntnu_logo.svg" alt="" />
+              <div>
+                <div class="where">NTNU</div>
+                <div class="when">2019 — 2025</div>
+              </div>
+            </div>
+            <p>Five-year integrated <strong>MSc in Mathematics</strong>. Thesis on continuous attractor networks and memory in deep reinforcement learning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ————————————————— Research ————————————————— -->
+    <section id="research">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Research</h2>
+          <span class="rule" aria-hidden="true"></span>
+          <span class="count mono">8 selected</span>
+        </div>
+
+        <div class="papers">
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/grokking-geometry.svg')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge alt">Under review</span> 2026 · NeurReps · Imperial College London</p>
+              <h3>Auditing Geometric Change in Grokking: Centroid Configuration versus Within-Class Geometry</h3>
+              <p>
+                Geometric statistics move sharply when networks grok, but a global measurement cannot say <em>what</em>
+                moved. Writing each activation as a class centroid plus a within-class residual and intervening on the
+                components separately shows that MST-based PH-dimension is driven largely by the centroid configuration,
+                while TwoNN goes invariant once its neighbours fall inside classes — so the two estimators can assign
+                opposite meanings to the same representational transition.
+              </p>
+              <div class="tags"><span class="tag">persistent homology</span><span class="tag">intrinsic dimension</span><span class="tag">grokking</span><span class="tag">neural collapse</span></div>
+            </div>
+          </article>
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/grokking-onset.svg')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge">Conference talk</span> 2026 · Individual Study Option · Imperial College London</p>
+              <h3>Predicting Grokking Onset from Intrinsic Training Metrics</h3>
+              <p>
+                Can you tell a network is about to generalize without ever looking at test error? Tracking intrinsic
+                signals of the internal representations — correlation dimension, PCA participation ratio, persistent
+                homology and MST-based fractal dimension — first-layer MST dimension leads the generalization gap by
+                roughly 1000 epochs. A parametric onset predictor recovers grokking time from those dynamics alone
+                (R² ≈ 0.98). Selected to present at the Imperial Department of Computing ISO Conference.
+              </p>
+              <div class="tags"><span class="tag">topology</span><span class="tag">lead–lag analysis</span><span class="tag">PyTorch</span></div>
+              <div class="actions">
+                <a class="btn" href="/img/GrokkingOnset_ISO.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                  Report
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/transition-flows.svg')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge neutral">In progress</span> 2026 · MSc thesis · Imperial College London</p>
+              <h3>Transition Flows for Generative Modelling</h3>
+              <p>
+                Ongoing thesis work combining TarFlow — an autoregressive normalising flow over image patches — with
+                Transition Matching. Instead of predicting a single deterministic direction the way flow matching does,
+                the flow models and samples from the full distribution of plausible transition directions, keeping exact
+                likelihoods while generating inside a single model.
+              </p>
+              <div class="tags"><span class="tag">normalising flows</span><span class="tag">flow matching</span><span class="tag">diffusion</span><span class="tag">transformers</span></div>
+            </div>
+          </article>
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/neurips.jpeg')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge">Published</span> 2025 · NeurIPS · Harvard University</p>
+              <h3>Deep RL Needs Deep Behavior Analysis</h3>
+              <p>
+                We show that model-free agents display <em>implicit planning</em> in open-ended environments, and
+                introduce a behavior-analysis toolkit that reveals how policies reason and generalize.
+              </p>
+              <div class="tags"><span class="tag">JAX</span><span class="tag">reinforcement learning</span><span class="tag">HPC</span><span class="tag">statistics</span></div>
+              <div class="actions">
+                <a class="btn" href="https://arxiv.org/abs/2506.06981" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
+                  arXiv
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/master-thesis.png')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge neutral">Thesis</span> 2025 · MSc Mathematics · NTNU</p>
+              <h3>Spatial Representation Learned in the Recurrent Memory of Artificial Neural Agents</h3>
+              <p>
+                Biologically inspired RL agents with LSTM memory, path integration and continuous attractor networks.
+                I designed analytical and numerical grid-cell modules, integrated them into JAX networks, and analysed
+                statistically how space is encoded in recurrent memory.
+              </p>
+              <div class="tags"><span class="tag">JAX</span><span class="tag">attractor networks</span><span class="tag">grid cells</span></div>
+              <div class="actions">
+                <a class="btn" href="/img/MasterThesis.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                  Thesis
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/generalization-bounds.png')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge neutral">Project</span> 2024 · MIT</p>
+              <h3>Rethought Generalization: Empirical Analysis of Bounds for Compositionally Sparse Networks</h3>
+              <p>
+                An empirical study of norm-based generalization bounds in CNNs under varying data sizes, random labels
+                and optimization strategies — showing when tighter bounds actually say something useful, and how
+                mini-batch size and regularization move the picture.
+              </p>
+              <div class="tags"><span class="tag">generalization theory</span><span class="tag">CNNs</span><span class="tag">PyTorch Lightning</span></div>
+              <div class="actions">
+                <a class="btn" href="/img/Generalization.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                  Paper
+                </a>
+                <a class="btn secondary" href="https://github.com/rickconci/GeneralisationBounds_SLT" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/bilde_voltage.png')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge neutral">Project</span> 2025 · MIT</p>
+              <h3>Unsupervised Time Series Forecasting with Spiking Neural Networks leveraging STDP</h3>
+              <p>
+                Spiking neural networks trained with STDP for time series forecasting, benchmarked against
+                autoregressive models to evaluate predictive capacity on unclustered datasets.
+              </p>
+              <div class="tags"><span class="tag">spiking networks</span><span class="tag">STDP</span><span class="tag">scikit-learn</span></div>
+              <div class="actions">
+                <a class="btn" href="/img/MatrixMethodsProject.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                  Paper
+                </a>
+                <a class="btn secondary" href="https://github.com/FelixBaastadBerg/snn_stdp" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper reveal">
+            <div class="paper-thumb" style="background-image:url('/img/agent_pred.png')"></div>
+            <div class="paper-body">
+              <p class="paper-meta"><span class="badge neutral">Project</span> 2024 · Harvard University</p>
+              <h3>Deep Reinforcement Learning for Memory-Driven Navigation in Predator-Prey Environments</h3>
+              <p>
+                A custom predator-prey grid world for evaluating memory in RL agents. LSTM-based agents outperformed
+                feedforward models, with behavioural analysis of resource revisiting and predator evasion.
+              </p>
+              <div class="tags"><span class="tag">LSTM</span><span class="tag">reinforcement learning</span><span class="tag">PyTorch</span></div>
+              <div class="actions">
+                <a class="btn" href="/img/PredatorPreyRL.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                  Paper
+                </a>
+                <a class="btn secondary" href="https://github.com/FelixBaastadBerg/RL-project" target="_blank" rel="noopener">Code</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ————————————————— Experience ————————————————— -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Experience</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="timeline">
+          <article class="job reveal">
+            <div class="job-head">
+              <h3>Co-Founder (CTO → COO)</h3>
+              <span class="at">· <a href="https://kateter.no/" target="_blank" rel="noopener">Kateter</a></span>
+              <span class="when">2021 — present</span>
+            </div>
+            <p>
+              A digital learning platform for scientific courses with roughly 10,000 users. Led development of an
+              interactive math-visualization library on top of Three.js.
+            </p>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-head">
+              <h3>Machine Learning Intern</h3>
+              <span class="at">· <a href="https://firda.com/" target="_blank" rel="noopener">Firda</a></span>
+              <span class="when">Jan — Aug 2023</span>
+            </div>
+            <p>
+              LLM intern at a venture capital firm scaling Norwegian technology companies. Built a LangChain-based
+              chatbot that returned verified sources to support investment and organizational decisions.
+            </p>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-head">
+              <h3>Data Scientist</h3>
+              <span class="at">· <a href="https://www.heimstadenbostad.com/home/default.aspx" target="_blank" rel="noopener">Heimstaden</a></span>
+              <span class="when">Jun — Dec 2022</span>
+            </div>
+            <p>
+              Built predictive rent-price models in Python at Europe's second-largest residential real estate company.
+            </p>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-head">
+              <h3>Data Science Intern</h3>
+              <span class="at">· <a href="https://atlas.co/" target="_blank" rel="noopener">Atlas</a></span>
+              <span class="when">Jun — Aug 2021</span>
+            </div>
+            <p>
+              Built functionality and algorithms for analysing geospatial satellite data with Django, GeoPandas and SQL,
+              supporting renewable energy projects.
+            </p>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-head">
+              <h3>Simulation Lead</h3>
+              <span class="at">· <a href="https://www.propulse.no/Projects/Penumbra" target="_blank" rel="noopener">Propulse NTNU</a></span>
+              <span class="when">Sep 2020 — Jun 2021</span>
+            </div>
+            <p>
+              Led development of the flight simulator for a student-built rocket that placed 2nd of 75 teams at the
+              Spaceport America Cup 30K COTS. C++ and computational fluid dynamics.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ————————————————— Honors ————————————————— -->
+    <section id="honors">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Honors</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="honors">
+          <article class="honor reveal">
+            <span class="when">2025</span>
+            <h3><a href="https://www.akerscholarship.no/" target="_blank" rel="noopener">Aker Scholarship</a></h3>
+            <p>Norway's most prestigious graduate scholarship, fully funding advanced studies at leading global universities.</p>
+          </article>
+          <article class="honor reveal">
+            <span class="when">2024</span>
+            <h3><a href="https://us.fulbrightonline.org/" target="_blank" rel="noopener">Fulbright Scholarship</a></h3>
+            <p>One of six candidates selected for the non-degree Fulbright fellowship, spent at MIT.</p>
+          </article>
+          <article class="honor reveal">
+            <span class="when">2019</span>
+            <h3>Norwegian Physics Olympiad — National Finals</h3>
+            <p>Reached the national finals, ranking among Norway's top high school physics students.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <span>© <span id="year"></span> Felix Baastad Berg · London</span>
+      <span class="foot-links">
+        <a href="mailto:felix.berg@hotmail.no">Email</a>
+        <a href="https://github.com/FelixBaastadBerg" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=NuS5cGIAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://www.linkedin.com/in/felix-baastad-berg/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://kateter.no" target="_blank" rel="noopener">Kateter</a>
+      </span>
+    </div>
+  </footer>
+
   <script>
-    // Auto‑update year; no frameworks.
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var root = document.documentElement;
+
+      // —— Theme: stored choice wins, otherwise follow the OS ——
+      var stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) {}
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      root.setAttribute('data-theme', stored || (prefersLight ? 'light' : 'dark'));
+
+      document.getElementById('theme-toggle').addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+
+      // —— Nav border once scrolled, plus scroll-spy ——
+      var nav = document.getElementById('nav');
+      var spy = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+      var sections = spy.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+      function onScroll() {
+        nav.classList.toggle('is-stuck', window.scrollY > 8);
+        var mark = window.scrollY + 140, current = -1;
+        sections.forEach(function (s, i) { if (s && s.offsetTop <= mark) current = i; });
+        spy.forEach(function (a, i) { a.classList.toggle('active', i === current); });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // —— Reveal on scroll ——
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+        items.forEach(function (el, i) {
+          el.style.transitionDelay = (Math.min(i, 4) * 55) + 'ms';
+          io.observe(el);
+        });
+      }
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
